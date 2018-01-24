@@ -3,15 +3,12 @@
     <version>1.14.2</version>
     <description>
 
-        map_server provides the <tt>map_server</tt> ROS <a href="http://www.ros.org/wiki/Nodes">Node</a>, which offers map data as a ROS <a href="http://www.ros.org/wiki/Services">Service</a>. It also provides the <tt>map_saver</tt> command-line utility, which allows dynamically generated maps to be saved to file.
+        dynamic_map_server provides a modified version of the <tt>map_server</tt> ROS <a href="http://www.ros.org/wiki/Nodes">Node</a>, which offers map data as a ROS <a href="http://www.ros.org/wiki/Services">Service</a>. This version provides a /set_map ros service which allows updating the map and /save_map ros service which saves the current map to disk in the .ros directory.
 
     </description>
-    <author>Brian Gerkey, Tony Pratkanis</author>
-    <author>contradict@gmail.com</author>
-    <maintainer email="davidvlu@gmail.com">David V. Lu!!</maintainer>
-    <maintainer email="mferguson@fetchrobotics.com">Michael Ferguson</maintainer>
-    <maintainer email="ahoy@fetchrobotics.com">Aaron Hoy</maintainer>
-    <url>http://wiki.ros.org/map_server</url>
+    <author>Abdurrahman Qureshi</author>
+    <author>rahman.qureshi@rapyuta-robotics.com@gmail.com</author>
+    <maintainer email="hendrik.skubch@rapyuta-robotics.com ">Hendrik Skubch</maintainer>
     <license>BSD</license>
 
     <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
