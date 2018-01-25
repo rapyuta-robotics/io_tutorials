@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>map_listener</name>
+  <version>0.0.0</version>
+  <description>The map_listener package</description>
+
+  <maintainer email="hendrik.skubch@rapyuta-robotics.com">Hendrik</maintainer>
+
+  <license>BSG</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+
+</package>
