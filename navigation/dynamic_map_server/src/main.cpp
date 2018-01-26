@@ -222,6 +222,7 @@ class MapServer
     {
       map_resp_.map = req.map;
       map_pub.publish(map_resp_.map);
+      metadata_pub.publish(map_resp_.map.info);
       res.success = true;
       return true;
     }
