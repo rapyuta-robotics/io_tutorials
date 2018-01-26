@@ -9,7 +9,6 @@ find_package(catkin REQUIRED
             message_generation
         )
 
-find_package(Bullet REQUIRED)
 find_package(SDL REQUIRED)
 find_package(SDL_image REQUIRED)
 
@@ -42,7 +41,6 @@ catkin_package(
 
 include_directories(
     include
-    ${BULLET_INCLUDE_DIRS}
     ${catkin_INCLUDE_DIRS}
     ${SDL_INCLUDE_DIR}
     ${SDL_IMAGE_INCLUDE_DIRS}
@@ -52,7 +50,6 @@ include_directories(
 add_library(map_server_image_loader src/image_loader.cpp)
 add_dependencies(map_server_image_loader ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(map_server_image_loader
-    ${BULLET_LIBRARIES}
     ${catkin_LIBRARIES}
     ${SDL_LIBRARY}
     ${SDL_IMAGE_LIBRARIES}

@@ -42,8 +42,7 @@
 // We use SDL_image to load the image from disk
 #include <SDL/SDL_image.h>
 
-// Use Bullet's Quaternion object to create one from Euler angles
-#include <LinearMath/btQuaternion.h>
+#include <math.h>
 
 #include "map_server/image_loader.h"
 
@@ -87,13 +86,12 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
   resp->map.info.origin.position.x = *(origin);
   resp->map.info.origin.position.y = *(origin+1);
   resp->map.info.origin.position.z = 0.0;
-  btQuaternion q;
-  // setEulerZYX(yaw, pitch, roll)
-  q.setEulerZYX(*(origin+2), 0, 0);
-  resp->map.info.origin.orientation.x = q.x();
-  resp->map.info.origin.orientation.y = q.y();
-  resp->map.info.origin.orientation.z = q.z();
-  resp->map.info.origin.orientation.w = q.w();
+
+  double yaw = *(origin + 2);
+  resp->map.info.origin.orientation.x = 0;
+  resp->map.info.origin.orientation.y = 0;
+  resp->map.info.origin.orientation.z = sin(yaw/2);
+  resp->map.info.origin.orientation.w = cos(yaw/2);
 
   // Allocate space to hold the data
   resp->map.data.resize(resp->map.info.width * resp->map.info.height);
