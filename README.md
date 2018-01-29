@@ -1,2 +1,4 @@
 # io_tutorials
-Assorted tutorial code for rapyuta.io
+
+This repository provides code examples illustrating features of the rapyuta.io platform.
+
