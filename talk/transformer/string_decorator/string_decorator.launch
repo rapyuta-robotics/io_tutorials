@@ -1,0 +1,3 @@
+<launch>
+	<node name="string_decorator" pkg="string_decorator" type="string_decorator.py" output="screen"/>
+</launch>
