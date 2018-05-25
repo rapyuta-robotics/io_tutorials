@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>io_turtle_sim_env</name>
+  <version>1.0.0</version>
+  <description>
+    IO Turtle Simulation Environment
+  </description>
+  <maintainer email="gautham.manoharan@rapyuta-robotics.com">Gautham Manoharan</maintainer>
+  <license>Commercial</license>
+
+  <author>Gautham Manoharan</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+
+  <depend>io_turtle</depend>
+  <depend>io_turtle_msgs</depend>
+  <depend>io_turtle_services</depend>
+
+  <exec_depend>io_turtle_config</exec_depend>
+  <exec_depend>io_turtle_command_center</exec_depend>
+</package>

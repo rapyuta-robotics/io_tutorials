@@ -1,0 +1,9 @@
+# goal
+float32 x
+float32 y
+---
+# result
+bool data
+---
+# feedback
+bool data

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>io_turtle_config</name>
+  <version>1.0.0</version>
+  <description>
+    IO Turtle Configurations
+  </description>
+  <maintainer email="gautham.manoharan@rapyuta-robotics.com">Gautham Manoharan</maintainer>
+  <license>Commercial</license>
+
+  <author>Gautham Manoharan</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <include file="$(find io_turtle_sim_env)/launch/simulation.launch"/>
+    <include file="$(find io_turtle_command_center)/launch/command_center.launch"/>
+    <include file="$(find io_turtle)/launch/turtle.launch"/>
+</launch>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>io_turtle_command_center</name>
+  <version>1.0.0</version>
+  <description>
+    IO Turtle Registration Center
+  </description>
+  <maintainer email="gautham.manoharan@rapyuta-robotics.com">Gautham Manoharan</maintainer>
+  <license>Commercial</license>
+
+  <author>Gautham Manoharan</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+
+  <depend>io_turtle_services</depend>
+
+  <exec_depend>io_turtle_config</exec_depend>
+  <exec_depend>rosbridge_server</exec_depend>
+
+  <!-- Needed by rosbridge_server -->
+  <exec_depend>io_turtle_action</exec_depend>
+  <exec_depend>io_turtle_msgs</exec_depend>
+</package>

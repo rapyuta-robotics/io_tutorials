@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <node pkg="io_turtle_sim_env" name="io_turtle_sim_env" type="io_turtle_sim_env_node" output="screen">
+        <rosparam file="$(find io_turtle_config)/config/config.yaml" />
+    </node>
+</launch>
