@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="ws_port"    default="$(optenv WS_PORT 9090)" />
+    <arg name="ws_address" default="$(optenv WS_ADDR 0.0.0.0)" />
+
+    <node name="turtle_command_center_node" pkg="io_turtle_command_center" type="io_turtle_command_center_node" output="screen">
+        <rosparam file="$(find io_turtle_config)/config/config.yaml" />
+    </node>
+
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+        <arg name="port"    value="$(arg ws_port)" />
+        <arg name="address" value="$(arg ws_address)" />
+    </include>
+</launch>

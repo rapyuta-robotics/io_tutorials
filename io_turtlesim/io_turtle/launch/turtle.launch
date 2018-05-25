@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <node name="$(anon turtle)" pkg="io_turtle" type="io_turtle_node" output="screen">
+        <rosparam file="$(find io_turtle_config)/config/config.yaml" />
+    </node>
+</launch>
