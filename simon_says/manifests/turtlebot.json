@@ -42,7 +42,14 @@
       "dependentDeployments": [],
       "exposedParameters": [],
       "inboundROSInterfaces": {
-        "topics": [],
+        "topics": [
+          {
+            "name": "/turtlebot/command"
+          },
+          {
+            "name": "/turtlebot/mode"
+          }
+        ],
         "services": [],
         "actions": []
       }

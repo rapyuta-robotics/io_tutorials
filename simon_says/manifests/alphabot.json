@@ -21,10 +21,6 @@
               {
                 "name": "/alphabot/status",
                 "qos": "low"
-              },
-              {
-                "name": "/alphabot/command_req",
-                "qos": "low"
               }
             ],
             "services": [],
