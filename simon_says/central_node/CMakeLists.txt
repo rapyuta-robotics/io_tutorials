@@ -10,6 +10,7 @@ add_compile_options(-std=c++11)
 set(PKG_DEPS
     roscpp
     simon_says_msgs
+    simon_says_device_wrapper
 )
 
 find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})

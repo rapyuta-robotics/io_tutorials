@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(simon_says_device)
+project(simon_says_device_wrapper)
 
 add_compile_options(-std=c++11)
 
@@ -21,6 +21,7 @@ find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})
 catkin_package(
   INCLUDE_DIRS include
   CATKIN_DEPENDS ${PKG_DEPS}
+  LIBRARIES ${PROJECT_NAME}
 )
 
 ###########
@@ -33,7 +34,6 @@ include_directories(
 )
 
 add_library(${PROJECT_NAME} src/device.cpp)
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
 #############
 ## Install ##

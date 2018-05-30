@@ -4,11 +4,11 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 
-#include <simon_says/DeviceId.h>
-#include <simon_says/SetMode.h>
-#include <simon_says/StatusList.h>
+#include <simon_says_msgs/DeviceId.h>
+#include <simon_says_msgs/SetMode.h>
+#include <simon_says_msgs/StatusList.h>
 
-#include <simon_says/device.hpp>
+#include <device.hpp>
 
 namespace simon_says {
 

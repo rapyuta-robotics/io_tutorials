@@ -12,5 +12,4 @@
   
   <depend>rospy</depend>
   <depend>simon_says_msgs</depend>
-
 </package>

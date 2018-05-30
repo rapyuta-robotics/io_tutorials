@@ -5,7 +5,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   geometry_msgs
-  simon_says_device
+  simon_says_device_wrapper
 )
 
 catkin_package(CATKIN_DEPENDS ${PKG_DEPS})

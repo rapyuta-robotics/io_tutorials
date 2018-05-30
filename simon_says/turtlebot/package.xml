@@ -13,5 +13,5 @@
 
   <depend>roscpp</depend>
   <depend>simon_says_msgs</depend>
-  <depend>simon_says_device</depend>
+  <depend>simon_says_device_wrapper</depend>
 </package>

@@ -1,4 +1,4 @@
-#include "simon_says/central_node.hpp"
+#include "central_node.hpp"
 
 namespace simon_says {
 

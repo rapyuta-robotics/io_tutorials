@@ -12,5 +12,5 @@
   <depend>rospy</depend>
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
-  <depend>simon_says_device</depend>
+  <depend>simon_says_device_wrapper</depend>
 </package>

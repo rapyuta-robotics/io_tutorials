@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>simon_says_device</name>
+  <name>simon_says_device_wrapper</name>
   <version>1.0.0</version>
-  <description>Simon Says Device Package</description>
+  <description>Simon Says Device Wrapper Package</description>
 
   <maintainer email="alexander.bolinsky@rapyuta-robotics.com">Alexander Bolinsky</maintainer>
   <maintainer email="gautham.manoharan@rapyuta-robotics.com">Gautham Manoharan</maintainer>

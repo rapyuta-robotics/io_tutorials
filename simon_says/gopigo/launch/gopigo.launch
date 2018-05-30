@@ -6,10 +6,10 @@
 
     <group ns="gopigo">
         <!-- C++ Wrapper -->
-        <node pkg="simon_says" type="gopigo_node" name="gopigo_node" output="screen"/>
+        <node pkg="gopigo" name="gopigo" type="gopigo_node" output="screen"/>
 
         <!-- Python Node -->
-        <node pkg="gopigo_control"   name="gopigo_control" type="gopigo_control_node.py" output="screen">
+        <node pkg="gopigo" name="gopigo_control" type="gopigo_control_node.py" output="screen">
             <param name="distance_update_freq"  value="10" />
             <param name="odometry_update_freq"  value="30" />
         </node>
