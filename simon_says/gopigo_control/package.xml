@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>gopigo_control</name>
+  <version>0.0.1</version>
+  <description>The gopigo_control package</description>
+  <license>Commercial</license>
+
+  <maintainer email="tom.stewart@rapyuta-robotics.com">Tom Stewart</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+</package>

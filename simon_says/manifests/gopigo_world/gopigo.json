@@ -1,0 +1,51 @@
+{
+  "apiVersion": "v1.0.0",
+  "name": "gopigo",
+  "packageVersion": "v1.0.0",
+  "description": "",
+  "plans": [
+    {
+      "name": "default",
+      "metadata": {},
+      "singleton": false,
+      "components": [
+        {
+          "name": "default",
+          "description": "",
+          "cloudInfra": {
+            "replicas": 1,
+            "endpoints": []
+          },
+          "ros": {
+            "topics": [
+              {
+                "name": "/command_req",
+                "qos": "low"
+              }
+            ],
+            "services": [],
+            "actions": [],
+            "isROS": true
+          },
+          "requiredRuntime": "device",
+          "executables": [
+            {
+              "cmd": [
+                "source /home/ubuntu/catkin_ws/devel/setup.bash && roslaunch gopigo_control gopigo_control.launch controller:=true"
+              ]
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "includePackages": [],
+      "dependentDeployments": [],
+      "exposedParameters": [],
+      "inboundROSInterfaces": {
+        "topics": [],
+        "services": [],
+        "actions": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>joystick</name>
+  <version>1.0.0</version>
+  <description>A ROS Joystick Package</description>
+
+  <maintainer email="alexander.bolinsky@rapyuta-robotics.com">Alexander Bolinsky</maintainer>
+
+  <license>Commercial</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>simon_says</depend>
+</package>

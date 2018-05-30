@@ -1,0 +1,9 @@
+uint8 JOYSTICK=0
+uint8 TURTLEBOT=1
+uint8 ALPHABOT=2
+uint8 GOPIGO=3
+uint8 QUAD=4
+
+uint8 NUM_DEVICES=5
+
+uint8 id

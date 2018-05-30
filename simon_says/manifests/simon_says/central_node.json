@@ -1,0 +1,131 @@
+{
+  "apiVersion": "v1.0.0",
+  "name": "central_node",
+  "packageVersion": "v1.0.0",
+  "description": "",
+  "plans": [
+    {
+      "name": "default",
+      "metadata": {},
+      "singleton": false,
+      "components": [
+        {
+          "name": "central",
+          "description": "",
+          "cloudInfra": {
+            "replicas": 1,
+            "endpoints": [
+              {
+                "name": "ROSBRIDGE_WS",
+                "exposeExternally": true,
+                "port": 80,
+                "targetPort": 9090,
+                "proto": "HTTP"
+              }
+            ]
+          },
+          "ros": {
+            "topics": [
+              {
+                "name": "/quad/command",
+                "qos": "low"
+              },
+              {
+                "name": "/gopigo/command",
+                "qos": "low"
+              },
+              {
+                "name": "/alphabot/command",
+                "qos": "low"
+              },
+              {
+                "name": "/turtlebot/command",
+                "qos": "low"
+              },
+              {
+                "name": "/joystick/command",
+                "qos": "low"
+              },
+              {
+                "name": "/quad/mode",
+                "qos": "low"
+              },
+              {
+                "name": "/gopigo/mode",
+                "qos": "low"
+              },
+              {
+                "name": "/alphabot/mode",
+                "qos": "low"
+              },
+              {
+                "name": "/turtlebot/mode",
+                "qos": "low"
+              },
+              {
+                "name": "/joystick/mode",
+                "qos": "low"
+              },
+              {
+                "name": "/ui/device_status",
+                "qos": "low"
+              }
+            ],
+            "services": [],
+            "actions": [],
+            "isROS": true
+          },
+          "requiredRuntime": "cloud",
+          "executables": [
+            {
+              "cmd": [
+                "roslaunch simon_says central_node_rb.launch"
+              ],
+              "Docker": "gau1203/demo_cc:v1.0.0"
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "includePackages": [],
+      "dependentDeployments": [],
+      "exposedParameters": [],
+      "inboundROSInterfaces": {
+        "topics": [
+          {
+            "name": "/joystick/status"
+          },
+          {
+            "name": "/quad/status"
+          },
+          {
+            "name": "/gopigo/status"
+          },
+          {
+            "name": "/turtlebot/status"
+          },
+          {
+            "name": "/alphabot/status"
+          },
+          {
+            "name": "/gopigo/command_req"
+          },
+          {
+            "name": "/alphabot/command_req"
+          },
+          {
+            "name": "/joystick/command_req"
+          },
+          {
+            "name": "/ui/command"
+          },
+          {
+            "name": "/ui/set_mode"
+          }
+        ],
+        "services": [],
+        "actions": []
+      }
+    }
+  ]
+}

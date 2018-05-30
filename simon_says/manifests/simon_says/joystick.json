@@ -1,0 +1,59 @@
+{
+  "apiVersion": "v1.0.0",
+  "name": "joystick",
+  "packageVersion": "v1.0.0",
+  "description": "",
+  "plans": [
+    {
+      "name": "default",
+      "metadata": {},
+      "singleton": false,
+      "components": [
+        {
+          "name": "joystick",
+          "description": "",
+          "cloudInfra": {
+            "replicas": 1,
+            "endpoints": []
+          },
+          "ros": {
+            "topics": [
+              {
+                "name": "/joystick/status",
+                "qos": "low"
+              },
+              {
+                "name": "/joystick/command_req",
+                "qos": "low"
+              }
+            ],
+            "services": [],
+            "actions": [],
+            "isROS": true
+          },
+          "requiredRuntime": "device",
+          "executables": [
+            {
+              "cmd": [
+                "source /home/$USER/catkin_ws/devel/setup.bash && roslaunch joystick joystick.launch"
+              ]
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "includePackages": [],
+      "dependentDeployments": [],
+      "exposedParameters": [],
+      "inboundROSInterfaces": {
+        "topics": [
+          {
+            "name": "/joystick/mode"
+          }
+        ],
+        "services": [],
+        "actions": []
+      }
+    }
+  ]
+}

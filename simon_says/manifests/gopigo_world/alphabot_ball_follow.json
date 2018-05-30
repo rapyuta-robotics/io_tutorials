@@ -1,0 +1,46 @@
+{
+  "apiVersion": "v1.0.0",
+  "name": "alphabot_ball_follow",
+  "packageVersion": "v1.0.0",
+  "description": "",
+  "plans": [
+    {
+      "name": "default",
+      "metadata": {},
+      "singleton": false,
+      "components": [
+        {
+          "name": "alphabot",
+          "description": "",
+          "cloudInfra": {
+            "replicas": 1,
+            "endpoints": []
+          },
+          "ros": {
+            "topics": [],
+            "services": [],
+            "actions": [],
+            "isROS": true
+          },
+          "requiredRuntime": "device",
+          "executables": [
+            {
+              "cmd": [
+                "source /home/ubuntu/catkin_ws/devel/setup.bash && roslaunch alphabot2pi alphabot2pi.launch self_driven:=true"
+              ]
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "includePackages": [],
+      "dependentDeployments": [],
+      "exposedParameters": [],
+      "inboundROSInterfaces": {
+        "topics": [],
+        "services": [],
+        "actions": []
+      }
+    }
+  ]
+}

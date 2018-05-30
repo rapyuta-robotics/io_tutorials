@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+   <node ns="alphabot" name="alphabot2pi" pkg="alphabot2pi" type="alphabot2pi_node.py" output="screen">
+   </node>
+</launch>
