@@ -6,8 +6,8 @@ import math
 import inputs  # sudo pip install inputs
 
 from geometry_msgs.msg import Twist
-from simon_says.msg import Mode
-from simon_says.msg import Status
+from simon_says_msgs.msg import Mode
+from simon_says_msgs.msg import Status
 
 
 class Joystick():

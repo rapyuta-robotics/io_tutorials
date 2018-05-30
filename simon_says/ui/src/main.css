@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100vh;
+    background-color: #F6F6F6;
+}
+h4{
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+p{
+    margin-top: 5px;
+}
+button{
+    font-size: inherit;
+    font-family: inherit;
+}
+button:focus{
+    outline: 0;
+}
+
+#contents{
+    display: flex;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    width: 100%;
+    height: calc(100vh - 40px);
+}
+#leftbar{
+    width: 300px;
+    border-radius: 4px 0 0 4px;
+    padding: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    overflow-y: auto;
+}
+#logo{
+    height: 35px;
+}
+.sectionContents{
+    padding-left: 20px;
+    display: block;
+}
+#controls{
+    display: flex;
+}
+.controlsRow{
+    display: flex;
+    justify-content: center;
+    width: 140px;
+}
+.controlButton{
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0;
+    background-color: #F9F9F9;
+    border: 1px solid #DCDCDC;
+    margin: 0 6px 6px 0;
+    cursor: pointer;
+    display: flex;
+    vertical-align: center;
+    justify-content: center;
+    position: relative;
+}
+.controlButton img{
+    width: 25px;
+    height: 25px;
+}
+.controlButton .buttonLetter{
+    position: absolute;
+    bottom: 2px;
+    right: 3px;
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    font-weight: 600;
+    color: #999999;
+}
+#image{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width : 100%;
+    height : 100%;
+}
+
+.deviceRow{
+    display: flex;
+    align-items: center;
+    padding: 0 0 20px 0;
+    width: 100%;
+    min-height: 50px;
+}
+.deviceRow select{
+    height: 30px;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: transparent;
+    padding: 0;
+    width: 120px;
+    border: 1px solid #DDDDDD;
+}
+.deviceRow p{
+    margin: 0;
+    flex-grow: 1;
+}
+.deviceStatus{
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.deviceStatus.OFF{
+    background-color: #DDDDDD;
+}
+.deviceStatus.ERROR{
+    background-color: #FF3E3C;
+}
+.deviceStatus.RUNNING{
+    background-color: #3E991C;
+}

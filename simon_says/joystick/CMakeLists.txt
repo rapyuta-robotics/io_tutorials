@@ -7,7 +7,7 @@ project(joystick)
 
 set(PKG_DEPS
     rospy
-    simon_says
+    simon_says_msgs
 )
 
 find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})

@@ -7,8 +7,7 @@ project(alphabot2pi)
 
 set(PKG_DEPS
   rospy
-  std_msgs
-  simon_says
+  simon_says_msgs
 )
 
 find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})

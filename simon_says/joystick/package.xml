@@ -11,6 +11,5 @@
   <buildtool_depend>catkin</buildtool_depend>
   
   <depend>rospy</depend>
-  <depend>std_msgs</depend>
-  <depend>simon_says</depend>
+  <depend>simon_says_msgs</depend>
 </package>

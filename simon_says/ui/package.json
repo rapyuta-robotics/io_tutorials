@@ -1,0 +1,23 @@
+{
+  "name": "simon_says_frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react-scripts": "1.1.1",
+    "axios": "^0.17.1",
+    "express": "^4.16.2",
+    "janus-gateway-js": "^0.8.1",
+    "lodash": "^4.17.5",
+    "mousetrap": "^1.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "roslib": "^0.20.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "serve": "yarn build; node index.js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

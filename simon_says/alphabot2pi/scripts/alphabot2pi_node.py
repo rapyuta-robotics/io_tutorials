@@ -4,8 +4,8 @@ import rospy
 
 from AlphaBot2 import AlphaBot2
 from geometry_msgs.msg import Twist
-from simon_says.msg import Mode
-from simon_says.msg import Status
+from simon_says_msgs.msg import Mode
+from simon_says_msgs.msg import Status
 
 Ab = AlphaBot2()
 
