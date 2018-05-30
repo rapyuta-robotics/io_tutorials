@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>alphabot2pi</name>
+  <name>alphabot</name>
   <version>1.0.0</version>
-  <description>Simon Says Alphabot2pi Package</description>
+  <description>Simon Says Alphabot Package</description>
 
   <maintainer email="alexander.bolinsky@rapyuta-robotics.com">Alexander Bolinsky</maintainer>
 

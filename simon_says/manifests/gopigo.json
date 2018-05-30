@@ -1,6 +1,6 @@
 {
   "apiVersion": "v1.0.0",
-  "name": "alphabot_ball_follow",
+  "name": "simon_says_gopigo",
   "packageVersion": "v1.0.0",
   "description": "",
   "plans": [
@@ -10,14 +10,23 @@
       "singleton": false,
       "components": [
         {
-          "name": "alphabot",
+          "name": "gopigo",
           "description": "",
           "cloudInfra": {
             "replicas": 1,
             "endpoints": []
           },
           "ros": {
-            "topics": [],
+            "topics": [
+              {
+                "name": "/gopigo/status",
+                "qos": "low"
+              },
+              {
+                "name": "/gopigo/command_req",
+                "qos": "low"
+              }
+            ],
             "services": [],
             "actions": [],
             "isROS": true
@@ -26,11 +35,22 @@
           "executables": [
             {
               "cmd": [
-                "source /home/ubuntu/catkin_ws/devel/setup.bash && roslaunch alphabot2pi alphabot2pi.launch self_driven:=true"
+                "source /home/$USER/catkin_ws/devel/setup.bash && roslaunch gopigo gopigo.launch"
               ]
             }
           ],
-          "parameters": []
+          "parameters": [
+            {
+              "default": "true",
+              "name": "GOPIGO_SELF_DRIVEN",
+              "description": ""
+            },
+            {
+              "default": "false",
+              "name": "GOPIGO_CONTROLLER",
+              "description": ""
+            }
+          ]
         }
       ],
       "includePackages": [],

@@ -1,6 +1,6 @@
 {
   "apiVersion": "v1.0.0",
-  "name": "mocap",
+  "name": "simon_says_alphabot",
   "packageVersion": "v1.0.0",
   "description": "",
   "plans": [
@@ -10,7 +10,7 @@
       "singleton": false,
       "components": [
         {
-          "name": "mocap-docker",
+          "name": "alphabot",
           "description": "",
           "cloudInfra": {
             "replicas": 1,
@@ -19,7 +19,11 @@
           "ros": {
             "topics": [
               {
-                "name": "/quad/status",
+                "name": "/alphabot/status",
+                "qos": "low"
+              },
+              {
+                "name": "/alphabot/command_req",
                 "qos": "low"
               }
             ],
@@ -31,17 +35,7 @@
           "executables": [
             {
               "cmd": [
-                ". /opt/ros/kinetic/setup.bash && rosrun topic_tools relay /quad/command /quad/command_relay"
-              ]
-            },
-            {
-              "cmd": [
-                ". /opt/ros/kinetic/setup.bash && rosrun topic_tools relay /quad/mode /quad/mode_relay"
-              ]
-            },
-            {
-              "cmd": [
-                ". /opt/ros/kinetic/setup.bash && rosrun topic_tools relay /quad/status_relay /quad/status"
+                "source /home/$USER/catkin_ws/devel/setup.bash && roslaunch alphabot alphabot.launch"
               ]
             }
           ],
@@ -54,10 +48,10 @@
       "inboundROSInterfaces": {
         "topics": [
           {
-            "name": "/quad/command"
+            "name": "/alphabot/command"
           },
           {
-            "name": "/quad/mode"
+            "name": "/alphabot/mode"
           }
         ],
         "services": [],

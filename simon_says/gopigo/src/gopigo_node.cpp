@@ -5,8 +5,8 @@ namespace simon_says {
 class GoPiGo : public DeviceWrapper {
 public:
     explicit GoPiGo(ros::NodeHandle& nh) : DeviceWrapper(nh) {
-        _gopigo_cmd_pub = nh.advertise<geometry_msgs::Twist>("/local/cmd_vel", 1);
-        _gopigo_cmd_req_sub = nh.subscribe("/local/reaction", 20, &GoPiGo::command_req_cb, this);
+        _gopigo_cmd_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
+        _gopigo_cmd_req_sub = nh.subscribe("reaction", 20, &GoPiGo::command_req_cb, this);
     }
 
     void command_cb_internal(const geometry_msgs::Twist& cmd) {
