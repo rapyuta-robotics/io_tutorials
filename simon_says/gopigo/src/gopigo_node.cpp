@@ -1,4 +1,4 @@
-#include "simon_says/device_wrapper.hpp"
+#include "device_wrapper.hpp"
 
 namespace simon_says {
 
@@ -26,15 +26,21 @@ private:
 
 int main(int argc, char** argv) {
     ros::init(argc, argv, "gopigo_node");
-    ros::NodeHandle nh, priv_nh("~");
+
     double freq;
+
+    ros::NodeHandle nh, priv_nh("~");
     priv_nh.param("freq", freq, 20.0);
+
     simon_says::GoPiGo node(nh);
+
     ros::Rate rate(freq);
+
     while (ros::ok()) {
         node.publish_status();
         ros::spinOnce();
         rate.sleep();
     }
+
     return 0;
 }

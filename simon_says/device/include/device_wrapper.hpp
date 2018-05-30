@@ -4,10 +4,12 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 
-#include <simon_says/Mode.h>
-#include <simon_says/Status.h>
+#include <simon_says_msgs/Mode.h>
+#include <simon_says_msgs/Status.h>
 
 namespace simon_says {
+
+using namespace simon_says_msgs;
 
 class DeviceWrapper {
 public:

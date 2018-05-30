@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>gopigo_control</name>
-  <version>0.0.1</version>
-  <description>The gopigo_control package</description>
+  <name>gopigo</name>
+  <version>1.0.0</version>
+  <description>Simon Says GoPiGo Package</description>
   <license>Commercial</license>
 
   <maintainer email="tom.stewart@rapyuta-robotics.com">Tom Stewart</maintainer>
@@ -12,4 +12,5 @@
   <depend>rospy</depend>
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
+  <depend>simon_says_device</depend>
 </package>

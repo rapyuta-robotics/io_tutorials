@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>central_node</name>
+  <version>1.0.0</version>
+  <description>Simon Says Central Node Package</description>
+
+  <maintainer email="alexander.bolinsky@rapyuta-robotics.com">Alexander Bolinsky</maintainer>
+  <maintainer email="gautham.manoharan@rapyuta-robotics.com">Gautham Manoharan</maintainer>
+
+  <license>Commercial</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>simon_says_msgs</depend>
+</package>

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-
     <!-- Control options -->
     <arg name="self_driven"     default="true"/>
     <arg name="controller"      default="false"/>
 
+    <!-- C++ Wrapper -->
+    <node ns="gopigo" pkg="simon_says" type="gopigo_node" name="gopigo_node" output="screen"/>
+
+    <!-- Python Node -->
     <group ns="local">
         <node pkg="gopigo_control"   name="gopigo_control" type="gopigo_control_node.py" output="screen">
             <param name="distance_update_freq"  value="10" />
@@ -14,5 +17,4 @@
         <node unless="$(eval (arg('controller') or arg('self_driven')))" pkg="topic_tools" name="follower" type="relay" args="/command_req cmd_vel"/>
         <node if="$(arg self_driven)" pkg="topic_tools" name="self_driven" type="relay" args="reaction cmd_vel"/>
     </group>
-
 </launch>

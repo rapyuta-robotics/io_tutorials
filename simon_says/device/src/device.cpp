@@ -1,4 +1,4 @@
-#include "simon_says/device.hpp"
+#include "device.hpp"
 #include <cmath>
 
 namespace simon_says {
