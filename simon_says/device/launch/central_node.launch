@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<launch>
-    <node pkg="simon_says" type="central_node" name="central_node" output="screen"/>
-    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
-</launch>

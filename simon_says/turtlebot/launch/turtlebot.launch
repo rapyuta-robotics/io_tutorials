@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- @TODO Move this file to kobuki package -->
 <launch>
     <node ns="turtlebot" pkg="simon_says" type="turtle_bot_node" name="turtle_bot_node" output="screen"/>
     <include file="$(find kobuki_node)/launch/minimal.launch"/>

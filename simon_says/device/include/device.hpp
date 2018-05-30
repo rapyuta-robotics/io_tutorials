@@ -14,7 +14,6 @@ using namespace simon_says_msgs;
 class Device {
 public:
     Device();
-    //< @todo Employ copy and move constructors to take care of vecor resizing
     Device(ros::NodeHandle& nh, const std::string& ns);
 
     void set_scaling(float linear_scale, float angular_scale);

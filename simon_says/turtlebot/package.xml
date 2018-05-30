@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>turtlebot</name>
+  <version>1.0.0</version>
+  <description>Simon Says Turtlebot Package</description>
+
+  <maintainer email="alexander.bolinsky@rapyuta-robotics.com">Alexander Bolinsky</maintainer>
+  <maintainer email="gautham.manoharan@rapyuta-robotics.com">Gautham Manoharan</maintainer>
+
+  <license>Commercial</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>simon_says_msgs</depend>
+  <depend>simon_says_device</depend>
+</package>

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(simon_says_device)
+project(turtlebot)
 
 add_compile_options(-std=c++11)
 
@@ -8,8 +8,9 @@ add_compile_options(-std=c++11)
 ##################
 
 set(PKG_DEPS
-    roscpp
-    simon_says_msgs
+  roscpp
+  simon_says_msgs
+  simon_says_device
 )
 
 find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})
@@ -18,34 +19,27 @@ find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})
 ## catkin ##
 ############
 
-catkin_package(
-  INCLUDE_DIRS include
-  CATKIN_DEPENDS ${PKG_DEPS}
-)
+catkin_package(CATKIN_DEPENDS ${PKG_DEPS})
 
 ###########
 ## Build ##
 ###########
 
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
-)
+include_directories(${catkin_INCLUDE_DIRS})
 
-add_library(${PROJECT_NAME} src/device.cpp)
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
+add_executable(${PROJECT_NAME}_node src/turtle_bot_node.cpp)
+target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES})
 
 #############
 ## Install ##
 #############
 
-install(TARGETS ${PROJECT_NAME}
+install(TARGETS turtle_bot_node
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-install(DIRECTORY include/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.hpp"
+install(DIRECTORY launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
