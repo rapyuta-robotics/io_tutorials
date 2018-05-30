@@ -30,7 +30,7 @@
             "topics": [
               {
                 "name": "/cmd_vel",
-                "qos": "low"
+                "qos": "max"
               }
             ],
             "services": [

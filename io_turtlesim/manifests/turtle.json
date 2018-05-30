@@ -28,7 +28,7 @@
               },
               {
                 "name": "/sim/cmd_vel",
-                "qos": "low"
+                "qos": "max"
               }
             ],
             "services": [
