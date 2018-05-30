@@ -80,7 +80,9 @@
             {
               "cmd": [
                 "roslaunch central_node central_node.launch"
-              ]
+              ],
+              "git": "https://github.com/rapyuta-robotics/io_tutorials.git",
+              "name": "central_node"
             }
           ],
           "parameters": []
