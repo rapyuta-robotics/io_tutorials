@@ -7,9 +7,9 @@
 #include <simon_says_msgs/Mode.h>
 #include <simon_says_msgs/Status.h>
 
-namespace simon_says {
-
 using namespace simon_says_msgs;
+
+namespace simon_says {
 
 class Device {
 public:
@@ -23,7 +23,7 @@ public:
     const Status& status() const;
     const Mode& mode() const;
 
-    const geometry_msgs::Twist& get_cmd_req();
+    geometry_msgs::Twist& get_cmd_req();
     bool cmd_req_updated() const;
 
     void publish_mode_req() const;
@@ -48,6 +48,7 @@ private:
     float _angular_scale;
     float _max_linear;
     float _max_angular;
+
     bool _cmd_req_updated;
     ros::Timer _timer;
 };

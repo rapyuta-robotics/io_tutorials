@@ -7,9 +7,9 @@
 #include <simon_says_msgs/Mode.h>
 #include <simon_says_msgs/Status.h>
 
-namespace simon_says {
-
 using namespace simon_says_msgs;
+
+namespace simon_says {
 
 class DeviceWrapper {
 public:
@@ -51,13 +51,12 @@ public:
     }
 
     void mode_cb(const Mode& mode) {
-        if (_status.mode.data != mode.data) {
-            if (!(mode.data & Mode::SINK)) {
-                stop_robot();
-            }
-            if (mode_cb_internal(mode)) {
-                _status.mode = mode;
-            }
+        if (!(mode.data & Mode::SINK)) {
+            stop_robot();
+        }
+
+        if (mode_cb_internal(mode)) {
+            _status.mode = mode;
         }
     }
 

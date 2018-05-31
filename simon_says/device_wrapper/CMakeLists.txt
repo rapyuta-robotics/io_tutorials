@@ -19,33 +19,21 @@ find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})
 ############
 
 catkin_package(
-  INCLUDE_DIRS include
-  CATKIN_DEPENDS ${PKG_DEPS}
-  LIBRARIES ${PROJECT_NAME}
+    INCLUDE_DIRS include
+    CATKIN_DEPENDS ${PKG_DEPS}
 )
 
 ###########
 ## Build ##
 ###########
 
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
-)
-
-add_library(${PROJECT_NAME} src/device.cpp)
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 #############
 ## Install ##
 #############
 
-install(TARGETS ${PROJECT_NAME}
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
 install(DIRECTORY include/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.hpp"
+    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+    FILES_MATCHING PATTERN "*.hpp"
 )

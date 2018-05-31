@@ -11,7 +11,13 @@ set(PKG_DEPS
 )
 
 find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})
+
+############
+## catkin ##
+############
+
 catkin_python_setup()
+
 catkin_package(CATKIN_DEPENDS ${PKG_DEPS})
 
 ###########

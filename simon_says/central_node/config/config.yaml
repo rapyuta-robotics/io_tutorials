@@ -1,0 +1,53 @@
+# device
+linear_scale: 1.0 # [units]
+angular_scale: 1.0 # [units]
+max_linear: 0.1 # [m/s]
+max_angular: 1.0 # [r/s]
+
+device_timeout: 30.0 # [s]
+central_timeout: 1.0 # [s]
+
+queue_size: 1 # [units]
+
+# tunings
+ui_command:
+  scaling:
+    linear: 0.05 # [units]
+    angular: 0.33 # [units]
+
+joystick:
+  scaling:
+    linear: 1.0
+    angular: 1.0
+
+turtlebot:
+  scaling:
+    linear: 1.0
+    angular: 1.0
+  bounds:
+    linear: 0.6
+    angular: 0.99
+
+alphabot:
+  scaling:
+    linear: 0.5
+    angular: 1.0
+  bounds:
+    linear: 0.3
+    angular: 0.99
+
+gopigo:
+  scaling:
+    linear: 1.0
+    angular: 1.0
+  bounds:
+    linear: 0.6
+    angular: 0.99
+
+quad:
+  scaling:
+    linear: 1.0
+    angular: 1.0
+  bounds:
+    linear: 0.6
+    angular: 0.99

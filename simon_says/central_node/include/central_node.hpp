@@ -21,7 +21,7 @@ private:
     void timer_cb(const ros::TimerEvent& event);
     void ui_set_mode_cb(const SetMode& set_mode);
     void ui_command_req_cb(const geometry_msgs::Twist& cmd);
-    void ui_publish_device_status() const;
+    void ui_publish_device_status();
     void publish_mode_req_to_device() const;
     void publish_command_to_devices();
 
@@ -31,6 +31,7 @@ private:
 
     geometry_msgs::Twist _ui_cmd_req;
     geometry_msgs::Twist _cmd_vel;
+    StatusList _device_status_list;
 
     ros::Timer _timer;
     std::vector<Device> _devices;

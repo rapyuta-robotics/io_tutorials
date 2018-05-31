@@ -6,11 +6,15 @@ project(alphabot)
 ##################
 
 set(PKG_DEPS
-  rospy
-  simon_says_msgs
+    rospy
+    simon_says_msgs
 )
 
 find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})
+
+############
+## catkin ##
+############
 
 catkin_python_setup()
 
@@ -27,5 +31,5 @@ include_directories(${catkin_INCLUDE_DIRS})
 #############
 
 install(DIRECTORY launch/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 )

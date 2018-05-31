@@ -2,7 +2,7 @@
 <package format="2">
   <name>joystick</name>
   <version>1.0.0</version>
-  <description>A ROS Joystick Package</description>
+  <description>Simon Says Joystick Package</description>
 
   <maintainer email="alexander.bolinsky@rapyuta-robotics.com">Alexander Bolinsky</maintainer>
 

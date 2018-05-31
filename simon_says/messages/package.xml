@@ -3,8 +3,10 @@
   <name>simon_says_msgs</name>
   <version>1.0.0</version>
   <description>Simon Says ROS Messages</description>
+
   <maintainer email="alexander.bolinsky@rapyuta-robotics.com">Alexander Bolinsky</maintainer>
   <maintainer email="gautham.manoharan@rapyuta-robotics.com">Gautham Manoharan</maintainer>
+
   <license>Commercial</license>
 
   <buildtool_depend>catkin</buildtool_depend>

@@ -3,25 +3,31 @@
 
 namespace simon_says {
 
-void clamp_magnitude(double& x, const double& max) {
+static void clamp_magnitude(double& x, const double& max) {
     if (std::fabs(x) > max) {
         x = std::copysign(max, x);
     }
 }
 
-Device::Device(ros::NodeHandle& nh, const std::string& ns)
-        : _linear_scale(1.0)
-        , _angular_scale(1.0)
-        , _max_linear(0.1)
-        , _max_angular(1)
-        , _cmd_req_updated(false) {
-    _timer = nh.createTimer(ros::Duration(30.0), &Device::timer_cb, this, true, false);
+Device::Device(ros::NodeHandle& nh, const std::string& ns) : _cmd_req_updated(false) {
+    nh.param("linear_scale", _linear_scale, 1.0f);
+    nh.param("angular_scale", _angular_scale, 1.0f);
+    nh.param("max_linear", _max_linear, 0.1f);
+    nh.param("max_angular", _max_angular, 1.0f);
+
+    float device_timeout;
+    int queue_size;
+
+    nh.param("device_timeout", device_timeout, 30.0f);
+    nh.param("queue_size", queue_size, 1);
+
+    _timer = nh.createTimer(ros::Duration(device_timeout), &Device::timer_cb, this, true, false);
     _status.data = Status::OFF;
     _status.mode.data = Mode::OFF;
-    _status_sub = nh.subscribe(ns + "/status", 20, &Device::status_cb, this);
-    _command_req_sub = nh.subscribe(ns + "/command_req", 20, &Device::command_req_cb, this);
-    _mode_pub = nh.advertise<Mode>(ns + "/mode", 10);
-    _command_pub = nh.advertise<geometry_msgs::Twist>(ns + "/command", 10);
+    _status_sub = nh.subscribe(ns + "/status", queue_size, &Device::status_cb, this);
+    _command_req_sub = nh.subscribe(ns + "/command_req", queue_size, &Device::command_req_cb, this);
+    _mode_pub = nh.advertise<Mode>(ns + "/mode", queue_size);
+    _command_pub = nh.advertise<geometry_msgs::Twist>(ns + "/command", queue_size);
 }
 
 void Device::set_scaling(float linear_scale, float angular_scale) {
@@ -46,7 +52,7 @@ const Mode& Device::mode() const {
     return _status.mode;
 }
 
-const geometry_msgs::Twist& Device::get_cmd_req() {
+geometry_msgs::Twist& Device::get_cmd_req() {
     _cmd_req_updated = false;
     return _cmd_req;
 }
