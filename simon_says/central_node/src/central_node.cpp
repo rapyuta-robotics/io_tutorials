@@ -34,6 +34,8 @@ CentralNode::CentralNode(ros::NodeHandle& nh) : _ui_cmd_req_updated(false), _sta
     _devices.emplace_back(nh, "gopigo");
     _devices.emplace_back(nh, "quad");
 
+    _device_status_list.status_list.reserve(DeviceId::NUM_DEVICES);
+
     nh.param("ui_command/scaling/linear",   ui_scaling[0],        0.05f);
     nh.param("ui_command/scaling/angular",  ui_scaling[1],        0.33f);
     nh.param("joystick/scaling/linear",     joystick_scaling[0],  1.0f);
