@@ -27,7 +27,6 @@ CentralNode::CentralNode(ros::NodeHandle& nh) : _ui_cmd_req_updated(false), _sta
     _ui_device_status_pub = nh.advertise<StatusList>("ui/device_status", queue_size);
 
     _devices.reserve(DeviceId::NUM_DEVICES);
-
     _devices.emplace_back(nh, "joystick");
     _devices.emplace_back(nh, "turtlebot");
     _devices.emplace_back(nh, "alphabot");
@@ -35,6 +34,9 @@ CentralNode::CentralNode(ros::NodeHandle& nh) : _ui_cmd_req_updated(false), _sta
     _devices.emplace_back(nh, "quad");
 
     _device_status_list.status_list.reserve(DeviceId::NUM_DEVICES);
+    for (int i = 0; i < DeviceId::NUM_DEVICES; ++i) {
+      _device_status_list.status_list.emplace_back(Status()); 
+    }
 
     nh.param("ui_command/scaling/linear",   ui_scaling[0],        0.05f);
     nh.param("ui_command/scaling/angular",  ui_scaling[1],        0.33f);
