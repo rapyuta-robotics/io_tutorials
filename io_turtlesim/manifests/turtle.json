@@ -28,13 +28,16 @@
               },
               {
                 "name": "/sim/cmd_vel",
-                "qos": "max"
+                "qos": "low"
               }
             ],
             "services": [
               
             ],
             "actions": [
+              {
+                "name": "/turtle_2/goto_action"
+              },
               {
                 "name": "/turtle_1/goto_action"
               },
