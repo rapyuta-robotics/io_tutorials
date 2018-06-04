@@ -16,9 +16,9 @@ find_package(catkin REQUIRED COMPONENTS
 #####################
 
 add_message_files(FILES 
+    DistanceSensor.msg
     Pose.msg
     Velocity.msg
-    DistanceSensor.msg
 )
 
 generate_messages()

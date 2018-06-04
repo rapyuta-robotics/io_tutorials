@@ -29,6 +29,10 @@ add_executable(${PROJECT_NAME}_node
     src/io_turtle_command_center_node.cpp
 )
 
+add_dependencies(${PROJECT_NAME}_node
+    ${catkin_EXPORTED_TARGETS}
+)
+
 target_link_libraries(${PROJECT_NAME}_node
     ${catkin_LIBRARIES}
 )
