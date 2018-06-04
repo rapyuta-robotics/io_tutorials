@@ -5,16 +5,17 @@
     <arg name="controller"      default="$(optenv GOPIGO_CONTROLLER false)"/>
 
     <group ns="gopigo">
-        <!-- C++ Wrapper -->
+        <!-- C++ wrapper -->
         <node pkg="gopigo" name="gopigo" type="gopigo_node" output="screen"/>
 
-        <!-- Python Node -->
+        <!-- Python node -->
         <node pkg="gopigo" name="gopigo_control" type="gopigo_control_node.py" output="screen">
             <param name="distance_update_freq"  value="10" />
             <param name="odometry_update_freq"  value="30" />
         </node>
+
         <node if="$(arg controller)" pkg="topic_tools" name="controller" type="relay" args="reaction command_req"/>
-        <node unless="$(eval (arg('controller') or arg('self_driven')))" pkg="topic_tools" name="follower" type="relay" args="/command_req cmd_vel"/>
+        <node unless="$(eval (arg('controller') or arg('self_driven')))" pkg="topic_tools" name="follower" type="relay" args="command_req cmd_vel"/>
         <node if="$(arg self_driven)" pkg="topic_tools" name="self_driven" type="relay" args="reaction cmd_vel"/>
     </group>
 </launch>
