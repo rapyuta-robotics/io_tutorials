@@ -16,8 +16,8 @@ find_package(catkin REQUIRED COMPONENTS
 #####################
 
 add_service_files(FILES
-    RegisterTurtle.srv
     RegisterSimTurtle.srv
+    RegisterTurtle.srv
     TeleportTurtle.srv
 )
 
