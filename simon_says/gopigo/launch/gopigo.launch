@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
     <!-- Control options -->
-    <arg name="self_driven"     default="$(optenv GOPIGO_SELF_DRIVEN true)"/>
-    <arg name="controller"      default="$(optenv GOPIGO_CONTROLLER false)"/>
+    <arg name="leader" default="$(optenv GOPIGO_LEADER true)"/>
 
     <group ns="gopigo">
-        <!-- C++ wrapper -->
-        <node pkg="gopigo" name="gopigo" type="gopigo_node" output="screen"/>
-
-        <!-- Python node -->
         <node pkg="gopigo" name="gopigo_control" type="gopigo_control_node.py" output="screen">
-            <param name="distance_update_freq"  value="10" />
-            <param name="odometry_update_freq"  value="30" />
+            <param name="distance_update_freq" value="10"/>
+            <param name="odometry_update_freq" value="30"/>
         </node>
 
-        <node if="$(arg controller)" pkg="topic_tools" name="controller" type="relay" args="reaction command_req"/>
-        <node unless="$(eval (arg('controller') or arg('self_driven')))" pkg="topic_tools" name="follower" type="relay" args="command_req cmd_vel"/>
-        <node if="$(arg self_driven)" pkg="topic_tools" name="self_driven" type="relay" args="reaction cmd_vel"/>
+        <node if="$(arg leader)" pkg="topic_tools" name="leader_req" type="relay" args="reaction command_req"/>
+        <node unless="$(arg leader)" pkg="topic_tools" name="follower" type="relay" args="command_req cmd_vel"/>
+        <node if="$(arg leader)" pkg="topic_tools" name="leader_vel" type="relay" args="reaction cmd_vel"/>
     </group>
 </launch>

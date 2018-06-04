@@ -93,12 +93,12 @@ class Leftbar extends React.Component {
         messageStatus: new ROSLIB.Topic({
           ros,
           name: '/ui/device_status',
-          messageType: 'simon_says/StatusList'
+          messageType: 'simon_says_msgs/StatusList'
         }),
         messageMode: new ROSLIB.Topic({
           ros,
           name: '/ui/set_mode',
-          messageType: 'simon_says/Mode'
+          messageType: 'simon_says_msgs/Mode'
         }),
         messageCommand: new ROSLIB.Topic({
           ros,

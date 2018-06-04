@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <node ns="gopigo" pkg="gopigo" name="gopigo" type="gopigo_node" output="screen"/>
+
+    <include file="$(find gopigo)/launch/gopigo.launch">
+        <arg name="leader" value="false"/>
+    </include>
+</launch>
