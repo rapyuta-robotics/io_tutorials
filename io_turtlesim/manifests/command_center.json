@@ -89,21 +89,6 @@
         ],
         "actions": [
           {
-            "name": "/turtle_7/goto_action"
-          },
-          {
-            "name": "/turtle_6/goto_action"
-          },
-          {
-            "name": "/turtle_5/goto_action"
-          },
-          {
-            "name": "/turtle_4/goto_action"
-          },
-          {
-            "name": "/turtle_3/goto_action"
-          },
-          {
             "name": "/turtle_2/goto_action"
           },
           {
