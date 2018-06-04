@@ -33,6 +33,7 @@ include_directories(
 )
 
 add_executable(${PROJECT_NAME} src/central_node.cpp src/device.cpp)
+add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
 #############

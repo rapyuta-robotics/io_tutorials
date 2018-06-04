@@ -28,6 +28,7 @@ catkin_package(
 ###########
 
 include_directories(include ${catkin_INCLUDE_DIRS})
+add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 
 #############
 ## Install ##
