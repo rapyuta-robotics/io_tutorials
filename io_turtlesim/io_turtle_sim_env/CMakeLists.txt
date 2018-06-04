@@ -31,7 +31,7 @@ add_executable(${PROJECT_NAME}_node
 )
 
 add_dependencies(${PROJECT_NAME}_node
-    ${io_turtle_msgs_EXPORTED_TARGETS}
+    ${catkin_EXPORTED_TARGETS}
 )
 
 target_link_libraries(${PROJECT_NAME}_node
