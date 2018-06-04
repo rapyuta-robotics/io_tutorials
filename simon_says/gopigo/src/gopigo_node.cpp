@@ -22,7 +22,7 @@ private:
     ros::Subscriber _gopigo_cmd_req_sub;
 };
 
-}  // namsespace simon_says
+}  // namespace simon_says
 
 int main(int argc, char** argv) {
     ros::init(argc, argv, "gopigo_node");
