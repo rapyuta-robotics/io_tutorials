@@ -68,7 +68,7 @@ class RPiGPIO:
         Ab.move(msg.linear.x, msg.angular.z)
 
     def camera_callback(self, msg):
-        if self.status.mode.data == Mode.OFF or self.status.mode.data == Mode.SINK:
+        if self.status.mode.data != Mode.SOURCESINK or self.status.mode.data != Mode.SINK:
             return
 
         self.previous_instruction_time = rospy.Time.now().to_sec()
