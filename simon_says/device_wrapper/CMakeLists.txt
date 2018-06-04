@@ -21,6 +21,7 @@ find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})
 catkin_package(
     INCLUDE_DIRS include
     CATKIN_DEPENDS ${PKG_DEPS}
+    LIBRARIES ${PACKAGE_NAME}
 )
 
 ###########
