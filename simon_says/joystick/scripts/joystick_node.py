@@ -30,11 +30,11 @@ class Joystick():
     def init_ros(self, node_name, rate):
         rospy.init_node(node_name)
 
-        rospy.Subscriber(node_name + '/mode', Mode, self.mode_callback)
+        rospy.Subscriber('mode', Mode, self.mode_callback)
 
-        self.status_pub = rospy.Publisher(node_name + '/status', Status, queue_size=1)
-        self.movement_pub = rospy.Publisher(node_name + '/command_req', Twist, queue_size=1)
-        self.camera_pub = rospy.Publisher(node_name + '/camera_move', Twist, queue_size=1)
+        self.status_pub = rospy.Publisher('status', Status, queue_size=1)
+        self.movement_pub = rospy.Publisher('command_req', Twist, queue_size=1)
+        self.camera_pub = rospy.Publisher('camera_move', Twist, queue_size=1)
 
         rospy.Timer(rospy.Duration(self.heartbeat_time), self.heartbeat_callback)
 
