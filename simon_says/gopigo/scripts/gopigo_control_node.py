@@ -56,7 +56,6 @@ class GoPiGo(object):
         # ROS messages
         self._voltage = Float32()
         self._dist_measurement = UInt16()
-        self._reaction = Twist()
 
         # Internal
         self._last_command_timestamp = rospy.Time.now()  # [s]
@@ -79,12 +78,14 @@ class GoPiGo(object):
         self._dist_measurement.data = distance
         self._distance_pub.publish(self._dist_measurement)
 
-        if distance > (self._stopping_distance + self._margin_distance):
-            self._reaction.linear.x = self._approach_speed
-        elif distance < (self._stopping_distance - self._margin_distance):
-            self._reaction.linear.x = -self._retreat_speed
+        reaction = Twist()
 
-        self._reaction_pub.publish(self._reaction)
+        if distance > (self._stopping_distance + self._margin_distance):
+            reaction.linear.x = self._approach_speed
+        elif distance < (self._stopping_distance - self._margin_distance):
+            reaction.linear.x = -self._retreat_speed
+
+        self._reaction_pub.publish(reaction)
 
     def _odometry_update_cb(self, event):
         curr_deg_L = self._gpg.get_motor_encoder(self._gpg.MOTOR_LEFT)
