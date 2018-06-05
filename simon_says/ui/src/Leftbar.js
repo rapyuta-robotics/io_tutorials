@@ -98,7 +98,7 @@ class Leftbar extends React.Component {
         messageMode: new ROSLIB.Topic({
           ros,
           name: '/ui/set_mode',
-          messageType: 'simon_says_msgs/Mode'
+          messageType: 'simon_says_msgs/SetMode'
         }),
         messageCommand: new ROSLIB.Topic({
           ros,

@@ -53,12 +53,6 @@ class GoPiGo(object):
         self._stale_command_period = rospy.Duration(0.5)
         rospy.Timer(self._stale_command_period, self._stale_command_check)
 
-        # ROS messages
-        self._voltage = Float32()
-        self._dist_measurement = UInt16()
-        self._reaction = Twist()
-        self._pose = Twist()
-
         # Internal
         self._last_command_timestamp = rospy.Time.now()  # [s]
         self._stopping_distance = 500  # [mm]
@@ -71,21 +65,25 @@ class GoPiGo(object):
             self.turn_off_motors()
 
     def _battery_check_cb(self, event):
-        self._voltage.data = self._gpg.volt()
-        self._battery_voltage_pub.publish(self._voltage)
+        voltage = Float32()
+        voltage.data = self._gpg.volt()
+        self._battery_voltage_pub.publish(voltage)
 
     def _distance_update_cb(self, event):
         distance = self._distance_sensor.read_mm()
 
-        self._dist_measurement.data = distance
-        self._distance_pub.publish(self._dist_measurement)
+        dist_measurement = UInt16()
+        dist_measurement.data = distance
+        self._distance_pub.publish(dist_measurement)
+
+        reaction = Twist()
 
         if distance > (self._stopping_distance + self._margin_distance):
-            self._reaction.linear.x = self._approach_speed
+            reaction.linear.x = self._approach_speed
         elif distance < (self._stopping_distance - self._margin_distance):
-            self._reaction.linear.x = -self._retreat_speed
+            reaction.linear.x = -self._retreat_speed
 
-        self._reaction_pub.publish(self._reaction)
+        self._reaction_pub.publish(reaction)
 
     def _odometry_update_cb(self, event):
         curr_deg_L = self._gpg.get_motor_encoder(self._gpg.MOTOR_LEFT)
@@ -96,14 +94,16 @@ class GoPiGo(object):
 
         displacement = (diff_deg_L + diff_deg_R) * self.DEG_SUM_TO_DISPLACEMENT
 
-        self._pose.linear.x += displacement * math.cos(self._pose.angular.z)
-        self._pose.linear.y += displacement * math.sin(self._pose.angular.z)
-        self._pose.angular.z += (diff_deg_R - diff_deg_L) * self.DEG_DELTA_TO_ROTATION
+        pose = Twist()
+
+        pose.linear.x += displacement * math.cos(pose.angular.z)
+        pose.linear.y += displacement * math.sin(pose.angular.z)
+        pose.angular.z += (diff_deg_R - diff_deg_L) * self.DEG_DELTA_TO_ROTATION
 
         self._prev_deg_L = curr_deg_L
         self._prev_deg_R = curr_deg_R
 
-        self._odometry_pub.publish(self._pose)
+        self._odometry_pub.publish(pose)
 
     def _command_cb(self, msg):
         dps_L = (msg.linear.x - msg.angular.z * self.HALF_WHEEL_BASE_METRES) * self.WHEEL_SPEED_TO_DEG_PER_SEC

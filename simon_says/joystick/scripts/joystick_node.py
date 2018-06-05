@@ -3,7 +3,7 @@
 import rospy
 import thread
 import math
-import inputs  # sudo pip install inputs
+import inputs
 
 from geometry_msgs.msg import Twist
 from simon_says_msgs.msg import Mode
