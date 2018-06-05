@@ -57,7 +57,6 @@ class GoPiGo(object):
         self._voltage = Float32()
         self._dist_measurement = UInt16()
         self._reaction = Twist()
-        self._pose = Twist()
 
         # Internal
         self._last_command_timestamp = rospy.Time.now()  # [s]
@@ -96,14 +95,16 @@ class GoPiGo(object):
 
         displacement = (diff_deg_L + diff_deg_R) * self.DEG_SUM_TO_DISPLACEMENT
 
-        self._pose.linear.x += displacement * math.cos(self._pose.angular.z)
-        self._pose.linear.y += displacement * math.sin(self._pose.angular.z)
-        self._pose.angular.z += (diff_deg_R - diff_deg_L) * self.DEG_DELTA_TO_ROTATION
+        pose = Twist()
+
+        pose.linear.x += displacement * math.cos(pose.angular.z)
+        pose.linear.y += displacement * math.sin(pose.angular.z)
+        pose.angular.z += (diff_deg_R - diff_deg_L) * self.DEG_DELTA_TO_ROTATION
 
         self._prev_deg_L = curr_deg_L
         self._prev_deg_R = curr_deg_R
 
-        self._odometry_pub.publish(self._pose)
+        self._odometry_pub.publish(pose)
 
     def _command_cb(self, msg):
         dps_L = (msg.linear.x - msg.angular.z * self.HALF_WHEEL_BASE_METRES) * self.WHEEL_SPEED_TO_DEG_PER_SEC
