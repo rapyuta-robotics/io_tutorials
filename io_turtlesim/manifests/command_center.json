@@ -1,6 +1,6 @@
 {
   "apiVersion": "v1.0.0",
-  "name": "Turtlesim_command_center",
+  "name": "turtlesim_command_center",
   "packageVersion": "v1.0.0",
   "description": "",
   "plans": [
@@ -20,9 +20,9 @@
               {
                 "name": "WS",
                 "exposeExternally": true,
-                "port": 443,
+                "port": 80,
                 "targetPort": 9090,
-                "proto": "HTTPS"
+                "proto": "HTTP"
               }
             ]
           },
@@ -46,16 +46,11 @@
           "requiredRuntime": "cloud",
           "executables": [
             {
-              "name": "cc",
-              "gitExecutable": {
-                "repository": "https://github.com/rapyuta-robotics/io_tutorials.git",
-                "strategyType": "Source",
-                "dockerFilePath": "",
-                "contextDir": ""
-              },
               "cmd": [
                 "roslaunch io_turtle_command_center command_center.launch"
-              ]
+              ],
+              "git": "https://github.com/rapyuta-robotics/io_tutorials.git",
+              "name": "cc"
             }
           ],
           "parameters": [
@@ -93,6 +88,21 @@
           }
         ],
         "actions": [
+          {
+            "name": "/turtle_7/goto_action"
+          },
+          {
+            "name": "/turtle_6/goto_action"
+          },
+          {
+            "name": "/turtle_5/goto_action"
+          },
+          {
+            "name": "/turtle_4/goto_action"
+          },
+          {
+            "name": "/turtle_3/goto_action"
+          },
           {
             "name": "/turtle_2/goto_action"
           },
