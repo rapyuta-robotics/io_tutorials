@@ -39,7 +39,7 @@ CentralNode::CentralNode(ros::NodeHandle& nh) : _ui_cmd_req_updated(false), _sta
     }
 
     for (int i = 0; i < DeviceId::NUM_DEVICES; ++i) {
-      ROS_INFO(_devices[i]);
+      ROS_INFO("%d", i);
     }
 
     nh.param("ui_command/scaling/linear",   ui_scaling[0],        0.05f);
@@ -89,7 +89,7 @@ void CentralNode::timer_cb(const ros::TimerEvent& event) {
 }
 
 void CentralNode::ui_set_mode_cb(const SetMode& set_mode) {
-    ROS_INFO("ui_set_mode_cb: %d, %d", set_mode.device.id set_mode.mode.data);
+    ROS_INFO("ui_set_mode_cb: %d, %d", set_mode.device.id, set_mode.mode.data);
     _devices[set_mode.device.id].set_mode(set_mode.mode.data);
 }
 
@@ -106,11 +106,11 @@ void CentralNode::ui_publish_device_status() {
         _device_status_list.status_list[i] = _devices[i].status();
     }
     _ui_device_status_pub.publish(_device_status_list);
-    ROS_INFO("ui_publish_device_status: " << _device_status_list);
+    ROS_INFO_STREAM("ui_publish_device_status: " << _device_status_list);
 }
 
 void CentralNode::publish_mode_req_to_device() const {
-    ROS_INFO("publish_mode_req_to_device")
+    ROS_INFO("publish_mode_req_to_device");
     for (const Device& device : _devices) {
         device.publish_mode_req();
     }
@@ -147,7 +147,7 @@ void CentralNode::publish_command_to_devices() {
     int i = 0;
     for (const Device& device : _devices) {
         device.publish_command(_cmd_vel);
-        ROS_INFO("ui_publish_command_to_devices: " << _cmd_vel << " from " << i);
+        ROS_INFO_STREAM("ui_publish_command_to_devices: " << _cmd_vel << " from " << i);
         ++i;
     }
 }
