@@ -35,19 +35,14 @@
           "executables": [
             {
               "cmd": [
-                "source /home/$USER/catkin_ws/devel/setup.bash && roslaunch gopigo gopigo.launch"
+                "roslaunch gopigo gopigo.launch"
               ]
             }
           ],
           "parameters": [
             {
               "default": "true",
-              "name": "GOPIGO_SELF_DRIVEN",
-              "description": ""
-            },
-            {
-              "default": "false",
-              "name": "GOPIGO_CONTROLLER",
+              "name": "GOPIGO_LEADER",
               "description": ""
             }
           ]

@@ -1,5 +1,4 @@
-# GPIO package for AlphaBot2-Pi
-This contains a ROS package with a GPIO-manipulation node for controlling the AlphaBot2-Pi.
+# Simon Says alphabot package
 
 ### Prerequisites
 Raspberry Pi 3 connected to the AlphaBot2-Pi shield
