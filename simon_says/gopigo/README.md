@@ -1,21 +1,16 @@
-#GoPiGo 3 Package
+# Simon Says gopigo package
 
-### Description
-This package launches the gopigo_control node.
+### Prerequisites
+Raspberry Pi 3 connected to the GoPiGo shield
 
-Using the gopigo_control.launch file, the GoPiGo expects to receive geometry_msgs/Twist messages to the /local/cmd_vel topic.
+### Build, Source, and Launch
+Once this repository has been cloned into the src/ directory of your catkin workspace, assuming your working directory is the root of your catkin workspace:
+```
+catkin build gopigo
+source devel/setup.bash
+roslaunch gopigo gopigo.launch
+```
 
-### Testing
-Running on a RP3 connected to the GoPiGo shield, with the appropriate packages installed, run the following command:
+This should make the GoPiGo drive forward until an obstacle is about 0.5m away from its distance sensor. If the obstacle approaches, the GoPiGo should back away in order to maintain a 0.5m distance.
 
-$ roslaunch gopigo_contol gopigo_control.launch
-
-This should make the GoPiGo drive forward until an obstacle is about 0.5 m away from its distance sensor. If the obstacle approaches, the GoPiGo should back away in order to maintain a 0.5 m separation distance.
-
-In order to test with keyboard teleoperation, run the following command.
-
-$ roslaunch gopigo_contol gopigo_control.launch teleop:=true
-
-In order to expose the twist messages of the GoPiGo device which are reaction information to the obstacles, run the following command.
-
-$ roslaunch gopigo_contol gopigo_control.launch controller:=true
+The value of the environment variable GOPIGO_LEADER - true or false - determines whether the GoPiGo uses its own distance sensors to control its body or whether it must receive velocity commands externally, respectively. If GOPIGO_LEADER is not set, the GoPiGo will become a leader.

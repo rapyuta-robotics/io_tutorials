@@ -1,5 +1,4 @@
-# ROS Joystick Package
-
+# Simon Says joystick package
 This contains a ROS package with a controller node. The controller node can be launched on a device with a connected gamepad and will generate twist messages for a bot's movement and camera.
 
 ### Prerequisites
@@ -8,16 +7,11 @@ python inputs module:
 sudo pip install inputs
 ```
 
-### Building the package
-Clone or symlink this directory into the /src directory of your catkin workspace, then build and source. Assuming your current directory is the root of your catkin workspace:
+### Build, Source, and Launch
+Once this repository has been cloned into the src/ directory of your catkin workspace, assuming your working directory is the root of your catkin workspace:
 ```
 catkin build joystick
 source devel/setup.bash
-```
-
-### Launching the package
-After successfully building and sourcing the package, launch it:
-```
 roslaunch joystick joystick.launch
 ```
 
