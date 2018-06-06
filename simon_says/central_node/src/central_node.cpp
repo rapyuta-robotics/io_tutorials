@@ -22,9 +22,9 @@ CentralNode::CentralNode(ros::NodeHandle& nh) : _ui_cmd_req_updated(false), _sta
     nh.param("central_timeout",             central_timeout,      1.0f);
 
     _timer = nh.createTimer(ros::Duration(central_timeout), &CentralNode::timer_cb, this, true, false);
-    _ui_set_mode_sub = nh.subscribe("ui/set_mode", queue_size, &CentralNode::ui_set_mode_cb, this);
-    _ui_command_req_sub = nh.subscribe("ui/command", queue_size, &CentralNode::ui_command_req_cb, this);
-    _ui_device_status_pub = nh.advertise<StatusList>("ui/device_status", queue_size);
+    _ui_set_mode_sub = nh.subscribe("/ui/set_mode", queue_size, &CentralNode::ui_set_mode_cb, this);
+    _ui_command_req_sub = nh.subscribe("/ui/command", queue_size, &CentralNode::ui_command_req_cb, this);
+    _ui_device_status_pub = nh.advertise<StatusList>("/ui/device_status", queue_size);
 
     _devices.reserve(DeviceId::NUM_DEVICES);
     _devices.emplace_back(nh, "joystick");
