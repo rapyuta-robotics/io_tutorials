@@ -109,8 +109,6 @@ class Leftbar extends React.Component {
         this.state.messageStatus.subscribe(({
           status_list: statusList,
         }) => {
-          // console.log(JSON.stringify(statusList));
-
           const robotStatus = _.mapValues(robots, r => statusList[r.deviceId].data);
           const robotModes = _.mapValues(robots, r => modeMap[statusList[r.deviceId].mode.data]);
           // Because the status is received a lot of times but usually doesn't change.

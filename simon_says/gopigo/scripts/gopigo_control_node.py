@@ -98,9 +98,9 @@ class GoPiGo(object):
 
         pose = Twist()
 
+        pose.angular.z += (diff_deg_R - diff_deg_L) * self.DEG_DELTA_TO_ROTATION
         pose.linear.x += displacement * math.cos(pose.angular.z)
         pose.linear.y += displacement * math.sin(pose.angular.z)
-        pose.angular.z += (diff_deg_R - diff_deg_L) * self.DEG_DELTA_TO_ROTATION
 
         self._prev_deg_L = curr_deg_L
         self._prev_deg_R = curr_deg_R
