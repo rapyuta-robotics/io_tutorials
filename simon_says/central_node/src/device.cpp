@@ -19,7 +19,7 @@ Device::Device(ros::NodeHandle& nh, const std::string& ns) : _cmd_req_updated(fa
     int queue_size;
 
     nh.param("device_timeout", device_timeout, 30.0f);
-    nh.param("queue_size", queue_size, 1);
+    nh.param("queue_size", queue_size, 10);
 
     _timer = nh.createTimer(ros::Duration(device_timeout), &Device::timer_cb, this, true, false);
     _status.data = Status::OFF;

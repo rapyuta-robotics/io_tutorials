@@ -7,7 +7,7 @@ max_angular: 1.0 # [r/s]
 device_timeout: 30.0 # [s]
 central_timeout: 1.0 # [s]
 
-queue_size: 1 # [units]
+queue_size: 10 # [units]
 
 # tunings
 ui_command:
