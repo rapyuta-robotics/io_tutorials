@@ -1,4 +1,4 @@
-export const rosEndpoint = window.rosEndpoint || process.env.REACT_APP_ROSBRIDGE_WS || 'ws:0.0.0.0:9090/';
+export const rosEndpoint = window.rosEndpoint || process.env.REACT_APP_ROSBRIDGE_WS || 'ws:localhost:9090/';
 export const modes = {
   off: {
     value: 'OFF',
@@ -40,7 +40,7 @@ export const robots = {
     name: 'AlphaBot',
     deviceId: 2,
     defaultMode: 'off',
-    modes: ['off', 'source', 'sink', 'sourcesink']
+    modes: ['off', 'sink']
   },
   gopi: {
     name: 'GoPiGo',
