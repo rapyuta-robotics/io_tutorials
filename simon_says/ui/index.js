@@ -9,7 +9,7 @@ fs.unlink('build/index.html', () => {});
 
 if(rosEndpoint) {
   htmlString = htmlString.replace('rosEndpoint=""', 'rosEndpoint="'+(
-    rosEndpoint.replace('http', 'ws')
+    rosEndpoint.replace('https', 'wss')
   )+'"');
 }
 

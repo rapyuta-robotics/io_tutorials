@@ -23,7 +23,7 @@ const resetCommand = () => {
   publishCommand = { ...initialCommand };
 };
 
-class Leftbar extends React.Component {
+class Controller extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -263,4 +263,4 @@ class Leftbar extends React.Component {
   }
 }
 
-export default Leftbar;
+export default Controller;

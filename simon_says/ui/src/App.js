@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Leftbar from './Leftbar';
+import Controller from './Controller';
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div id="contents">
-        <Leftbar />
+        <Controller />
       </div>
     );
   }

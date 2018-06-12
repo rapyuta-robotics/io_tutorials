@@ -31,7 +31,7 @@
           "executables": [
             {
               "cmd": [
-                "source /home/$USER/catkin_ws/devel/setup.bash && roslaunch turtlebot turtlebot.launch"
+                "roslaunch turtlebot turtlebot.launch"
               ]
             }
           ],

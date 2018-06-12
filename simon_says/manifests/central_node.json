@@ -18,9 +18,9 @@
               {
                 "name": "ROSBRIDGE_WS",
                 "exposeExternally": true,
-                "port": 80,
+                "port": 443,
                 "targetPort": 9090,
-                "proto": "HTTP"
+                "proto": "HTTPS"
               }
             ]
           },

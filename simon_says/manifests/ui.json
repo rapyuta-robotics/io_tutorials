@@ -18,9 +18,9 @@
               {
                 "name": "URL",
                 "exposeExternally": true,
-                "port": 80,
+                "port": 443,
                 "targetPort": 3000,
-                "proto": "HTTP"
+                "proto": "HTTPS"
               }
             ]
           },
