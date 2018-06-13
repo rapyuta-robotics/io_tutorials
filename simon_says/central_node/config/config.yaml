@@ -1,53 +1,24 @@
-# device
+# scalings
 linear_scale: 1.0 # [units]
 angular_scale: 1.0 # [units]
 max_linear: 0.1 # [m/s]
 max_angular: 1.0 # [r/s]
 
+# timeouts
 device_timeout: 30.0 # [s]
 central_timeout: 1.0 # [s]
 
+# ROS parameters
 queue_size: 10 # [units]
 
 # tunings
-ui_command:
-  scaling:
-    linear: 0.05 # [units]
-    angular: 0.33 # [units]
+device_strings: ["joystick", "turtlebot", "alphabot", "gopigo", "quad"]
 
-joystick:
-  scaling:
-    linear: 1.0
-    angular: 1.0
-
-turtlebot:
-  scaling:
-    linear: 1.0
-    angular: 1.0
-  bounds:
-    linear: 0.6
-    angular: 0.99
-
-alphabot:
-  scaling:
-    linear: 0.5
-    angular: 1.0
-  bounds:
-    linear: 0.3
-    angular: 0.99
-
-gopigo:
-  scaling:
-    linear: 1.0
-    angular: 1.0
-  bounds:
-    linear: 0.6
-    angular: 0.99
-
-quad:
-  scaling:
-    linear: 1.0
-    angular: 1.0
-  bounds:
-    linear: 0.6
-    angular: 0.99
+#             linear scale  | angular scale  | linear bound  | angular bound
+devices:
+  joystick:  [1.00,           1.00,            1.00,           1.00]
+  turtlebot: [1.00,           1.00,            0.60,           0.99]
+  alphabot:  [0.50,           1.00,            0.30,           0.99]
+  gopigo:    [1.00,           1.00,            0.60,           0.99]
+  quad:      [1.00,           1.00,            0.60,           0.99]
+ui:          [0.05,           0.33,            1.00,           1.00]

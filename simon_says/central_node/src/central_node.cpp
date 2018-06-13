@@ -1,25 +1,13 @@
 #include "central_node.hpp"
 
-namespace {
-int queue_size;
-float central_timeout;
-float ui_scaling[2];
-float joystick_scaling[2];
-float turtlebot_scaling[2];
-float turtlebot_bounds[2];
-float alphabot_scaling[2];
-float alphabot_bounds[2];
-float gopigo_scaling[2];
-float gopigo_bounds[2];
-float quad_scaling[2];
-float quad_bounds[2];
-} // namespace
-
 namespace simon_says {
 
 CentralNode::CentralNode(ros::NodeHandle &nh)
     : _ui_cmd_req_updated(false), _stale_command(false) {
+  int queue_size;
   nh.param("queue_size", queue_size, 10);
+
+  float central_timeout;
   nh.param("central_timeout", central_timeout, 1.0f);
 
   _timer = nh.createTimer(ros::Duration(central_timeout),
@@ -31,57 +19,23 @@ CentralNode::CentralNode(ros::NodeHandle &nh)
   _ui_device_status_pub =
       nh.advertise<StatusList>("/ui/device_status", queue_size);
 
-  _devices.reserve(DeviceId::NUM_DEVICES);
-  _devices.emplace_back(nh, "joystick");
-  _devices.emplace_back(nh, "turtlebot");
-  _devices.emplace_back(nh, "alphabot");
-  _devices.emplace_back(nh, "gopigo");
-  _devices.emplace_back(nh, "quad");
+  nh.param("ui", _ui_scaling);
 
-  _device_status_list.status_list.reserve(DeviceId::NUM_DEVICES);
-  for (int i = 0; i < DeviceId::NUM_DEVICES; ++i) {
-    _device_status_list.status_list.emplace_back(Status());
+  std::vector<std::string> device_strings;
+  nh.param("device_strings", device_strings);
+
+  _devices.reserve(device_strings.size());
+  for (const std::string &name : device_strings) {
+    std::vector<float> device_tunings;
+    nh.param("devices/" + name, device_tunings);
+    _devices.emplace_back(nh, name);
+    _devices.back().tune(device_tunings);
   }
 
-  nh.param("ui_command/scaling/linear", ui_scaling[0], 0.05f);
-  nh.param("ui_command/scaling/angular", ui_scaling[1], 0.33f);
-  nh.param("joystick/scaling/linear", joystick_scaling[0], 1.0f);
-  nh.param("joystick/scaling/angular", joystick_scaling[1], 1.0f);
-  nh.param("turtlebot/scaling/linear", turtlebot_scaling[0], 1.0f);
-  nh.param("turtlebot/scaling/angular", turtlebot_scaling[1], 1.0f);
-  nh.param("turtlebot/bounds/linear", turtlebot_bounds[0], 0.6f);
-  nh.param("turtlebot/bounds/angular", turtlebot_bounds[1], 0.99f);
-  nh.param("alphabot/scaling/linear", alphabot_scaling[0], 0.5f);
-  nh.param("alphabot/scaling/angular", alphabot_scaling[1], 1.0f);
-  nh.param("alphabot/bounds/linear", alphabot_bounds[0], 0.3f);
-  nh.param("alphabot/bounds/angular", alphabot_bounds[1], 0.99f);
-  nh.param("gopigo/scaling/linear", gopigo_scaling[0], 1.0f);
-  nh.param("gopigo/scaling/angular", gopigo_scaling[1], 1.0f);
-  nh.param("gopigo/bounds/linear", gopigo_bounds[0], 0.6f);
-  nh.param("gopigo/bounds/angular", gopigo_bounds[1], 0.99f);
-  nh.param("quad/scaling/linear", quad_scaling[0], 1.0f);
-  nh.param("quad/scaling/angular", quad_scaling[1], 1.0f);
-  nh.param("quad/bounds/linear", quad_bounds[0], 0.6f);
-  nh.param("quad/bounds/angular", quad_bounds[1], 0.99f);
-
-  _devices[DeviceId::JOYSTICK].set_scaling(joystick_scaling[0],
-                                           joystick_scaling[1]);
-
-  _devices[DeviceId::TURTLEBOT].set_scaling(turtlebot_scaling[0],
-                                            turtlebot_scaling[1]);
-  _devices[DeviceId::TURTLEBOT].set_bounds(turtlebot_bounds[0],
-                                           turtlebot_bounds[1]);
-
-  _devices[DeviceId::ALPHABOT].set_scaling(alphabot_scaling[0],
-                                           alphabot_scaling[1]);
-  _devices[DeviceId::ALPHABOT].set_bounds(alphabot_bounds[0],
-                                          alphabot_bounds[1]);
-
-  _devices[DeviceId::GOPIGO].set_scaling(gopigo_scaling[0], gopigo_scaling[1]);
-  _devices[DeviceId::GOPIGO].set_bounds(gopigo_bounds[0], gopigo_bounds[1]);
-
-  _devices[DeviceId::QUAD].set_scaling(quad_scaling[0], quad_scaling[1]);
-  _devices[DeviceId::QUAD].set_bounds(quad_bounds[0], quad_bounds[1]);
+  _device_status_list.status_list.reserve(device_strings.size());
+  for (int i = 0; i < device_strings.size(); ++i) {
+    _device_status_list.status_list.emplace_back(Status());
+  }
 }
 
 void CentralNode::update() {
@@ -102,8 +56,8 @@ void CentralNode::ui_command_req_cb(const geometry_msgs::Twist &cmd) {
   _stale_command = false;
 
   _ui_cmd_req = cmd;
-  _ui_cmd_req.linear.x *= ui_scaling[0];
-  _ui_cmd_req.angular.z *= ui_scaling[1];
+  _ui_cmd_req.linear.x *= _ui_scaling[0];
+  _ui_cmd_req.angular.z *= _ui_scaling[1];
   _ui_cmd_req_updated = true;
 }
 
@@ -122,7 +76,7 @@ void CentralNode::publish_mode_req_to_device() const {
 
 void CentralNode::publish_command_to_devices() {
   bool device_source = false;
-  for (Device &device : _devices) {
+  for (const Device &device : _devices) {
     if (device.mode().data & Mode::SOURCE) {
       _stale_command = false;
       device_source = true;
