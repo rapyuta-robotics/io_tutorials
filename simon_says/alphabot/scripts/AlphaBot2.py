@@ -1,8 +1,20 @@
 import RPi.GPIO as GPIO
 from PCA9685 import PCA9685
 
+"""AlphaBot2 class
+AlphaBot2 is a small differential drive robot without encoders.
 
+Modified from demo code at https://www.waveshare.com/wiki/AlphaBot2-Pi#Demo
+"""
 class AlphaBot2(object):
+    """initialize bot with proper GPIO pins
+    ain1 = GPIO control pin for the left motor (pin 12)
+    ain2 = GPIO control pin for the left motor (pin 13)
+    ena  = GPIO pin for the left motor (PWM pin 12)
+    bin1 = GPIO control pin for the right motor (pin 20)
+    bin2 = GPIO control pin for the right motor (pin 21)
+    enb  = GPIO pin for the right motor (PWM pin 26)
+    """
     def __init__(self, ain1=12, ain2=13, ena=6, bin1=20, bin2=21, enb=26):
 
         self.wheel_radius = 2.1  # cm
@@ -25,7 +37,7 @@ class AlphaBot2(object):
 
         # *NOTE* these values correspond to only when PWM frequency is set to 70Hz.
         # The PWM was intentionally lowered for better torque at lower speeds
-        # (low speed corresponds to low torque, which is unable to over come
+        # (low speed corresponds to low torque, which is unable to overcome
         # static friction to start moving unless the current pulses are larger)
         self.tune(left_tune, right_tune, rotation_gain)
 

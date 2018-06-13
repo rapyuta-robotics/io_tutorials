@@ -12,4 +12,5 @@
   
   <depend>rospy</depend>
   <depend>simon_says_msgs</depend>
+  <depend>python-inputs-pip</depend>
 </package>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
     <!-- Control options -->
-    <arg name="leader" default="$(optenv GOPIGO_LEADER true)"/>
+    <arg name="leader" default="$(optenv GOPIGO_LEADER false)"/>
 
     <group ns="gopigo">
         <node pkg="gopigo" name="gopigo_control" type="gopigo_control_node.py" output="screen">

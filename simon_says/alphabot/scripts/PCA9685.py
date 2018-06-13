@@ -8,7 +8,7 @@ import smbus
 # Raspi PCA9685 16-Channel PWM Servo Driver
 # ============================================================================
 
-
+"""Source: https://www.waveshare.com/wiki/AlphaBot2-Pi#Demo"""
 class PCA9685:
 
     # Registers/etc.

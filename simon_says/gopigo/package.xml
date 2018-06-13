@@ -4,7 +4,8 @@
   <version>1.0.0</version>
   <description>Simon Says GoPiGo Package</description>
 
-  <maintainer email="tom.stewart@rapyuta-robotics.com">Tom Stewart</maintainer>
+  <maintainer email="alexander.bolinsky@rapyuta-robotics.com">Alexander Bolinsky</maintainer>
+  <maintainer email="gautham.manoharan@rapyuta-robotics.com">Gautham Manoharan</maintainer>
 
   <license>Commercial</license>
 

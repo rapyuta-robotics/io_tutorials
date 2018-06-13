@@ -29,7 +29,6 @@ include_directories(${catkin_INCLUDE_DIRS})
 
 add_executable(${PROJECT_NAME}_node src/turtle_bot_node.cpp)
 target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES})
-add_dependencies(${PROJECT_NAME}_node simon_says_device_wrapper)
 
 #############
 ## Install ##

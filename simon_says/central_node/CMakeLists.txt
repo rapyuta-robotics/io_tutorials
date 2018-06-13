@@ -27,10 +27,7 @@ catkin_package(
 ## Build ##
 ###########
 
-include_directories(
-    include
-    ${catkin_INCLUDE_DIRS}
-)
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 add_executable(${PROJECT_NAME} src/central_node.cpp src/device.cpp)
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})

@@ -29,6 +29,8 @@ export const directions = {
   left: ['angular.z', 1],
   right: ['angular.z', -1]
 };
+
+// hard-coded compatible devices
 export const robots = {
   turtlebot: {
     name: 'Turtlebot',
