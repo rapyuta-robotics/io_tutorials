@@ -19,7 +19,7 @@ set(PKG_DEPS
 find_package(catkin REQUIRED COMPONENTS ${PKG_DEPS})
 
 generate_dynamic_reconfigure_options(
-    cfg/control_parameters.cfg
+    cfg/Control.cfg
 )
 
 catkin_package(
@@ -59,7 +59,7 @@ install(TARGETS ${PROJECT_NAME}_node
 )
 
 install(DIRECTORY include/${PROJECT_NAME}/
-        DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
 
 install(DIRECTORY cfg
