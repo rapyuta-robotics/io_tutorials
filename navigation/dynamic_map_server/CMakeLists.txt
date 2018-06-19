@@ -4,6 +4,7 @@ project(dynamic_map_server)
 find_package(catkin REQUIRED
         COMPONENTS
             roscpp
+            std_msgs
             nav_msgs
             tf2
             message_generation
@@ -19,13 +20,13 @@ if(YAMLCPP_VERSION VERSION_GREATER "0.5.0")
 endif()
 
 add_service_files(
-  FILES
-  SaveMap.srv
+    FILES
+    SaveMap.srv
 )
 
 generate_messages(
-  DEPENDENCIES
-  std_msgs
+    DEPENDENCIES
+    std_msgs
 )
 
 catkin_package(
@@ -35,8 +36,10 @@ catkin_package(
         map_server_image_loader
     CATKIN_DEPENDS
         roscpp
+        std_msgs
         nav_msgs
         tf2
+        message_runtime
 )
 
 include_directories(
@@ -73,36 +76,50 @@ endfunction()
 
 ## Tests
 if(CATKIN_ENABLE_TESTING)
-  copy_test_data( FILES
-      test/testmap.bmp
-      test/testmap.png )
-  catkin_add_gtest(${PROJECT_NAME}_utest test/utest.cpp test/test_constants.cpp)
-  target_link_libraries(${PROJECT_NAME}_utest
-    map_server_image_loader
-    ${SDL_LIBRARY}
-    ${SDL_IMAGE_LIBRARIES}
-  )
+    copy_test_data( FILES
+        test/testmap.bmp
+        test/testmap.png )
+    catkin_add_gtest(${PROJECT_NAME}_utest test/utest.cpp test/test_constants.cpp)
+    target_link_libraries(${PROJECT_NAME}_utest
+        map_server_image_loader
+        ${SDL_LIBRARY}
+        ${SDL_IMAGE_LIBRARIES}
+    )
 
-  add_executable(rtest test/rtest.cpp test/test_constants.cpp)
-  add_dependencies(rtest ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-  target_link_libraries( rtest
-      gtest
-      ${catkin_LIBRARIES}
-  )
+    add_executable(rtest test/rtest.cpp test/test_constants.cpp)
+    add_dependencies(rtest ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+    target_link_libraries( rtest
+        gtest
+        ${catkin_LIBRARIES}
+    )
 
-  # This has to be done after we've already built targets, or catkin variables get borked
-  find_package(rostest REQUIRED)
-  add_rostest(test/rtest.xml)
+    # This has to be done after we've already built targets, or catkin variables get broken
+    find_package(rostest REQUIRED)
+    add_rostest(test/rtest.xml)
 endif()
 
+# Install libraries
+install(TARGETS map_server_image_loader
+    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+)
+
+# Install executable
+install(TARGETS map_server
+    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
 ## Install project namespaced headers
-install(DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.h"
-  PATTERN ".svn" EXCLUDE)
+install(DIRECTORY include/map_server/
+    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+    FILES_MATCHING PATTERN "*.h"
+    PATTERN ".svn" EXCLUDE
+)
 
 ## Install excutable python script
 install(
     PROGRAMS
-      scripts/crop_map
-    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+        scripts/crop_map
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
