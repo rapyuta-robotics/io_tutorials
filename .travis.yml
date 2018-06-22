@@ -1,0 +1,80 @@
+sudo: required
+language:
+  - generic
+compiler:
+  - gcc
+cache:
+  - apt
+services:
+  - docker
+
+env:
+  global:
+    - ROS_DISTRO=kinetic
+    - PYTHONPATH=$PYTHONPATH:/usr/lib/python2.7/dist-packages:/usr/local/lib/python2.7/dist-packages
+    - BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+    - BASE_BRANCH=rr-devel
+
+################################################################################
+
+before_install:
+  - docker run -e BASE_BRANCH -e BRANCH -e PYTHONPATH -e ROS_DISTRO -d --name builder -v $TRAVIS_BUILD_DIR:/travis ros:$ROS_DISTRO-ros-core-xenial tail -f /dev/null
+
+install:
+  - docker exec -t builder bash -c "
+    rm /etc/ros/rosdep/sources.list.d/20-default.list && 
+    rosdep init && 
+    rosdep update && 
+    mkdir -p ~/catkin_ws/src && 
+    cd ~/catkin_ws/src && 
+    apt-get update && 
+    apt-get install -y 
+        python-catkin-pkg 
+        python-rosdep 
+        python-wstool 
+        python-catkin-tools 
+        ros-$ROS_DISTRO-catkin 
+        ros-$ROS_DISTRO-rostest 
+        wget 
+        curl && 
+    source /opt/ros/$ROS_DISTRO/setup.bash && 
+    catkin_init_workspace && 
+    cd ~/catkin_ws && 
+    catkin build && 
+    source devel/setup.bash && 
+    cd ~/catkin_ws/src && 
+    ln -s /travis ."
+
+# Install all dependencies, using wstool first and rosdep second.
+# wstool looks for a ROSINSTALL_FILE defined in the environment variables.
+before_script:
+  - docker exec -t builder bash -c "
+    cd ~/catkin_ws/src && 
+    wstool init && 
+    if [[ -f /travis/dependencies.rosinstall ]] ; then 
+        wstool merge -a -y /travis/dependencies.rosinstall ; 
+        if ! wstool up ; then 
+            wstool merge -a -y /travis/dependencies.rosinstall ; 
+            wstool up ; 
+        fi ; 
+    fi && 
+    wstool up && 
+    cd ~/catkin_ws && 
+    rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO"
+
+# Compile and test (mark the build as failed if any step fails). If the
+# CATKIN_OPTIONS file exists, use it as an argument to catkin_make, for example
+# to blacklist certain packages.
+#
+# NOTE on testing: `catkin_make run_tests` will show the output of the tests
+# (gtest, nosetest, etc..) but always returns 0 (success) even if a test
+# fails. Running `catkin_test_results` aggregates all the results and returns
+# non-zero when a test fails (which notifies Travis the build failed).
+script:
+  - docker exec -t builder bash -c "
+    source /opt/ros/$ROS_DISTRO/setup.bash && 
+    cd ~/catkin_ws && 
+    catkin config --cmake-args -DCMAKE_CXX_FLAGS=-Werror &&
+    catkin build --no-status && 
+    source devel/setup.bash && 
+    catkin run_tests --no-status && catkin_test_results --verbose"
