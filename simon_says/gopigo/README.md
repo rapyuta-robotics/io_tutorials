@@ -1,7 +1,7 @@
 # Simon Says gopigo package
 
 ### Prerequisites
-Raspberry Pi 3 connected to the GoPiGo shield
+Raspberry Pi 3 connected to the GoPiGo shield. Follow the [installation instructions](https://github.com/DexterInd/GoPiGo3) to set up the required modules.
 
 ### Build, Source, and Launch
 Once this repository has been cloned into the src/ directory of your catkin workspace, assuming your working directory is the root of your catkin workspace:
