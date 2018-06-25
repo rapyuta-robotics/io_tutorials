@@ -8,7 +8,7 @@ Once this repository has been cloned into the src/ directory of your catkin work
 ```
 catkin build gopigo
 source devel/setup.bash
-GOPIGO_LEADER=true
+export GOPIGO_LEADER=true
 roslaunch gopigo gopigo.launch
 ```
 
