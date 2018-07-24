@@ -6,6 +6,7 @@ Raspberry Pi 3 connected to the GoPiGo shield.
 ```
 curl -kL dexterindustries.com/update_gopigo3 | sudo bash
 curl -kL dexterindustries.com/update_sensors | sudo bash
+sudo pip install RPi.GPIO
 ```
 
 ### Build, Source, and Launch
