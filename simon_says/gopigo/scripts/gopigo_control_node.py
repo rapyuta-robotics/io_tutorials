@@ -3,6 +3,7 @@
 import rospy
 import math
 import easygopigo3 as easy
+import RPi.GPIO as GPIO
 
 from std_msgs.msg import UInt16
 from std_msgs.msg import Float32
@@ -11,6 +12,12 @@ from geometry_msgs.msg import Twist
 
 class GoPiGo(object):
     def __init__(self):
+        # Power Management Setup
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        GPIO.setup(23, GPIO.OUT)
+        GPIO.output(23, True)
+
         # Construct and initialize GoPiGo
         self._gpg = easy.EasyGoPiGo3()
         self._distance_sensor = self._gpg.init_distance_sensor()
