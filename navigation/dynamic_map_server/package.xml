@@ -1,4 +1,5 @@
-<package>
+<?xml version="1.0"?>
+<package format="2">
     <name>dynamic_map_server</name>
     <version>1.0.0</version>
     <description>
@@ -11,23 +12,19 @@
     <maintainer email="hendrik.skubch@rapyuta-robotics.com">Hendrik Skubch</maintainer>
     <license>BSD</license>
 
-    <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+    <buildtool_depend>catkin</buildtool_depend>
 
-    <build_depend>nav_msgs</build_depend>
-    <build_depend>roscpp</build_depend>
-    <build_depend>sdl</build_depend>
-    <build_depend>sdl-image</build_depend>
-    <build_depend>tf2</build_depend>
-    <build_depend>yaml-cpp</build_depend>
+    <depend>roscpp</depend>
+    <depend>std_msgs</depend>
+    <depend>nav_msgs</depend>
+    <depend>sdl</depend>
+    <depend>sdl-image</depend>
+    <depend>tf2</depend>
+    <depend>yaml-cpp</depend>
+
     <build_depend>message_generation</build_depend>
 
-    <run_depend>nav_msgs</run_depend>
-    <run_depend>roscpp</run_depend>
-    <run_depend>sdl</run_depend>
-    <run_depend>sdl-image</run_depend>
-    <run_depend>tf2</run_depend>
-    <run_depend>yaml-cpp</run_depend>
-    <run_depend>message_runtime</run_depend>
+    <exec_depend>message_runtime</exec_depend>
 
     <test_depend>rospy</test_depend>
     <test_depend>rostest</test_depend>
