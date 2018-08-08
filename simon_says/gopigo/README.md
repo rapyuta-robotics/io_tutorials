@@ -21,3 +21,6 @@ roslaunch gopigo gopigo.launch
 This should make the GoPiGo drive forward until an obstacle is about 0.5m away from its distance sensor. If the obstacle approaches, the GoPiGo should back away in order to maintain a 0.5m distance.
 
 The value of the environment variable GOPIGO_LEADER - true or false - determines whether the GoPiGo uses its own distance sensors to control its body or whether it must receive velocity commands externally, respectively. If GOPIGO_LEADER is not set, the GoPiGo will be a follower by default.
+
+#### Notes
+Make sure the board is supplied with 9V via the power connector on the GoPiGo shield. If the board is supplied with insufficient power, the motors will not run.
