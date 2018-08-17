@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
+import os
 from std_msgs.msg import String
 
 def callback(data):
@@ -8,8 +9,9 @@ def callback(data):
 
 
 def listener():
+	topicname=os.getenv('topic_name','telemetry')
 	rospy.init_node('listener', anonymous=True)
-	rospy.Subscriber('telemetry', String, callback)
+	rospy.Subscriber(topicname, String, callback)
 
 	rospy.spin()
 
