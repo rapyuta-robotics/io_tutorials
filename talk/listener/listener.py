@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
+import os
 from std_msgs.msg import String
 
 def callback(data):
