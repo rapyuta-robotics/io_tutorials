@@ -9,7 +9,7 @@ RUN chmod -R g+w /var/log/nginx /var/cache/nginx /var/run
 COPY env.sh /usr/bin/
 COPY src/ /usr/share/nginx/html/
 
-ENV WS="ws://localhost:9090"
+ENV WS_ROSBRIDGE="ws://localhost:9090"
 
 EXPOSE 8080
 ENTRYPOINT /bin/bash -c "bash /usr/bin/env.sh && nginx -g 'daemon off;'"
