@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>param_talker</name>
+  <version>0.0.1</version>
+  <description>The talker package from ROS tutorials using rapyuta parameter configs</description>
+
+  <maintainer email="mail@example.com">Some Maintainer</maintainer>
+
+  <license>Commercial</license>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
