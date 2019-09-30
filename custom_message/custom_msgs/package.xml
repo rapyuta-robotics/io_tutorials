@@ -5,10 +5,10 @@
   <description>
     Custom Metric messages
   </description>
-  <maintainer email="gautham.manoharan@rapyuta-robotics.com">Gautham Manoharan</maintainer>
+  <maintainer email="kaka@gmail.com">kaka</maintainer>
   <license>Commercial</license>
 
-  <author>Gautham Manoharan</author>
+  <author>kaka</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 

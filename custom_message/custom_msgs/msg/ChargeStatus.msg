@@ -1,0 +1,7 @@
+uint8 STATUS_NEEDS_CHARGING = 0
+uint8 STATUS_CHARGING = 1
+uint8 STATUS_NOT_CHARGING = 3
+uint8 STATUS_FULL = 4
+
+uint8 status
+float32 voltage
