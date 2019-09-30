@@ -23,10 +23,22 @@ add_message_files(FILES
    RobotTrajectoryMetric.msg
    RoutesMetric.msg
    UnloadMetric.msg
+   ChargeMetric.msg
+   ChargeStatus.msg
 )
 
 generate_messages(DEPENDENCIES
     std_msgs
+)
+
+install(PROGRAMS
+  custom_talker.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(FILES
+  custom_message.launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
 ############

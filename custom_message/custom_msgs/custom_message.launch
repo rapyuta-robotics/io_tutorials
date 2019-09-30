@@ -1,0 +1,3 @@
+<launch>
+	<node name="custom_message_talker" pkg="custom_msgs" type="custom_talker.py" output="screen"/>
+</launch>
