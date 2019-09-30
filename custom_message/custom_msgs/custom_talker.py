@@ -13,13 +13,13 @@ def custom_talker():
 		charge_metric.name = 'robot' + str(i)
 		charge_metric.start = rospy.Time.now()
 		charge_metric.travel_distance = i
-		charge_metric.agent_id = i
+		charge_metric.agent_id = [i]
 		charge_metric.charge_status = ChargeStatus(1,2)
 		rospy.loginfo(charge_metric)
 		pub.publish(charge_metric)
-		i += 1
+		i = i + 1
 		if i > 1000:
-			i= 0
+			i = 0
 		rate.sleep()
 
 if __name__ == '__main__':
