@@ -10,6 +10,7 @@ def custom_talker():
 	i = 0
 	while not rospy.is_shutdown():
 		charge_metric = ChargeMetric()
+		charge_metric.name = 'robot' + str(i)
 		charge_metric.start = rospy.Time.now()
 		charge_metric.travel_distance = i
 		charge_metric.agent_id = i
