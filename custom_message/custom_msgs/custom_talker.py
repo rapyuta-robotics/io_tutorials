@@ -18,7 +18,7 @@ def custom_talker():
 		rospy.loginfo(charge_metric)
 		pub.publish(charge_metric)
 		i = i + 1
-		if i > 1000:
+		if i > 253:
 			i = 0
 		rate.sleep()
 
