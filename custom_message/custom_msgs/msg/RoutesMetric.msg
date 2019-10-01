@@ -1,0 +1,4 @@
+duration duration
+float32 replan_frequency
+float32 average_nb_routes
+duration average_latency
