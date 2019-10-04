@@ -1,10 +1,13 @@
 #!/usr/bin/env python
+import os
 
 import rospy
 from custom_msgs.msg import ChargeMetric, ChargeStatus
 
 def custom_talker():
-	pub = rospy.Publisher('custom_message', ChargeMetric, queue_size=10)
+
+	topic_name = os.getenv('topic_name', 'custom_message')
+	pub = rospy.Publisher(topic_name, ChargeMetric, queue_size=10)
 	rospy.init_node('custom_message_talker', anonymous=True)
 	rate = rospy.Rate(10)
 	i = 0
