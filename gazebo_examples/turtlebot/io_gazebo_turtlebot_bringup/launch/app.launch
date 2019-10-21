@@ -1,0 +1,13 @@
+<launch>
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)"/> <!--mandatory argument-->
+  <arg name="load_common_param" default="false"/>
+
+  <!-- load common param -->
+  <include if="$(arg load_common_param)" file="$(find io_gazebo_turtlebot_bringup)/launch/common.launch">
+    <arg name="model" value="$(arg model)"/>
+  </include>
+
+  <!-- app -->
+  <include file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch"/>
+
+</launch>

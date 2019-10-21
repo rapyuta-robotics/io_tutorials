@@ -1,0 +1,16 @@
+<launch>
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)"/> <!--mandatory argument-->
+
+  <include file="$(find io_gazebo_turtlebot_bringup)/launch/sim.launch">
+    <arg name="load_common_param" value="true"/>
+    <arg name="model" value="$(arg model)"/>
+    <arg name="x_pos" value="-2.0"/>
+    <arg name="y_pos" value="-0.5"/>
+    <arg name="z_pos" value="0.0"/>
+  </include>
+
+  <include file="$(find io_gazebo_turtlebot_bringup)/launch/app.launch">
+    <arg name="load_common_param" value="false"/>
+    <arg name="model" value="$(arg model)"/>
+  </include>
+</launch>

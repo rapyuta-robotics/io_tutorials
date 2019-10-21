@@ -1,0 +1,7 @@
+<launch>
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)"/> <!--mandatory argument-->
+  
+  <rosparam file="$(find io_gazebo_turtlebot_bringup)/config/common_config.yaml" command="load" ns="/" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+</launch>

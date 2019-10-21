@@ -1,0 +1,9 @@
+- git: 
+    local-name: externals/turtlebot_simulations
+    uri: https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+    version: melodic-devel
+
+- git: 
+    local-name: externals/turtlebot
+    uri: https://github.com/ROBOTIS-GIT/turtlebot3.git
+    version: melodic-devel
