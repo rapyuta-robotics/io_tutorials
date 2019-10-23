@@ -1,0 +1,14 @@
+local_costmap:
+  global_frame: odom
+  robot_base_frame: base_footprint
+
+  update_frequency: 1.0 #decreased for cloud/device communication
+  publish_frequency: 1.0 #decreased for cloud/device communication
+  transform_tolerance: 5.0 #increased for cloud/device communication
+
+  static_map: false  
+  rolling_window: true
+  width: 3
+  height: 3
+  resolution: 0.05
+  
