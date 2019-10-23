@@ -4,8 +4,8 @@
   <arg name="x_pos" default="-0.5"/>
   <arg name="y_pos" default="-0.5"/>
   <arg name="yaw_pos" default="0.0"/>
-
-<!--   <include file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch">
+<!-- 
+  <include file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch">
     <arg name="model" value="$(arg model)"/>
   </include>
  -->
