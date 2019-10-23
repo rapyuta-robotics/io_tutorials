@@ -1,7 +1,7 @@
 <launch>
   <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)"/> <!--mandatory argument-->
   <arg name="load_common_param" default="true"/>
-  <arg name="x_pos" default="-2.0"/>
+  <arg name="x_pos" default="-0.5"/>
   <arg name="y_pos" default="-0.5"/>
   <arg name="yaw_pos" default="0.0"/>
   <arg name="gui" default="false"/>
