@@ -10,8 +10,8 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <depend>io_gazebo_turtlebot_demo_app</depend>
-  <depend>io_gazebo_turtlebot_description</depend>
+  <exec_depend>io_gazebo_turtlebot_demo_app</depend>
+  <exec_depend>io_gazebo_turtlebot_description</depend>
   <!-- externals -->
   <exec_depend>turtlebot3_bringup</exec_depend>
   <exec_depend>turtlebot3_description</exec_depend>
