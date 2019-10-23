@@ -2,12 +2,16 @@
 <package format="2">
   <name>io_gazebo_turtlebot_demo_app</name>
   <version>0.0.0</version>
-  <description>The turtlebot3_bringup package</description>
+  <description>The turtlebot demo app package</description>
 
   <maintainer email="yu.okamoto@rapyuta-robotics.com">Yu Okamoto</maintainer>
 
   <license>Apache License 2.</license>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>move_base_msgs</exec_depend>
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>tf</exec_depend>
 
 </package>

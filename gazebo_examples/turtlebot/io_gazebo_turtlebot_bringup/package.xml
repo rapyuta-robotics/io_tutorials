@@ -13,11 +13,14 @@
   <depend>io_gazebo_turtlebot_demo_app</depend>
   <depend>io_gazebo_turtlebot_description</depend>
   <!-- externals -->
-  <depend>turtlebot3_bringup</depend>
-  <depend>turtlebot3_description</depend>
-  <depend>turtlebot3_example</depend>
-  <depend>turtlebot3_navigation</depend>
-  <depend>turtlebot3_slam</depend>
-  <depend>turtlebot3_teleop</depend>
+  <exec_depend>turtlebot3_bringup</exec_depend>
+  <exec_depend>turtlebot3_description</exec_depend>
+  <exec_depend>turtlebot3_example</exec_depend>
+  <exec_depend>turtlebot3_navigation</exec_depend>
+  <exec_depend>turtlebot3_slam</exec_depend>
+  <exec_depend>turtlebot3_teleop</exec_depend>
+  <exec_depend>turtlebot3_msgs</exec_depend>
+  <exec_depend>slam_gmapping</exec_depend>
+  <exec_depend>dwa_local_planner</exec_depend>
 
 </package>
