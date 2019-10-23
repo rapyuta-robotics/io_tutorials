@@ -4,6 +4,7 @@
   <arg name="x_pos" default="-2.0"/>
   <arg name="y_pos" default="-0.5"/>
   <arg name="yaw_pos" default="0.0"/>
+  <arg name="gui" default="false"/>
 
   <!-- load common param -->
   <include if="$(arg load_common_param)" file="$(find io_gazebo_turtlebot_bringup)/launch/common.launch">
@@ -15,5 +16,6 @@
     <arg name="x_pos" value="$(arg x_pos)"/>
     <arg name="y_pos" value="$(arg y_pos)"/>
     <arg name="yaw_pos" value="$(arg yaw_pos)"/>
+    <arg name="gui" value="$(arg gui)"/>
   </include>
 </launch>
