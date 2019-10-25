@@ -2,7 +2,7 @@
 <package format="2">
   <name>io_gazebo_turtlebot_bringup</name>
   <version>0.0.0</version>
-  <description>The turtlebot3_bringup package</description>
+  <description>The turtlebot3 simulation bringup package for rpayuta.io</description>
 
   <maintainer email="yu.okamoto@rapyuta-robotics.com">Yu Okamoto</maintainer>
 

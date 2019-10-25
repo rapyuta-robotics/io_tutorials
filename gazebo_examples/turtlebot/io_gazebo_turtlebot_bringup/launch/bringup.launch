@@ -1,9 +1,12 @@
 <launch>
-  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)"/> <!--mandatory argument-->
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)" doc="turtlebot 3 model type [burger, waffle, waffle_pi]"/> 
+
+  <!-- robot initial pose -->
   <arg name="x_pos" default="-0.5"/>
   <arg name="y_pos" default="-0.5"/>
   <arg name="yaw_pos" default="0.0"/>
 
+  <!-- simulator -->
   <include file="$(find io_gazebo_turtlebot_bringup)/launch/sim.launch">
     <arg name="load_common_param" value="true"/>
     <arg name="model" value="$(arg model)"/>
@@ -12,6 +15,7 @@
     <arg name="yaw_pos" value="$(arg yaw_pos)"/>
   </include>
 
+  <!-- app -->
   <include file="$(find io_gazebo_turtlebot_bringup)/launch/app.launch">
     <arg name="load_common_param" value="false"/>
     <arg name="model" value="$(arg model)"/>

@@ -2,7 +2,7 @@
 <package format="2">
   <name>io_gazebo_turtlebot_demo_app</name>
   <version>0.0.0</version>
-  <description>The turtlebot demo app package</description>
+  <description>The turtlebot3 simulation demo app package for rpayuta.io</description>
 
   <maintainer email="yu.okamoto@rapyuta-robotics.com">Yu Okamoto</maintainer>
 

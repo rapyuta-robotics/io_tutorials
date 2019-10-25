@@ -1,1 +1,4 @@
+# sample parameter file
+# parameters in this file will be used in both app and sim
+
 param1: 'param1'
