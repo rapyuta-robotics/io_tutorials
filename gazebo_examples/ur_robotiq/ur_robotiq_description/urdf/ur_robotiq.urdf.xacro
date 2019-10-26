@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur_robotiq_environment">
+
+  <!-- ur10-->
+  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+  <xacro:include filename="$(find ur_description)/urdf/ur3.urdf.xacro" />
+  <!-- kyoto specific models -->
+  <xacro:include filename="$(find ur_robotiq_description)/urdf/table.urdf.xacro"/>
+
+  <!-- end effector -->
+  <xacro:include filename="$(find robotiq_2f_model)/model/robotiq_2f_85.urdf.xacro" />
+  <!-- <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model_macro.xacro" /> -->
+  
+  <link name="world" />  
+  
+  <link name="ur_robotiq_environment" />
+  <joint name="world_ur_robotiq_environment_joint" type="fixed">
+    <parent link="world" />
+    <child link = "ur_robotiq_environment" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <!-- table -->
+  <xacro:model_table name="table" parent="ur_robotiq_environment">
+    <origin xyz="0 0 0.73" rpy="0.0 0.0 0.0"/>
+  </xacro:model_table>
+
+  <!-- dummy sootball  -->
+  <material name="Blue">
+    <color rgba="0.0 0.0 0.7 1.0" />
+  </material>
+  <joint name="dummy_sootball_joint" type="fixed">
+    <parent link="ur_robotiq_environment"/>
+    <child link="dummy_sootball_link"/>
+    <origin xyz= "-0.725 0 0.0" rpy="0 0 0"/>
+  </joint>
+  <link name="dummy_sootball_link">
+    <collision>
+      <origin xyz="0.0 0 0.425" rpy="0 0 0"/>
+      <geometry>
+        <!-- <box size="0.8 1.0 0.85"/> -->
+        <box size="0.4 1.0 0.78"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- UR3 arm -->
+  <xacro:ur3_robot prefix="" joint_limited="true"
+     shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+     shoulder_lift_lower_limit="${-pi}" shoulder_lift_upper_limit="0"
+		 elbow_joint_lower_limit="${-pi}" elbow_joint_upper_limit="0"
+		 wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="0"
+		 wrist_2_lower_limit="0" wrist_2_upper_limit="${pi}"
+		 wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+  />
+
+  <joint name="ur3_joint" type="fixed">
+    <parent link="table_link" />
+    <child link = "base_link" />
+    <origin xyz="-0.315 -0.025 0.0" rpy="0.0 0.0 1.5707" />
+  </joint>
+
+  <xacro:robotiq_2f_85  name="robotiq_2f_85" parent="tool0">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </xacro:robotiq_2f_85>
+
+  <!-- tool center point -->
+  <link name="tool_center_point" />
+  <joint name="tool_center_point_joint" type="fixed">
+    <parent link="tool0"/>
+    <child link = "tool_center_point" />
+    <origin xyz="0.0 0.0 0.125" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <!-- Begin azure kinect-->
+  <joint name="azure_kinect_link" type="fixed">
+    <parent link="table_link"/>
+    <child link="camera_base"/>
+    <!-- <origin xyz="-0.75 -0.095 0.80" rpy="3.1415 1.5707 3.14" /> -->
+    <origin xyz="-0.800 -0.04 0.85" rpy="3.1415 1.5707 0.0" />
+  </joint>
+
+  <material name="black">
+    <color rgba="0. 0. 0. 1" />
+  </material>
+  <material name="dark_grey">
+    <color rgba="0.1 0.1 0.1 1" />
+  </material>
+  <material name="grey">
+    <color rgba="0.6 0.6 0.6 1" />
+  </material>
+  <material name="white">
+    <color rgba="0.9 0.9 0.9 1" />
+  </material>
+
+  <link name="camera_body">
+    <visual>
+      <origin xyz="0. 0. 0." />
+      <geometry>
+        <box size="0.0994 0.0996 0.023" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+
+  <link name="camera_base">
+    <visual>
+      <origin xyz="-0.013 0. 0." />
+      <geometry>
+        <box size="0.026 0.103 0.039" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+  </link>
+
+  <link name="camera_visor">
+    <visual>
+      <origin xyz="-0.0128 0. 0." />
+      <geometry>
+        <box size="0.026 0.101 0.037" />
+      </geometry>
+      <material name="black" />
+    </visual>
+  </link>
+
+  <joint name="camera_base_to_body" type="fixed">
+    <parent link="camera_base" />
+    <child link="camera_body" />
+    <origin xyz="-0.0757 0. 0.008" rpy="0. 0. 0." />
+  </joint>
+
+  <joint name="camera_base_to_visor" type="fixed">
+    <parent link="camera_base" />
+    <child link="camera_visor" />
+    <origin xyz="0. 0. 0." rpy="0. 0. 0." />
+  </joint>
+  <!-- End azure kinect-->
+
+</robot>

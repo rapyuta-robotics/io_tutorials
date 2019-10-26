@@ -1,0 +1,27 @@
+# 2F-85 robotiq gripper
+- git:
+    uri: https://github.com/ros-industrial/robotiq.git
+    local-name: externals/robotiq
+    version: kinetic-devel
+
+- git:
+    uri: https://github.com/beta-robots/robotiq.git
+    local-name: externals/robotiq_2f_85
+    version: master
+
+# UR ros driver for polyscope version >= 3
+- git:
+    uri: https://github.com/ros-industrial/ur_modern_driver
+    local-name: externals/ur_modern_driver
+    version: kinetic-devel
+- git:
+    uri: https://github.com/ros-industrial/universal_robot.git
+    local-name: externals/universal_robot
+    version: melodic-devel
+
+
+# Axure kinect
+- git:
+    uri: https://github.com/microsoft/Azure_Kinect_ROS_Driver.git
+    local-name: externals/azure_kinect
+    version: be9a528ddac3f9a494045b7acd76b7b32bd17105

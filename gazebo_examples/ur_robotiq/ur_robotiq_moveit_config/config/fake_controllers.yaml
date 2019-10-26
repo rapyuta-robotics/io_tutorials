@@ -1,0 +1,16 @@
+controller_list:
+  - name: fake_hand_controller
+    joints:
+      - robotiq_2f_85_right_driver_joint
+  - name: fake_ur3_controller
+    joints:
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - elbow_joint
+      - wrist_1_joint
+      - wrist_2_joint
+      - wrist_3_joint
+
+initial:
+  - group: ur3
+    pose:  home

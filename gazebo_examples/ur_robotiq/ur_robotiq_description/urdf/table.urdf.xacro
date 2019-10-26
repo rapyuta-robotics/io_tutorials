@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+<material name="Grey">
+  <color rgba="0.7 0.7 0.7 1.0" />
+</material>
+
+<xacro:macro name="model_table" params="parent name *origin">
+  <joint name="${parent}_${name}_base_joint" type="fixed">
+    <xacro:insert_block name="origin"/>
+    <parent link="${parent}"/>
+    <child link="${name}_link"/>
+  </joint>
+  <link name="${name}_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://ur_robotiq_description/meshes/table_frame_camera_v.stl"/>
+      </geometry>
+      <material name="Grey"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 -0.37" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.77 0.77 0.77"/>
+      </geometry>
+    </collision>
+
+    <collision>
+      <origin xyz="0 0.32 0.73" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.77 0.14 1.8"/>
+      </geometry>
+    </collision>
+
+    <collision>
+      <origin xyz="-0.73 0.08 1.525" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.8 0.77 0.13"/>
+      </geometry>
+    </collision>
+
+    <collision>
+      <origin xyz="0.355 0.15 0.13" rpy="-0.785 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.5"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.720 0.00 0.90" rpy="0 0 0"/>
+      <geometry>
+        <box size="2.05 2.0 0.5"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <gazebo reference="${name}_link">
+    <static>true</static>
+  </gazebo>
+
+</xacro:macro>
+
+</robot>

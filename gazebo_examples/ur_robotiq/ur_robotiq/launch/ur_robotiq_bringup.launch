@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!--
+  Universal robot ur3 launch.  Loads ur3 robot description (see ur_common.launch
+  for more info)
+
+  Usage:
+    ur3_bringup.launch robot_ip:=<value>
+-->
+<launch>
+  <arg name="sim" default="true"/>
+  <arg name="fake_execution" default="$(arg sim)" />
+  <arg name="debug" default="false"/>
+  <arg name="info" default="false"/>
+  <arg name="use_gui" default="false"/>
+
+  <!-- robot_ip: IP-address of the robot's socket-messaging server -->
+  <arg name="robot_ip" doc="IP of the controller" default="192.168.2.4"/>
+  <arg name="reverse_ip" default="" doc="IP of the computer running the driver" />
+  <arg name="reverse_port" default="50001"/>
+  <arg name="min_payload"  default="0.0"/>
+  <arg name="max_payload"  default="3.0"/>
+  <arg name="prefix" default="" />
+  <arg name="use_lowbandwidth_trajectory_follower" default="false"/>
+  <arg name="time_interval" default="0.008"/>
+  <arg name="servoj_time" default="0.008" />
+  <arg name="servoj_time_waiting" default="0.001" />
+  <arg name="max_waiting_time" default="2.0" />
+  <arg name="servoj_gain" default="100." />
+  <arg name="servoj_lookahead_time" default="1." />
+  <arg name="max_joint_difference" default="0.01" />
+  <arg name="base_frame" default="$(arg prefix)base" />
+  <arg name="tool_frame" default="$(arg prefix)tool0_controller" />
+  <arg name="shutdown_on_disconnect" default="true" />
+
+  <arg name="robotiq" default="false" />
+  <arg name="robotiq_device" default="/dev/ttyUSB0" />
+  <arg name="camera" default="false" />
+  <arg name="pick_and_place" default="false" />
+  <arg name="rviz" default="true" />
+
+  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <include file="$(find ur_robotiq_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <group unless="$(arg sim)">
+    <!-- ur common -->
+    <include file="$(find ur_modern_driver)/launch/ur_common.launch">
+      <arg name="robot_ip" value="$(arg robot_ip)"/>
+      <arg name="reverse_ip" value="$(arg reverse_ip)"/>
+      <arg name="reverse_port" value="$(arg reverse_port)"/>
+      <arg name="min_payload"  value="$(arg min_payload)"/>
+      <arg name="max_payload"  value="$(arg max_payload)"/>
+      <arg name="prefix" value="$(arg prefix)" />
+      <arg name="use_lowbandwidth_trajectory_follower" value="$(arg use_lowbandwidth_trajectory_follower)"/>
+      <arg name="time_interval" value="$(arg time_interval)"/>
+      <arg name="servoj_time" value="$(arg servoj_time)" />
+      <arg name="servoj_time_waiting" default="$(arg servoj_time_waiting)" />
+      <arg name="max_waiting_time" value="$(arg max_waiting_time)" />
+      <arg name="servoj_gain" value="$(arg servoj_gain)" />
+      <arg name="servoj_lookahead_time" value="$(arg servoj_lookahead_time)" />
+      <arg name="max_joint_difference" value="$(arg max_joint_difference)" />
+      <arg name="base_frame" value="$(arg base_frame)" />
+      <arg name="tool_frame" value="$(arg tool_frame)" />
+      <arg name="shutdown_on_disconnect" value="$(arg shutdown_on_disconnect)"/>
+    </include>
+
+  </group>
+
+  <group if="$(arg sim)">
+    <!-- We do not have a robot connected, so publish fake joint states -->
+<!--     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <param name="use_gui" value="$(arg use_gui)"/>
+      <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
+    </node> -->
+    <!-- Given the published joint states, publish tf for the robot links -->
+<!--     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+ -->
+        <!-- startup simulated world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" default="worlds/empty.world"/>
+    </include>
+
+    <!-- push robot_description to factory and spawn robot in gazebo -->
+    <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -z 0.1" respawn="false" output="screen" />
+
+    <include file="$(find ur_gazebo)/launch/controller_utils.launch"/>
+
+    <!-- start this controller -->
+    <rosparam file="$(find ur_gazebo)/controller/arm_controller_ur3.yaml" command="load"/>
+    <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
+
+    <!-- load other controllers -->
+    <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" />
+
+  </group>
+
+  <!-- Run the main MoveIt! executable without trajectory execution (we do not have controllers configured by default) -->
+  <include file="$(find ur_robotiq_moveit_config)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="fake_execution" value="$(arg fake_execution)"/>
+    <arg name="info" value="$(arg info)"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+  <!-- If needed, broadcast static tf for robot root -->
+  <node pkg="tf" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world ur_robotiq_environment 100" />
+
+  <!-- Robotiq Hand -->
+  <node if="$(arg robotiq)" name="robotiq_control"  pkg="robotiq_2f_gripper_control" type="Robotiq2FGripperRtuNode.py" args=" $(arg robotiq_device)" output="screen">
+  </node>
+
+  <!-- azure_kinect -->
+  <include if="$(arg camera)" file="$(find ur_robotiq)/launch/azure_kinect.launch">
+    <arg name="use_point_cloud" value="true" />
+  </include>
+
+  <!-- pick_and_place -->
+  <node if="$(arg pick_and_place)" name="pick_and_place_commander" pkg="ur_robotiq" type="pick_and_place.py" output="screen">
+    <param name="camera" value="$(arg camera)" />
+  </node>
+
+  <!-- Launch visualizer -->
+  <node if="$(arg rviz)" name="$(anon rviz)"  pkg="rviz" type="rviz" respawn="false"
+    args="-d $(find ur_robotiq)/config/demo.rviz" output="screen">
+  </node>
+
+</launch>
