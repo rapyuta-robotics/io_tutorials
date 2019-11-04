@@ -1,5 +1,5 @@
 <launch>
-  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)" doc="turtlebot 3 model type [burger, waffle, waffle_pi]"/> 
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)" doc="turtlebot3 model type [burger, waffle, waffle_pi]"/>
 
   <!-- robot initial pose -->
   <arg name="x_pos" default="-0.5"/>

@@ -1,14 +1,9 @@
-
 <launch>
-  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)"/> <!--mandatory argument-->
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)" doc="turtlebot3 model type [burger, waffle, waffle_pi]"/>
   <arg name="x_pos" default="-0.5"/>
   <arg name="y_pos" default="-0.5"/>
   <arg name="yaw_pos" default="0.0"/>
-<!-- 
-  <include file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch">
-    <arg name="model" value="$(arg model)"/>
-  </include>
- -->
+
   <node pkg="io_gazebo_turtlebot_demo_app" type="demo_app.py" name="demo_app" output="screen">
   	 <rosparam subst_value="True">
        init_x: "$(arg x_pos)"
