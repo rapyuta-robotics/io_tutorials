@@ -1,4 +1,12 @@
 # sample parameter file
 # parameters in this file will be used in both app and sim
 
-param1: 'param1'
+# mandatory parameter since simulation and app can be run in the different machine
+use_sim_time: true 
+
+# turtlebot inital pose which will be usef for
+# 1. spawn model
+# 2. publish inital pose for navigation
+init_x: -0.5
+init_y: -0.5
+init_yaw: 0.0
