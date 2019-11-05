@@ -1,12 +1,9 @@
 <launch>
   <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)"/> <!--mandatory argument-->
-  <arg name="x_pos" default="-2.0"/>
-  <arg name="y_pos" default="-0.5"/>
-  <arg name="yaw_pos" default="0.0"/>
   <arg name="gui" default="false"/>
   
     
-  <!-- spawn simulation models -->
+  <!-- spawn world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_world.world"/>
     <arg name="paused" value="false"/>
@@ -15,6 +12,4 @@
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
   </include>
-
-  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z 0.0 -Y $(arg yaw_pos)  -param robot_description" />
 </launch>

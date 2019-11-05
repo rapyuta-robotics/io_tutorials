@@ -9,11 +9,11 @@ from tf.transformations import euler_from_quaternion, quaternion_from_euler
 rospy.init_node('demo_app')
 
 # Load initial pose
-init_quaternion = quaternion_from_euler(0.0, 0.0, float(rospy.get_param('~init_yaw')))
+init_quaternion = quaternion_from_euler(0.0, 0.0, float(rospy.get_param('/init_yaw')))
 
 initalpose = PoseWithCovarianceStamped()
-initalpose.pose.pose.position.x = float(rospy.get_param('~init_x'))
-initalpose.pose.pose.position.y = float(rospy.get_param('~init_y'))
+initalpose.pose.pose.position.x = float(rospy.get_param('/init_x'))
+initalpose.pose.pose.position.y = float(rospy.get_param('/init_y'))
 initalpose.pose.pose.position.z = 0.0
 initalpose.pose.pose.orientation.x = init_quaternion[0]
 initalpose.pose.pose.orientation.x = init_quaternion[1]
