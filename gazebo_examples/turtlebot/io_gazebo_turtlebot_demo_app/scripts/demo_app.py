@@ -42,8 +42,7 @@ for i in range(locations_num):
 # Movebase client
 move_base_client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
 rospy.loginfo("Waiting MoveBase action server")
-move_base_server_up = move_base_client.wait_for_server(timeout = rospy.Duration(3.0))
-if move_base_client.wait_for_server(timeout = rospy.Duration(3.0)): 
+if move_base_client.wait_for_server(timeout = rospy.Duration(60.0)): 
     rospy.loginfo("Confirmed MoveBase action server is running")
     # Send initial pose
     initpose_pub.publish(initalpose)
