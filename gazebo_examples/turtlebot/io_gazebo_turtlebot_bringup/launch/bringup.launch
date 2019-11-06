@@ -5,6 +5,7 @@
   <include file="$(find io_gazebo_turtlebot_bringup)/launch/sim.launch">
     <arg name="load_common_param" value="true"/>
     <arg name="model" value="$(arg model)"/>
+    <arg name="gui" value="$(arg gui)"/>
   </include>
 
   <!-- app -->
