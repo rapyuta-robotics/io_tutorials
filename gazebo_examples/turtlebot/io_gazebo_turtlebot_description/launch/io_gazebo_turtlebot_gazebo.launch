@@ -1,5 +1,5 @@
 <launch>
-  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)"/> <!--mandatory argument-->
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)" doc="turtlebot3 model type [burger, waffle, waffle_pi]"/>
   <arg name="gui" default="false"/>
   
     

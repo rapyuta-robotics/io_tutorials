@@ -1,5 +1,5 @@
 <launch>
-  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)"/> <!--mandatory argument-->
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)" doc="turtlebot3 model type [burger, waffle, waffle_pi]"/>
   <arg name="map_file" default="$(find turtlebot3_navigation)/maps/map.yaml"/>
   <arg name="rviz" default="true"/>
   <arg name="move_forward_only" default="false"/>
