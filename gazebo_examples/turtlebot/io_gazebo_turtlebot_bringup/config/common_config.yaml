@@ -4,7 +4,7 @@
 # mandatory parameter since simulation and app can be run in the different machine
 use_sim_time: true 
 
-# turtlebot initial pose which will be useful for:
+# turtlebot initial pose which will be used for:
 # 1. spawning model
 # 2. publishing initial pose for navigation
 init_x: -0.5
