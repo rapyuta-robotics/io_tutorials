@@ -2,11 +2,16 @@
 
 import rospy
 import actionlib
-from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from std_msgs.msg import Time
 from geometry_msgs.msg import PoseWithCovarianceStamped
+from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
 rospy.init_node('demo_app')
+
+# Time sync
+rospy.wait_for_message('/clock', Time)
+rospy.loginfo('Time synced with Simulator')
 
 # Load initial pose
 init_quaternion = quaternion_from_euler(0.0, 0.0, float(rospy.get_param('/init_yaw')))
@@ -21,7 +26,6 @@ initalpose.pose.pose.orientation.x = init_quaternion[2]
 initalpose.pose.pose.orientation.x = init_quaternion[3]
 
 initpose_pub = rospy.Publisher('/initialpose', PoseWithCovarianceStamped, queue_size=1)
-
 
 # Load locations 
 locations = []
@@ -38,11 +42,10 @@ for i in range(locations_num):
     loc_y.append(rospy.get_param(location_name+'/y'))
     loc_yaw.append(rospy.get_param(location_name+'/yaw'))
 
-
 # Movebase client
 move_base_client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
 rospy.loginfo("Waiting MoveBase action server")
-if move_base_client.wait_for_server(timeout = rospy.Duration(60.0)): 
+if move_base_client.wait_for_server(timeout = rospy.Duration(60.0)):
     rospy.loginfo("Confirmed MoveBase action server is running")
     # Send initial pose
     initpose_pub.publish(initalpose)
