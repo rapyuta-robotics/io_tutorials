@@ -27,7 +27,7 @@ init_pose.orientation.z = q[2]
 init_pose.orientation.w = q[3]
 
 #call service
-if(spawn_model('Turftle', urdf, rospy.get_namespace(), init_pose, '')):
+if(spawn_model('Turtle', urdf, rospy.get_namespace(), init_pose, '')):
     rospy.loginfo('spawn model succeeded')
 else:
     rospy.logerr('spawn model failed')
