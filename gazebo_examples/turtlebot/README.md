@@ -40,4 +40,4 @@ roslaunch io_gazebo_turtlebot_bringup bringup.launch
 ```
 
 #### Run with rapyuta.io
-Please go through this tutorial (TODO link).
+To run it on rapyuta.io, please go through the tutorial [here](https://userdocs.rapyuta.io/build-solutions/sample-walkthroughs/turtlebot-navigation-simulation).
