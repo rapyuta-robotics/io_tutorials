@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>pingpongst</name>
+  <version>0.0.0</version>
+  <description>The pingpong package</description>
+ 
+  <maintainer email="hendrik.skubch@rapyuta-robotics.com">hendrik</maintainer>
+  <license>Commercial</license>
+  <depend>roscpp</depend>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+</package>

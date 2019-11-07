@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<node name="$(anon ping)" type="pingpongst_node" pkg="pingpongst" output="screen">
+<param name="start" type="bool" value="true"/>
+<param name="id" type="int" value="$(optenv ID 1)" />
+<param name="listen" type="string" value="pong" />
+<param name="talk" type="string" value="ping" />
+</node>
+</launch>
