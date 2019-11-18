@@ -1,0 +1,10 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_footprint
+
+  update_frequency: 1.0 #decreased for cloud/device communication
+  publish_frequency: 1.0 #decreased for cloud/device communication
+  transform_tolerance: 5.0 #increased for cloud/device communication
+
+  static_map: true
+ 

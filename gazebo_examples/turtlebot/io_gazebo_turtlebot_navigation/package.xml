@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>io_gazebo_turtlebot_navigation</name>
+  <version>0.0.0</version>
+  <description>The turtlebot3 simulation navigation package for rapyuta.io</description>
+
+  <maintainer email="yu.okamoto@rapyuta-robotics.com">Yu Okamoto</maintainer>
+
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>amcl</exec_depend>
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>move_base</exec_depend>
+
+</package>

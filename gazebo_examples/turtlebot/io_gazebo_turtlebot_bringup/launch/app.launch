@@ -1,0 +1,22 @@
+<launch>
+  <arg name="load_common_param" default="true" doc="this param in the either sim.launch or app.launch should be true"/>
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)" doc="turtlebot3 model type [burger, waffle, waffle_pi]"/>
+  <arg name="spawn_model" default="$(optenv SPAWN_TURTLEBOT_MODEL true)"/>
+
+  <!-- load common param -->
+  <include if="$(arg load_common_param)" file="$(find io_gazebo_turtlebot_bringup)/launch/common.launch">
+    <arg name="model" value="$(arg model)"/>
+  </include>
+
+  <!-- navigation -->
+  <include file="$(find io_gazebo_turtlebot_navigation)/launch/io_turtle_gazebo_navigation.launch">
+    <arg name="model" value="$(arg model)"/>
+  </include>
+
+  <!-- app -->
+  <node pkg="io_gazebo_turtlebot_demo_app" type="spawn_model.py" name="spawn_model" output="screen" if="$(arg spawn_model)"/>
+  <include file="$(find io_gazebo_turtlebot_demo_app)/launch/demo_app.launch">
+    <arg name="model" value="$(arg model)"/>
+  </include>
+
+</launch>

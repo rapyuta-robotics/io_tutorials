@@ -1,0 +1,7 @@
+<launch>
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)" doc="turtlebot3 model type [burger, waffle, waffle_pi]"/>
+
+  <node pkg="io_gazebo_turtlebot_demo_app" type="demo_app.py" name="demo_app" output="screen">
+     <rosparam command="load" file="$(find io_gazebo_turtlebot_demo_app)/config/locations.yaml" />
+  </node>
+</launch>

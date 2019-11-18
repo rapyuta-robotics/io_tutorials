@@ -1,0 +1,9 @@
+<launch>  
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)" doc="turtlebot3 model type [burger, waffle, waffle_pi]"/>
+
+  <!-- robot description which are used in app(robot_state_publisher and etc) and sim-->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <!-- sample parameter which are loaded in both app and sim-->
+  <rosparam file="$(find io_gazebo_turtlebot_bringup)/config/common_config.yaml" command="load" ns="/" />
+</launch>

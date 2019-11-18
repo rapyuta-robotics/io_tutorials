@@ -1,0 +1,16 @@
+<launch>
+  <arg name="model" default="$(optenv TURTLEBOT3_MODEL burger)" doc="turtlebot3 model type [burger, waffle, waffle_pi]"/>
+
+  <!-- simulator -->
+  <include file="$(find io_gazebo_turtlebot_bringup)/launch/sim.launch">
+    <arg name="load_common_param" value="true"/>
+    <arg name="model" value="$(arg model)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <!-- app -->
+  <include file="$(find io_gazebo_turtlebot_bringup)/launch/app.launch">
+    <arg name="load_common_param" value="false"/>
+    <arg name="model" value="$(arg model)"/>
+  </include>
+</launch>
