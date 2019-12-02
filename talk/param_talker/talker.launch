@@ -1,0 +1,4 @@
+<launch>
+	<node name="talker" pkg="param_talker" type="talker.py" output="screen"/>
+	<rosparam command="load" file="$(env RIO_CONFIGS_DIR)/robots/name.yaml"/>
+</launch>
