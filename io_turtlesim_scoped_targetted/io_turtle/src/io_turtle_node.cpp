@@ -2,7 +2,6 @@
 #include <std_msgs/String.h>
 
 #include <io_turtle_scoped_targetted/io_turtle.hpp>
-#include <io_turtle_scoped_targetted_services/RegisterTurtle.h>
 #include <io_turtle_scoped_targetted_services/RegisterSimTurtle.h>
 #include <io_turtle_scoped_targetted_action/GoToAction.h>
 
