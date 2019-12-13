@@ -1,0 +1,109 @@
+{
+  "apiVersion": "v1.0.0",
+  "name": "Turtlesim_command_center",
+  "packageVersion": "v1.0.0",
+  "description": "",
+  "plans": [
+    {
+      "name": "default",
+      "metadata": {
+        
+      },
+      "singleton": false,
+      "components": [
+        {
+          "name": "command center",
+          "description": "",
+          "cloudInfra": {
+            "replicas": 1,
+            "endpoints": [
+              {
+                "name": "WS",
+                "exposeExternally": true,
+                "port": 443,
+                "targetPort": 9090,
+                "proto": "HTTPS"
+              }
+            ]
+          },
+          "ros": {
+            "topics": [
+              {
+                "name": "/cmd_vel",
+                "qos": "low"
+              }
+            ],
+            "services": [
+              {
+                "name": "/register_turtle"
+              }
+            ],
+            "actions": [
+              
+            ],
+            "isROS": true
+          },
+          "requiredRuntime": "cloud",
+          "executables": [
+            {
+              "name": "cc",
+              "gitExecutable": {
+                "repository": "https://github.com/rapyuta-robotics/io_tutorials.git",
+                "strategyType": "Source",
+                "dockerFilePath": "",
+                "contextDir": ""
+              },
+              "cmd": [
+                "roslaunch io_turtle_command_center command_center.launch"
+              ]
+            }
+          ],
+          "parameters": [
+            {
+              "default": "0.0.0.0",
+              "name": "WS_ADDR",
+              "description": ""
+            },
+            {
+              "default": "9090",
+              "name": "WS_PORT",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "includePackages": [
+        
+      ],
+      "dependentDeployments": [
+        
+      ],
+      "exposedParameters": [
+        
+      ],
+      "inboundROSInterfaces": {
+        "topics": [
+          {
+            "name": "/pose"
+          }
+        ],
+        "services": [
+          {
+            "name": "/teleport_turtle"
+          }
+        ],
+        "actions": [
+          {
+            "name": "/turtle_2/goto_action"
+          },
+          {
+            "name": "/turtle_1/goto_action"
+          },
+          {
+            "name": "/turtle_0/goto_action"
+          }
+        ]
+      }
+    }
+  ]
+}

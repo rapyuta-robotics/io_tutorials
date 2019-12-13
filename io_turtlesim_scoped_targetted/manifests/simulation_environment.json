@@ -1,0 +1,86 @@
+{
+  "apiVersion": "v1.0.0",
+  "name": "Turtlesim_environment",
+  "packageVersion": "v1.0.0",
+  "description": "",
+  "plans": [
+    {
+      "name": "default",
+      "metadata": {
+        
+      },
+      "singleton": false,
+      "components": [
+        {
+          "name": "sim",
+          "description": "",
+          "cloudInfra": {
+            "replicas": 1,
+            "endpoints": [
+              
+            ]
+          },
+          "ros": {
+            "topics": [
+              {
+                "name": "/sim/sensors",
+                "qos": "low"
+              },
+              {
+                "name": "/sim/pose",
+                "qos": "low"
+              }
+            ],
+            "services": [
+              {
+                "name": "/teleport_turtle"
+              },
+              {
+                "name": "/register_sim_turtle"
+              }
+            ],
+            "actions": [
+              
+            ],
+            "isROS": true
+          },
+          "requiredRuntime": "cloud",
+          "executables": [
+            {
+              "cmd": [
+                "roslaunch io_turtle_sim_env simulation.launch"
+              ],
+              "git": "https://github.com/rapyuta-robotics/io_tutorials.git",
+              "name": "sim"
+            }
+          ],
+          "parameters": [
+            
+          ]
+        }
+      ],
+      "includePackages": [
+        
+      ],
+      "dependentDeployments": [
+        
+      ],
+      "exposedParameters": [
+        
+      ],
+      "inboundROSInterfaces": {
+        "topics": [
+          {
+            "name": "/sim/cmd_vel"
+          }
+        ],
+        "services": [
+          
+        ],
+        "actions": [
+          
+        ]
+      }
+    }
+  ]
+}
