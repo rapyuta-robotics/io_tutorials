@@ -152,7 +152,7 @@ var app = new Vue({
                 const pose_index = splitted.indexOf('pose')
                 if( pose_index > 0 && splitted.length == 3 ){
                     var turtle_name = splitted[pose_index-1]
-                    if (! vm.turtles.hasOwnProperty(turtle_name)) {
+                    if (! vm.turtles.hasOwnProperty(turtle_name) && splitted[pose_index-1]!='sim') {
                         vm.ros_add_components(turtle_name)
                     }
                 }
