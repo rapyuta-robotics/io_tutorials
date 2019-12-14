@@ -106,7 +106,7 @@ var app = new Vue({
             vm.teleport =  new ROSLIB.Service({
                 ros: vm.ros,
                 name: '/teleport_turtle',
-                serviceType: 'io_turtle_services/TeleportTurtle'
+                serviceType: 'io_turtle_scoped_targetted_services/TeleportTurtle'
             })
         },
         ros_add_components(name) {
@@ -133,7 +133,7 @@ var app = new Vue({
                 action: new ROSLIB.ActionClient({
                     ros: vm.ros,
                     serverName: '/'+ name +'/goto_action',
-                    actionName: 'io_turtle_action/GoToAction'
+                    actionName: 'io_turtle_scoped_targetted_action/GoToAction'
                 }),
                 goal: {}
             });
