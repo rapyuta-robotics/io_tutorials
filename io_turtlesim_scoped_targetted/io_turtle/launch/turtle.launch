@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-	<arg name="use_rapyuta_io" default="false" />
-	<arg name="robot_name" default="turtle0" doc="not used if use_rapyuta_io=true" />
+    <arg name="use_rapyuta_io" default="false" doc="use rapyuta.io to get robot name"/>
+    <rosparam param="use_rapyuta_io" subst_value="True">$(arg use_rapyuta_io)</rosparam>
+	
+    <arg name="robot_name" default="turtle0" doc="not used if use_rapyuta_io=true" />
     <node name="$(anon turtle)" pkg="io_turtle_scoped_targetted" type="io_turtle_scoped_targetted_node" output="screen">
         <rosparam file="$(find io_turtle_scoped_targetted_config)/config/config.yaml" />
         <param name="name" value="$(arg robot_name)" />

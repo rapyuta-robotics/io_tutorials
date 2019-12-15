@@ -114,7 +114,7 @@ int main(int argc, char** argv) {
     priv_nh.param("time_step", time_step, 0.1f);
     priv_nh.param("goal_timeout", timeout, 5.0f);
 
-    priv_nh.param("use_rapyuta_io", use_rapyuta_io, false);
+    nh.param("use_rapyuta_io", use_rapyuta_io, false);
 
     // Set ROS loop rate
     float frequency = 1.0f / time_step;
@@ -130,7 +130,6 @@ int main(int argc, char** argv) {
     dr_srv.setCallback(dr_cb);
 
     io_turtle.register_turtle(nh, sim, queue_size);
-    ROS_INFO("Registered myself as Turtle%d", id);
 
     if (sim) {
         ROS_INFO("Starting node in simulation mode.");
@@ -142,10 +141,10 @@ int main(int argc, char** argv) {
         priv_nh.param<std::string>("name", name, "turtle");
         if(use_rapyuta_io){
             ros::topic::waitForMessage<std_msgs::String>(peer_topic_name, nh);
-            std::cout << rapyuta_io_peers << std::endl;
+            ros::spinOnce();
             name = split(rapyuta_io_peers, ',')[0];
-            std::cout << name << std::endl;
         }
+        ROS_INFO_STREAM("Register myself as "<<name);
 
         // Construct ROS service for registration with simulation environment
         ros::ServiceClient register_sim_client = nh.serviceClient<RegisterSimTurtle>("register_sim_turtle");
