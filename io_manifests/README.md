@@ -27,5 +27,6 @@ Upload the required manifest JSON file.
 For example, to add the ***MinIO File Server*** package to rapyuta.io
 platform, upload its manifest file: **minio_file_server_manifest.json**
 
-[JSONLint](https://jsonlint.com/) is the tool used for formatting the *_*_manifest.json_* files.
+[JSONLint](https://jsonlint.com/) is the tool used for formatting all
+of the manifests.
 
