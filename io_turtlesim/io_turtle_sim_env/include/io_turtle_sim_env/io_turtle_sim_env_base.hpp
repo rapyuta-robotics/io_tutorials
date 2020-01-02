@@ -153,6 +153,9 @@ public:
         // Construct services
         _register_service = _nh.advertiseService("register_sim_turtle", &SimEnvBase::register_turtle, this);
         ROS_INFO("'Register simulation turtle' service started.");
+
+        _teleport_service = nh.advertiseService("teleport_turtle", &SimEnvBase::teleport_turtle, this);
+        ROS_INFO("'Teleport turtle' service started.");
     }
 
     void update() {
@@ -180,9 +183,26 @@ protected:
         return response.data;
     }
 
+    bool teleport_turtle(TeleportTurtle::Request& req, TeleportTurtle::Response& response) {
+        typename TurtleMap::iterator turtle_it = _turtles.find(req.id);
+
+        if (turtle_it == _turtles.end()) {
+            ROS_INFO("Turtle%d is not registered in simulation.", req.id);
+            response.data = false;
+            return true;
+        }
+        
+        response.data = turtle_it->second.set_pose(req.x, req.y, req.theta);
+        if(response.data){
+            ROS_INFO("Teleported Turtle%d to (%f, %f, %f)", req.id, req.x, req.y, req.theta);
+        }
+        
+        return response.data;
+    }
 
     ros::NodeHandle _nh, _priv_nh;
     ros::ServiceServer _register_service;
+    ros::ServiceServer _teleport_service;
     float _time_step;
     TurtleMap _turtles;
 

@@ -11,7 +11,7 @@ var app = new Vue({
         //     teleport: null
         // },
         id: 0,
-        // teleport: null,
+        teleport: null,
         update_interval: null,
         turtles: {},
         vel_req: {
@@ -103,6 +103,11 @@ var app = new Vue({
         },
         ros_init() {
             var vm = this;
+            vm.teleport = new ROSLIB.Service({
+                ros: vm.ros,
+                name: '/teleport_turtle',
+                serviceType: 'io_turtle_services/TeleportTurtle'
+            })
         },
         ros_add_components(name) {
             var vm = this;
@@ -117,11 +122,11 @@ var app = new Vue({
                                 name: '/'+name+'/pose',
                                 messageType: 'geometry_msgs/Pose2D'
                             }),
-                teleport: new ROSLIB.Service({
-                                ros: vm.ros,
-                                name: '/'+name+'/teleport_turtle',
-                                serviceType: 'io_turtle_services/TeleportTurtle'
-                            })
+                // teleport: new ROSLIB.Service({
+                //                 ros: vm.ros,
+                //                 name: '/'+name+'/teleport_turtle',
+                //                 serviceType: 'io_turtle_services/TeleportTurtle'
+                //             })
             }
             Vue.set(vm.turtles, name, {
                 image: './img/turtle'+(vm.id % 8) +'.png',
@@ -139,7 +144,6 @@ var app = new Vue({
             });
             vm.get_pose(name)
             vm.id += 1
-
 
             console.log("New Turtle " + name + " added.");
         },
@@ -284,7 +288,7 @@ var app = new Vue({
             }
 
             var request = new ROSLIB.ServiceRequest({
-                id: 0,//not used vm.teleport_req.name,
+                id: parseInt(vm.teleport_req.name.split("turtle")[1]),
                 x: parseFloat(vm.teleport_req.x),
                 y: parseFloat(vm.teleport_req.y),
                 theta: vm.to_radians(parseFloat(vm.teleport_req.theta))
@@ -296,7 +300,8 @@ var app = new Vue({
                         ", " + vm.teleport_req.theta +
                         ") was sent.");
 
-            vm.ros_components[vm.teleport_req.name].teleport.callService(request, (result) => {
+            console.log(vm, vm.teleport)
+            vm.teleport.callService(request, (result) => {
                 if (result.data) {
                     console.log("Teleport request for " + vm.teleport_req.name +
                                 " to (" + vm.teleport_req.x +

@@ -35,12 +35,10 @@ public:
 
 private:
     void register_turtle_impl(int id);
-    bool teleport_turtle(TeleportTurtle::Request& req, TeleportTurtle::Response& response);
     void velocity_callback(const io_turtle_msgs::Velocity& vel);
     ros::Publisher _pose_pub;
     ros::Publisher _sensors_pub;
     ros::Subscriber _velocity_sub;
-    ros::ServiceServer _teleport_service;
 };
 
 }  // namespace turtlesim

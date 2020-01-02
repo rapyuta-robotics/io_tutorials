@@ -16,7 +16,6 @@ void IOTurtle::register_turtle(ros::NodeHandle& nh, int id, bool sim, int queue_
 
     IOTurtleBase<io_turtle_msgs::Velocity, io_turtle_msgs::Pose>::register_turtle(nh, id, sim, queue_size);
     _turtle->set_id(id);
-    ROS_ERROR("Register Turtle%d",id);
     if (sim) {
         _sim_pose_sub = nh.subscribe("sim/pose", queue_size, &IOTurtle::sim_pose_callback, this);
         _sim_sensors_sub = nh.subscribe("sim/sensors", queue_size, &IOTurtle::sim_sensors_callback, this);
@@ -51,7 +50,6 @@ void IOTurtle::sim_sensors_callback(const io_turtle_msgs::DistanceSensor& sensor
 
 IOTurtleNode::IOTurtleNode(ros::NodeHandle& nh, ros::NodeHandle& priv_nh) : IOTurtleBaseNode<io_turtle_msgs::Velocity, io_turtle_msgs::Pose>(nh, priv_nh) {
     // _nh.param("use_rapyuta_io", use_rapyuta_io, false);
-    ROS_ERROR("IOTurtleNode constructor");
     _io_turtle = new IOTurtle(priv_nh);
 }
 
@@ -68,7 +66,6 @@ void IOTurtleNode::set_dr(){
 }
 
 void IOTurtleNode::register_turtle(){
-    ROS_ERROR("Node Register Turtle");
 
     // Construct ROS service for registration with command center
     ros::ServiceClient client = _nh.serviceClient<RegisterTurtle>("register_turtle");
@@ -88,6 +85,10 @@ void IOTurtleNode::register_turtle(){
     IOTurtleBaseNode<io_turtle_msgs::Velocity, io_turtle_msgs::Pose>::register_turtle();
     // _io_turtle->register_turtle(_nh, _id, _sim, _queue_size);
     ROS_INFO("Registered myself as Turtle%d", _id);
+}
+
+void IOTurtleNode::set_action_name(){
+    _action_server_name = "turtle" + std::to_string(_id) + "/goto_action";
 }
 
 }  // namespace turtlesim

@@ -22,13 +22,11 @@ public:
     SimTurtleScopedTargetted(ros::NodeHandle& nh, ros::NodeHandle& priv_nh, int id, TurtleGeometryMsg turtle, 
             float radius, float collision_range, float x_min, float x_max, float y_min, float y_max);
     ~SimTurtleScopedTargetted();
-    bool teleport_turtle(TeleportTurtle::Request& req, TeleportTurtle::Response& response);
     void velocity_callback(const geometry_msgs::Twist& vel);
 
 private:
     // ROS subscribers and publishers
     ros::Subscriber _velocity_sub;
-    ros::ServiceServer _teleport_service;
 };
 
 

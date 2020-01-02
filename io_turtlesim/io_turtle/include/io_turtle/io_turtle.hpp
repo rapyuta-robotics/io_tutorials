@@ -31,6 +31,8 @@ public:
     ~IOTurtleNode();
     void register_turtle();
     void set_dr();
+private:
+    void set_action_name();
 };
 
 }  // namespace turtlesim

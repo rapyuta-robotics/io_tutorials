@@ -86,6 +86,7 @@ public:
     virtual void set_dr();
     void spin();
 protected:
+    virtual void set_action_name();
     ros::NodeHandle _nh;
     IOTurtleBase<VelMsg, PoseMsg>* _io_turtle;
     int _id;
@@ -93,7 +94,7 @@ protected:
     int _queue_size;
     float _frequency;
     float _timeout;
-
+    std::string _action_server_name;
 };
 
 static float clamp_magnitude(float x, float max) {
@@ -121,7 +122,6 @@ template<class VelMsg, class PoseMsg>
 void IOTurtleBase<VelMsg, PoseMsg>::register_turtle(ros::NodeHandle& nh, int id, bool sim, int queue_size) {
     _turtle->set_id(id);
     _sim = sim;
-    ROS_ERROR("Base Register Turtle%d",id);
 
     if (_sim) {
         _sim_pose_sub = nh.subscribe("sim/pose", queue_size, &IOTurtleBase<VelMsg, PoseMsg>::sim_pose_callback, this);
@@ -325,8 +325,12 @@ IOTurtleBaseNode<VelMsg, PoseMsg>::IOTurtleBaseNode(ros::NodeHandle& nh, ros::No
 
 template<class VelMsg, class PoseMsg>
 void IOTurtleBaseNode<VelMsg, PoseMsg>::register_turtle(){
-    ROS_ERROR("Base Node Register Turtle");
     _io_turtle->register_turtle(_nh, _id, _sim, _queue_size);
+}
+
+template<class VelMsg, class PoseMsg>
+void IOTurtleBaseNode<VelMsg, PoseMsg>::set_action_name(){
+    _action_server_name = "/goto_action";
 }
 
 template<class VelMsg, class PoseMsg>
@@ -375,8 +379,8 @@ void IOTurtleBaseNode<VelMsg, PoseMsg>::spin(){
     this->set_dr();
 
     // Construct ROS action server for goals
-    std::string action_server_name = "turtle" + std::to_string(_id) + "/goto_action";
-    turtlesim::GoToActionServer<VelMsg, PoseMsg> goto_server(_nh, action_server_name, _io_turtle, _frequency, _timeout);
+    this->set_action_name();
+    turtlesim::GoToActionServer<VelMsg, PoseMsg> goto_server(_nh, _action_server_name, _io_turtle, _frequency, _timeout);
     ROS_INFO("ROS action server Turtle%d is started.", _id);
 
 

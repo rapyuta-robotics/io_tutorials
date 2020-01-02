@@ -13,8 +13,6 @@
         <remap from="sim/sensors" to="$(arg robot_name)/sim/sensors" unless="$(arg use_rapyuta_io)" />
         <remap from="pose" to="$(arg robot_name)/pose" unless="$(arg use_rapyuta_io)" />
         <remap from="cmd_vel" to="$(arg robot_name)/cmd_vel" unless="$(arg use_rapyuta_io)" />
-        <!-- todo action and service -->
         <remap from="goto_action" to="$(arg robot_name)/goto_action" unless="$(arg use_rapyuta_io)" />
-
     </node>
 </launch>

@@ -16,24 +16,12 @@ SimTurtleScopedTargetted::SimTurtleScopedTargetted(ros::NodeHandle& nh, ros::Nod
     _velocity_sub = nh.subscribe("turtle"+std::to_string(_id)+"/sim/cmd_vel", queue_size, &SimTurtleScopedTargetted::velocity_callback, this);
     _pose_pub = new ros::Publisher(nh.advertise<geometry_msgs::Pose2D>("turtle"+std::to_string(_id)+"/sim/pose", queue_size));
     _sensors_pub = new ros::Publisher(nh.advertise<io_turtle_msgs::DistanceSensor>("turtle"+std::to_string(_id)+"/sim/sensors", queue_size));
- 
-    _teleport_service = nh.advertiseService("turtle"+std::to_string(_id)+"/teleport_turtle", &SimTurtleScopedTargetted::teleport_turtle, this);
-    ROS_INFO("'Teleport%d turtle' service started.", _id);
 
 }
 
 SimTurtleScopedTargetted::~SimTurtleScopedTargetted(){
     delete _pose_pub;
     delete _sensors_pub;
-}
-
-bool SimTurtleScopedTargetted::teleport_turtle(TeleportTurtle::Request& req, TeleportTurtle::Response& response) {
-    response.data = set_pose(req.x, req.y, req.theta);
-    if(response.data){
-        ROS_INFO("Teleported Turtle%d to (%f, %f, %f)", _id, req.x, req.y, req.theta);
-    }
-    
-    return response.data;
 }
 
 void SimTurtleScopedTargetted::velocity_callback(const geometry_msgs::Twist& vel) {
@@ -51,8 +39,6 @@ void SimEnvScopedTargetted::register_turtle_impl(int id){
     new_turtle._pose.x = random_value(_x_min + _collision_range, _x_max - _collision_range);
     new_turtle._pose.y = random_value(_y_min + _collision_range, _y_max - _collision_range);
     new_turtle._pose.theta = 0.0f;
-
-    // SimTurtleBase new_simturtle(_nh, _priv_nh, req.id, new_turtle, _turtle_radius, _collision_range, _x_min, _x_max, _y_min, _y_max);
 
     // _turtles.emplace(req.id, new_simturtle);
     _turtles.emplace(std::piecewise_construct, 
