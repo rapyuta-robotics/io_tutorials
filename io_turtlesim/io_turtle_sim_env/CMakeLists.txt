@@ -24,9 +24,12 @@ catkin_package(CATKIN_DEPENDS ${PKG_DEPS})
 
 include_directories(
     ${catkin_INCLUDE_DIRS}
+    include
 )
 
 add_executable(${PROJECT_NAME}_node
+    src/io_turtle_sim_env.cpp  
+    src/io_turtle_sim_env_scoped_targetted.cpp  
     src/io_turtle_sim_env_node.cpp  
 )
 

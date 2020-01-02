@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Turtlesim Viewer</title>
+<!-- This viewer is based off https://github.com/CRH380B-6216L/webROSGUI_prototype0 -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script type="text/javascript" src="https://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+<script type="text/javascript" src="https://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+<script src="env.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+<div id="app">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <h1>Turtlesim Viewer</h1>
+            <hr>
+            <div v-if="state != 'success'">
+                <p><strong>It seems that you haven't connected to the ROS host running <i>turtle command center</i>.</strong><br>Enter the address of the host below and click "connect".</p>
+                <div class="form-inline form-group">
+                    <input class="form-control" style="width: 50%" placeholder="Address of the ROS host" v-model="address"></input>
+                    <button class="btn btn-primary" @click="connect">Connect</button>
+                </div>
+            </div>
+            <div v-else>
+                <div class="form-group">
+                    <label>Where am I</label>
+                    <p>ID|X|Y|&Theta;|V|A:</p>
+                    <li v-for="(turtle, key) in turtles">
+                        <small> {{key}}, {{(turtle.pose.x).toFixed(2)}}, {{(turtle.pose.y).toFixed(2)}}, {{(turtle.pose.theta).toFixed(2)}}</small>
+                    </li>
+                    <div id="background" :style="bg_style">
+                        <canvas id="turtlesim_canvas" width="500px" height="500px" :style="canvas_style"></canvas>
+                        <div v-for="(turtle, key) in turtles" :key="key" :id="key" :style="turtle_style">
+                            <img :src="turtle.image" :id="'turtleImage_'+key"></img>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Set speed and direction</label>
+                    <div class="form-inline">
+                        <div class="input-group" style="width:32%">
+                            <span class="input-group-addon">Turtle Name</span>
+                            <!-- <input type="text" class="form-control" v-model="vel_req.name"> -->
+                            <select v-model="vel_req.name" style="height:30px">
+                              <option v-for="(turtle, key) in turtles" :key="key" :id="key" >
+                                {{ key }}
+                              </option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="width:26%">
+                            <span class="input-group-addon">Linear</span>
+                            <input type="number" class="form-control" v-model="vel_req.linear_velocity">
+                        </div>
+                        <div class="input-group" style="width:34%">
+                            <span class="input-group-addon">Angular (deg)</span>
+                            <input type="number" class="form-control" v-model="vel_req.angular_velocity">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" @click="move_once">Go for 1s</button>
+                    <button class="btn btn-info" @click="move_along">Go along</button>
+                    <button class="btn btn-white text-danger" @click="move_stop">Stop</button>
+                </div>
+                <div class="form-group">
+                    <label>Teleport Turtle</label>
+                    <div class="form-inline">
+                        <div class="input-group" style="width:32%">
+                            <span class="input-group-addon">Turtle Name</span>
+                            <!-- <input type="text" class="form-control" v-model="teleport_req.name"> -->
+                            <select v-model="teleport_req.name" style="height:30px">
+                              <option v-for="(turtle, key) in turtles" :key="key" :id="key" >
+                                {{ key }}
+                              </option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="width:16%">
+                            <span class="input-group-addon">X</span>
+                            <input type="number" class="form-control" v-model="teleport_req.x">
+                        </div>
+                        <div class="input-group" style="width:16%">
+                            <span class="input-group-addon">Y</span>
+                            <input type="number" class="form-control" v-model="teleport_req.y">
+                        </div>
+                        <div class="input-group" style="width:28%">
+                            <span class="input-group-addon">theta (deg)</span>
+                            <input type="number" class="form-control" v-model="teleport_req.theta">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" @click="teleport_turtle">Teleport</button>
+                </div>
+                <div class="form-group">
+                    <label>Set Goal</label>
+                    <div class="form-inline">
+                        <div class="input-group" style="width:32%">
+                            <span class="input-group-addon">Turtle Name</span>
+                            <!-- <input type="text" class="form-control" v-model="goto_action_req.name"> -->
+                            <select v-model="goto_action_req.name" style="height:30px">
+                              <option v-for="(turtle, key) in turtles" :key="key" :id="key" >
+                                {{ key }}
+                              </option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="width:30%">
+                            <span class="input-group-addon">X</span>
+                            <input type="number" class="form-control" v-model="goto_action_req.x">
+                        </div>
+                        <div class="input-group" style="width:30%">
+                            <span class="input-group-addon">Y</span>
+                            <input type="number" class="form-control" v-model="goto_action_req.y">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" @click="goto_turtle_start">Start</button>
+                    <button class="btn btn-white text-danger" @click="goto_turtle_stop">Stop</button>
+                </div>
+                <div class="form-group">
+                    <label>Set background color</label>
+                    <div class="form-inline">
+                        <div class="input-group" style="width:30%">
+                            <span class="input-group-addon">Red</span>
+                            <input type="number" min="0" class="form-control" v-model="background.red">
+                        </div>
+                        <div class="input-group" style="width:32%">
+                            <span class="input-group-addon">Green</span>
+                            <input type="number" min="0" class="form-control" v-model="background.green">
+                        </div>
+                        <div class="input-group" style="width:30%">
+                            <span class="input-group-addon">Blue</span>
+                            <input type="number" min="0" class="form-control" v-model="background.blue">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" @click="set_color">Set background color</button>
+                    <button class="btn btn-info" @click="clear_board">Clear Board</button>
+                </div>
+                <div class="form-group" v-if="!pen_off">
+                    <label>Set pen color</label>
+                    <div class="form-inline">
+                        <div class="input-group" style="width:23%">
+                            <span class="input-group-addon">Red</span>
+                            <input type="number" min="0" class="form-control" v-model="pen.red">
+                        </div>
+                        <div class="input-group" style="width:23%">
+                            <span class="input-group-addon">Green</span>
+                            <input type="number" min="0" class="form-control" v-model="pen.green">
+                        </div>
+                        <div class="input-group" style="width:23%">
+                            <span class="input-group-addon">Blue</span>
+                            <input type="number" min="0" class="form-control" v-model="pen.blue">
+                        </div>
+                        <div class="input-group" style="width:23%">
+                            <span class="input-group-addon">Width</span>
+                            <input type="number" min="0" class="form-control" v-model="pen.width">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" @click="set_pen" v-if="!pen_off">Set pen color</button>
+                    <button class="btn btn-info" @click="pen_on_off" v-if="!pen_off">Turn pen off</button>
+                    <button class="btn btn-info" @click="pen_on_off" v-if="pen_off">Turn pen on</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="app_scoped_targetted.js"></script>
+</html>

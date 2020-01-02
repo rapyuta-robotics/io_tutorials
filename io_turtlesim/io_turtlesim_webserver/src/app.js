@@ -191,7 +191,7 @@ var app = new Vue({
                         pose: message,
                         action: new ROSLIB.ActionClient({
                             ros: vm.ros,
-                            serverName: '/turtle_'+ message.id +'/goto_action',
+                            serverName: '/turtle'+ message.id +'/goto_action',
                             actionName: 'io_turtle_action/GoToAction'
                         }),
                         goal: {}

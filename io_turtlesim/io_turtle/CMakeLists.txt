@@ -37,8 +37,9 @@ include_directories(
 )
 
 add_executable(${PROJECT_NAME}_node
-    src/io_turtle.cpp
     src/io_turtle_node.cpp  
+    src/io_turtle.cpp
+    src/io_turtle_scoped_targetted.cpp
 )
 
 add_dependencies(${PROJECT_NAME}_node
