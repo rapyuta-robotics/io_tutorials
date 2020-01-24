@@ -1,0 +1,91 @@
+{
+	"apiVersion": "1.0.0",
+	"name": "Command Center",
+	"packageVersion": "v1.0.0",
+	"description": "Command Center is responsible for communication betweenUser Interface and Turtle",
+	"bindable": true,
+	"plans": [{
+		"name": "default",
+		"metadata": {},
+		"singleton": false,
+		"components": [{
+			"name": "command_center",
+			"description": "",
+			"cloudInfra": {
+				"replicas": 1,
+				"endpoints": [{
+					"name": "WS_ROSBRIDGE",
+					"exposeExternally": true,
+					"port": 443,
+					"targetPort": 9090,
+					"proto": "HTTPS"
+				}]
+			},
+			"ros": {
+				"topics": [{
+					"name": "/cmd_vel",
+					"qos": "low",
+					"compression": "",
+					"scoped": false,
+					"targeted": false
+				}],
+				"services": [{
+					"name": "/register_turtle",
+					"timeout": 120,
+					"compression": "",
+					"scoped": false
+				}],
+				"actions": [],
+				"isROS": true,
+				"ros_distro": "kinetic"
+			},
+			"requiredRuntime": "cloud",
+			"architecture": "amd64",
+			"executables": [{
+				"name": "ccexecutable",
+				"simulationOptions": {
+					"simulation": false
+				},
+				"gitExecutable": {
+					"repository": "https://github.com/rapyuta-robotics/io_tutorials",
+					"strategyType": "Source",
+					"dockerFilePath": "",
+					"contextDir": ""
+				},
+				"buildOptions": {
+					"catkinOptions": []
+				},
+				"cmd": ["roslaunch io_turtle_command_center command_center.launch"],
+				"limits": {
+					"cpu": 1,
+					"memory": 4096
+				}
+			}],
+			"parameters": [{
+				"default": "9090",
+				"name": "WS_PORT",
+				"description": "WebSocket Port"
+			}, {
+				"default": "0.0.0.0",
+				"name": "WS_ADDR",
+				"description": "WebSocket Address"
+			}]
+		}],
+		"includePackages": [],
+		"dependentDeployments": [],
+		"inboundROSInterfaces": {
+			"topics": [{
+				"name": "/pose"
+			}],
+			"services": [{
+				"name": "/teleport_turtle"
+			}],
+			"actions": [{
+				"name": "/turtle_1/goto_action"
+			}, {
+				"name": "/turtle_0/goto_action"
+			}]
+		},
+		"exposedParameters": []
+	}]
+}
