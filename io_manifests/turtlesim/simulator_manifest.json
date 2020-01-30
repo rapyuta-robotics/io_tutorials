@@ -1,0 +1,82 @@
+{
+	"apiVersion": "1.0.0",
+	"name": "Simulator",
+	"packageVersion": "v1.0.0",
+	"description": "Simulator simulates physical dynamics of 2D robots and their sensors",
+	"bindable": true,
+	"plans": [{
+		"name": "default",
+		"metadata": {},
+		"singleton": false,
+		"components": [{
+			"name": "simulator",
+			"description": "",
+			"cloudInfra": {
+				"replicas": 1,
+				"endpoints": []
+			},
+			"ros": {
+				"topics": [{
+					"name": "/sim/sensors",
+					"qos": "low",
+					"compression": "",
+					"scoped": false,
+					"targeted": false
+				}, {
+					"name": "/sim/pose",
+					"qos": "low",
+					"compression": "",
+					"scoped": false,
+					"targeted": false
+				}],
+				"services": [{
+					"name": "/teleport_turtle",
+					"timeout": 120,
+					"compression": "",
+					"scoped": false
+				}, {
+					"name": "/register_sim_turtle",
+					"timeout": 120,
+					"compression": "",
+					"scoped": false
+				}],
+				"actions": [],
+				"isROS": true,
+				"ros_distro": "kinetic"
+			},
+			"requiredRuntime": "cloud",
+			"architecture": "amd64",
+			"executables": [{
+				"name": "simulator_executable",
+				"simulationOptions": {
+					"simulation": false
+				},
+				"gitExecutable": {
+					"repository": "https://github.com/rapyuta-robotics/io_tutorials",
+					"strategyType": "Source",
+					"dockerFilePath": "",
+					"contextDir": ""
+				},
+				"buildOptions": {
+					"catkinOptions": []
+				},
+				"cmd": ["roslaunch io_turtle_sim_env simulation.launch"],
+				"limits": {
+					"cpu": 1,
+					"memory": 4096
+				}
+			}],
+			"parameters": []
+		}],
+		"includePackages": [],
+		"dependentDeployments": [],
+		"inboundROSInterfaces": {
+			"topics": [{
+				"name": "/sim/cmd_vel"
+			}],
+			"services": [],
+			"actions": []
+		},
+		"exposedParameters": []
+	}]
+}
