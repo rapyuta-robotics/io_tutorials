@@ -2,7 +2,7 @@
 <launch>
     <arg name="ws_port"    default="$(optenv WS_PORT 9090)" />
     <arg name="ws_address" default="$(optenv WS_ADDR 0.0.0.0)" />
-    <arg name="websocket_external_port" default="80" />
+    <arg name="websocket_external_port" default="$(optenv WS_EXTERNAL_PORT 80)" />
 
     <node name="turtle_command_center_node" pkg="io_turtle_command_center" type="io_turtle_command_center_node" output="screen">
         <rosparam file="$(find io_turtle_config)/config/config.yaml" />
