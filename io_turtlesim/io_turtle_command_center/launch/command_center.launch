@@ -11,6 +11,6 @@
     <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
         <arg name="port"    value="$(arg ws_port)" />
         <arg name="address" value="$(arg ws_address)" />
-    	<arg name="websocket_external_port" value=None />
+    	<arg name="websocket_external_port" value="None" />
     </include>
 </launch>
