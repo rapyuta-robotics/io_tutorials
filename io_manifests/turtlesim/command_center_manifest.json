@@ -37,7 +37,7 @@
 				}],
 				"actions": [],
 				"isROS": true,
-				"ros_distro": "kinetic"
+				"ros_distro": "melodic"
 			},
 			"requiredRuntime": "cloud",
 			"architecture": "amd64",
