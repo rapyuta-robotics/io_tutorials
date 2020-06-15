@@ -1,0 +1,42 @@
+{
+	"apiVersion": "1.0.0",
+	"name": "ROS Subscriber",
+	"packageVersion": "v1.0.0",
+	"description": "Subscribes to ROS topic published by a publisher",
+	"bindable": false,
+	"plans": [{
+		"name": "default",
+		"metadata": {},
+		"singleton": false,
+		"components": [{
+			"name": "Subscriber",
+			"description": "",
+			"ros": {
+				"topics": [],
+				"services": [],
+				"actions": [],
+				"isROS": true,
+				"ros_distro": "kinetic"
+			},
+			"requiredRuntime": "device",
+			"restart_policy": "no",
+			"architecture": "arm32v7",
+			"executables": [{
+				"name": "listener",
+				"simulationOptions": {
+					"simulation": false
+				},
+				"cmd": ["roslaunch listener listener.launch"]
+			}],
+			"parameters": []
+		}],
+		"includePackages": [],
+		"dependentDeployments": [],
+		"inboundROSInterfaces": {
+			"topics": [],
+			"services": [],
+			"actions": []
+		},
+		"exposedParameters": []
+	}]
+}
