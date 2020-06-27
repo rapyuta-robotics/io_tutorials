@@ -71,11 +71,7 @@
 		"includePackages": [],
 		"dependentDeployments": [],
 		"inboundROSInterfaces": {
-			"topics": [{
-				"name": "/sim/cmd_vel"
-			}],
-			"services": [],
-			"actions": []
+		  "anyIncomingScopedOrTargetedRosConfig": true
 		},
 		"exposedParameters": []
 	}]

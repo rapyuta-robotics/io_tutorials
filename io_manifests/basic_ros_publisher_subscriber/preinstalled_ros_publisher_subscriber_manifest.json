@@ -76,10 +76,8 @@
 		"includePackages": [],
 		"dependentDeployments": [],
 		"inboundROSInterfaces": {
-			"topics": [],
-			"services": [],
-			"actions": []
-		},
+			"anyIncomingScopedOrTargetedRosConfig": false
+		  },  
 		"exposedParameters": []
 	}]
 }

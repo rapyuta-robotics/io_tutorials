@@ -74,17 +74,7 @@
 		"includePackages": [],
 		"dependentDeployments": [],
 		"inboundROSInterfaces": {
-			"topics": [{
-				"name": "/pose"
-			}],
-			"services": [{
-				"name": "/teleport_turtle"
-			}],
-			"actions": [{
-				"name": "/turtle_1/goto_action"
-			}, {
-				"name": "/turtle_0/goto_action"
-			}]
+		  "anyIncomingScopedOrTargetedRosConfig": true
 		},
 		"exposedParameters": []
 	}]
