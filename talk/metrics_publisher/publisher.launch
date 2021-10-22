@@ -1,0 +1,3 @@
+<launch>
+    <node name="metrics_publisher" pkg="metrics_publisher" type="publisher.py" output="screen"/>
+</launch>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>metrics_publisher</name>
+  <version>0.0.1</version>
+  <description>Publishes metrics to /io_metrics</description>
+
+  <maintainer email="a@a.com">Shivam Mamgain</maintainer>
+
+  <license>Commercial</license>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>ros_monitoring_msgs</depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
