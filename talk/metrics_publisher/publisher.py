@@ -21,7 +21,7 @@ def get_metric_list(cycle, count):
             dimensions=robot_dimensions,
         ),
         MetricData(
-            metric_name='robot.distance_travelled',
+            metric_name='robot.distance_traveled',
             unit='meters',
             value=random.uniform(count * 100.0, (count+1) * 100.0),
             dimensions=robot_dimensions,
