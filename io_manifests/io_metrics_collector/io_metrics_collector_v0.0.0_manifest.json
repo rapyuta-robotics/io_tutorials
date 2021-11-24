@@ -1,0 +1,51 @@
+{
+    "name": "Rapyuta IO Metrics Collector",
+    "packageVersion": "v0.0.0",
+    "description": "Package to deploy Metrics Collector on an AMD64 Docker device.\nMetrics Collector subscribes to /io_metrics ROS topic and collects metrics published to it. The Package accepts ROS_MASTER_URI as a configuration parameter.",
+    "bindable": true,
+    "plans": [
+        {
+            "name": "default",
+            "metadata": {},
+            "singleton": false,
+            "components": [
+                {
+                    "name": "io_metrics_collector",
+                    "description": "",
+                    "ros": {
+                        "topics": [],
+                        "services": [],
+                        "actions": [],
+                        "isROS": false
+                    },
+                    "requiredRuntime": "device",
+                    "restart_policy": "always",
+                    "architecture": "amd64",
+                    "executables": [
+                        {
+                            "name": "io_metrics_collector",
+                            "simulationOptions": {
+                                "simulation": false
+                            },
+                            "cmd": [],
+                            "docker": "rrdockerhub/io_metrics_collector:v0.0.0"
+                        }
+                    ],
+                    "parameters": [
+                        {
+                            "default": "http://127.0.0.1:11311",
+                            "name": "ROS_MASTER_URI",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "includePackages": [],
+            "dependentDeployments": [],
+            "inboundROSInterfaces": {
+                "anyIncomingScopedOrTargetedRosConfig": false
+            },
+            "exposedParameters": []
+        }
+    ]
+}

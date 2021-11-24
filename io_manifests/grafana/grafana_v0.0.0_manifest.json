@@ -1,0 +1,66 @@
+{
+    "name": "Rapyuta IO Grafana",
+    "packageVersion": "v0.0.0",
+    "description": "Package to deploy a Grafana instance on cloud which has access to rapyuta.io Metrics Data Source.\nData Source, once configured, helps query and visualize device metrics collected on rapyuta.io.\nAfter deployment, the public endpoint can be opened from deployments page. Default username and password are admin and admin.\nTo add persistence to this package, deploy \"Rapyuta IO Pesistent Volume\" package, and mount it at /var/lib/grafana",
+    "bindable": false,
+    "plans": [
+        {
+            "name": "default",
+            "metadata": {},
+            "singleton": false,
+            "components": [
+                {
+                    "name": "grafana",
+                    "description": "",
+                    "cloudInfra": {
+                        "replicas": 1,
+                        "endpoints": [
+                            {
+                                "name": "grafana_endpoint",
+                                "exposeExternally": true,
+                                "port": 443,
+                                "targetPort": 3000,
+                                "proto": "HTTPS"
+                            }
+                        ]
+                    },
+                    "ros": {
+                        "topics": [],
+                        "services": [],
+                        "actions": [],
+                        "isROS": false
+                    },
+                    "requiredRuntime": "cloud",
+                    "architecture": "amd64",
+                    "executables": [
+                        {
+                            "name": "grafana",
+                            "simulationOptions": {
+                                "simulation": false
+                            },
+                            "cmd": [],
+                            "docker": "rrdockerhub/grafana:v0.0.0",
+                            "limits": {
+                                "cpu": 1,
+                                "memory": 4096
+                            }
+                        }
+                    ],
+                    "parameters": [
+                        {
+                            "default": "/var/lib/grafana-plugins",
+                            "name": "GF_PATHS_PLUGINS",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "includePackages": [],
+            "dependentDeployments": [],
+            "inboundROSInterfaces": {
+                "anyIncomingScopedOrTargetedRosConfig": false
+            },
+            "exposedParameters": []
+        }
+    ]
+}
