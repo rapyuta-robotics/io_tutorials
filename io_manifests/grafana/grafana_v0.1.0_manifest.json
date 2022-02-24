@@ -1,7 +1,7 @@
 {
     "name": "Rapyuta IO Grafana",
     "packageVersion": "v0.1.0",
-    "description": "Package to deploy a Grafana instance on cloud which has access to rapyuta.io Metrics Data Source.\nData Source, once configured, helps query and visualize device metrics collected on rapyuta.io.\nAfter deployment, the public endpoint can be opened from deployments page. Default username and password are admin and admin.\nTo add persistence to this package, deploy \"Rapyuta IO Pesistent Volume\" package, and mount it at /var/lib/grafana",
+    "description": "Package to deploy a Grafana instance on cloud which has access to rapyuta.io Metrics Data Source.\nData Source, once configured, helps query and visualize device metrics collected on rapyuta.io.\nAfter deployment, the public endpoint can be opened from deployments page. Default username and password are admin and admin.\nTo add persistence to this package, create a disk and mount it at /var/lib/grafana",
     "bindable": false,
     "plans": [
         {
