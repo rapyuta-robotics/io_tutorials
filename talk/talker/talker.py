@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import sys
 import rospy
 from std_msgs.msg import String
 
@@ -15,6 +16,8 @@ def talker():
 
 if __name__ == '__main__':
 	try:
+		print len(sys.argv)
+		print sys.argv[3]
 		talker()
 	except rospy.ROSInterruptException:
 		pass
