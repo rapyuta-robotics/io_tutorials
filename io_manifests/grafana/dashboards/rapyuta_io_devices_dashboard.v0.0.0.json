@@ -21,12 +21,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
-  "iteration": 1645689858581,
+  "id": 11,
+  "iteration": 1646626080547,
   "links": [],
   "liveNow": false,
   "panels": [
     {
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -34,10 +35,15 @@
         "y": 0
       },
       "id": 63,
+      "panels": [],
       "title": "System",
       "type": "row"
     },
     {
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -84,7 +90,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -129,6 +135,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -176,7 +186,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -238,6 +248,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -276,7 +290,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -416,6 +430,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -454,7 +472,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -537,6 +555,10 @@
       }
     },
     {
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -615,7 +637,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -696,7 +718,7 @@
       "type": "timeseries"
     },
     {
-      "collapsed": true,
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -704,2106 +726,439 @@
         "y": 21
       },
       "id": 7,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 22
-          },
-          "hiddenSeries": false,
-          "id": 9,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "iMOlKMGOiIIF_pTtOZau_",
-                  "key": {
-                    "label": "mem.device_name",
-                    "value": "mem.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "metricGroup": {
-                "label": "mem",
-                "value": "mem"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "average",
-                    "value": "avg"
-                  },
-                  "id": "iD8upqQ0ULd2o-8e4Uk-J",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "mem.total",
-                    "value": "mem.total"
-                  }
-                },
-                {
-                  "aggregation": {
-                    "label": "average",
-                    "value": "avg"
-                  },
-                  "id": "FgMZ5jrNhOvxinRytPI-L",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "mem.available",
-                    "value": "mem.available"
-                  }
-                }
-              ],
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Memory usage",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transformations": [
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "calculated_usage",
-                "binary": {
-                  "left": "total {metric_group=mem, function=avg}",
-                  "operator": "-",
-                  "reducer": "sum",
-                  "right": "available {metric_group=mem, function=avg}"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                }
-              }
-            },
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "usage",
-                "binary": {
-                  "left": "calculated_usage",
-                  "operator": "/",
-                  "reducer": "sum",
-                  "right": "1000000000"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                }
-              }
-            },
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "total",
-                "binary": {
-                  "left": "total {metric_group=mem, function=avg}",
-                  "operator": "/",
-                  "reducer": "sum",
-                  "right": "1000000000"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "include": [
-                    "total {metric_group=mem, function=avg}"
-                  ],
-                  "reducer": "sum"
-                }
-              }
-            },
-            {
-              "id": "filterByValue",
-              "options": {
-                "filters": [
-                  {
-                    "config": {
-                      "id": "greater",
-                      "options": {
-                        "value": 0
-                      }
-                    },
-                    "fieldName": "total"
-                  },
-                  {
-                    "config": {
-                      "id": "greater",
-                      "options": {
-                        "value": 0
-                      }
-                    },
-                    "fieldName": "usage"
-                  }
-                ],
-                "match": "any",
-                "type": "include"
-              }
-            },
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {
-                  "available {metric_group=mem, function=avg}": true,
-                  "calculated_usage": true,
-                  "total {metric_group=mem, function=avg}": true,
-                  "usage": false
-                },
-                "indexByName": {},
-                "renameByName": {
-                  "calculated_usage": ""
-                }
-              }
-            }
-          ],
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:249",
-              "format": "decgbytes",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:250",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 22
-          },
-          "hiddenSeries": false,
-          "id": 10,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "iMOlKMGOiIIF_pTtOZau_",
-                  "key": {
-                    "label": "mem.device_name",
-                    "value": "mem.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "metricGroup": {
-                "label": "mem",
-                "value": "mem"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "average",
-                    "value": "avg"
-                  },
-                  "id": "iD8upqQ0ULd2o-8e4Uk-J",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "mem.total",
-                    "value": "mem.total"
-                  }
-                },
-                {
-                  "aggregation": {
-                    "label": "average",
-                    "value": "avg"
-                  },
-                  "id": "FgMZ5jrNhOvxinRytPI-L",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "mem.available",
-                    "value": "mem.available"
-                  }
-                }
-              ],
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Memory usage percent",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transformations": [
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "calculated_usage",
-                "binary": {
-                  "left": "total {metric_group=mem, function=avg}",
-                  "operator": "-",
-                  "reducer": "sum",
-                  "right": "available {metric_group=mem, function=avg}"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                },
-                "replaceFields": false
-              }
-            },
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "usage",
-                "binary": {
-                  "left": "calculated_usage",
-                  "operator": "/",
-                  "reducer": "sum",
-                  "right": "total {metric_group=mem, function=avg}"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                },
-                "replaceFields": false
-              }
-            },
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "usage_percent",
-                "binary": {
-                  "left": "usage",
-                  "operator": "*",
-                  "reducer": "sum",
-                  "right": "100"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                },
-                "replaceFields": true
-              }
-            },
-            {
-              "id": "filterByValue",
-              "options": {
-                "filters": [
-                  {
-                    "config": {
-                      "id": "greater",
-                      "options": {
-                        "value": 0
-                      }
-                    },
-                    "fieldName": "usage_percent"
-                  }
-                ],
-                "match": "any",
-                "type": "include"
-              }
-            }
-          ],
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:359",
-              "format": "percent",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:360",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        }
-      ],
+      "panels": [],
       "title": "Memory",
       "type": "row"
     },
     {
-      "collapsed": true,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 1,
-        "w": 24,
+        "h": 8,
+        "w": 12,
         "x": 0,
         "y": 22
       },
-      "id": 12,
-      "panels": [
+      "hiddenSeries": false,
+      "id": 9,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 31
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
           },
-          "hiddenSeries": false,
-          "id": 14,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
+          "filterBys": [
+            {
+              "id": "iMOlKMGOiIIF_pTtOZau_",
+              "key": {
+                "label": "mem.device_name",
+                "value": "mem.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "mem",
+            "value": "mem"
           },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "iD8upqQ0ULd2o-8e4Uk-J",
+              "legend": "",
+              "metric_group": {
+                "label": "mem.total",
+                "value": "mem.total"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "FgMZ5jrNhOvxinRytPI-L",
+              "legend": "",
+              "metric_group": {
+                "label": "mem.available",
+                "value": "mem.available"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Memory usage",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
           "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "JUv5abJmQw8HyVyyoxZCH",
-                  "key": {
-                    "label": "disk.device_name",
-                    "value": "disk.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "b1UGWTXLB2Bj-eo4C_6uH",
-                  "key": {
-                    "label": "disk.path",
-                    "value": "disk.path"
-                  },
-                  "value": {
-                    "label": "/",
-                    "value": "/"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "metricGroup": {
-                "label": "disk",
-                "value": "disk"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "average",
-                    "value": "avg"
-                  },
-                  "id": "GHVOgZAEXn4hibfPPdrD4",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "disk.total",
-                    "value": "disk.total"
-                  }
-                },
-                {
-                  "aggregation": {
-                    "label": "average",
-                    "value": "avg"
-                  },
-                  "id": "BN1hOBGOwfmIwKeLQiMPA",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "disk.used",
-                    "value": "disk.used"
-                  }
-                }
-              ],
-              "refId": "A"
+            "alias": "calculated_usage",
+            "binary": {
+              "left": "total {metric_group=mem, function=avg}",
+              "operator": "-",
+              "reducer": "sum",
+              "right": "available {metric_group=mem, function=avg}"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
             }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Disk usage",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transformations": [
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "total",
-                "binary": {
-                  "left": "total {metric_group=disk, function=avg}",
-                  "operator": "/",
-                  "reducer": "sum",
-                  "right": "1000000000"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                }
-              }
-            },
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "usage",
-                "binary": {
-                  "left": "used {metric_group=disk, function=avg}",
-                  "operator": "/",
-                  "reducer": "sum",
-                  "right": "1000000000"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                }
-              }
-            },
-            {
-              "id": "filterByValue",
-              "options": {
-                "filters": [
-                  {
-                    "config": {
-                      "id": "greater",
-                      "options": {
-                        "value": 0
-                      }
-                    },
-                    "fieldName": "total"
-                  },
-                  {
-                    "config": {
-                      "id": "greater",
-                      "options": {
-                        "value": 0
-                      }
-                    },
-                    "fieldName": "usage"
-                  }
-                ],
-                "match": "any",
-                "type": "include"
-              }
-            },
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {
-                  "total {metric_group=disk, function=avg}": true,
-                  "used {metric_group=disk, function=avg}": true
-                },
-                "indexByName": {},
-                "renameByName": {}
-              }
-            }
-          ],
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:423",
-              "format": "decgbytes",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:424",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
           }
         },
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 31
-          },
-          "hiddenSeries": false,
-          "id": 15,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
+          "id": "calculateField",
           "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "JUv5abJmQw8HyVyyoxZCH",
-                  "key": {
-                    "label": "disk.device_name",
-                    "value": "disk.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "sBLbQwACwLBqdiCl2UBOG",
-                  "key": {
-                    "label": "disk.path",
-                    "value": "disk.path"
-                  },
-                  "value": {
-                    "label": "/",
-                    "value": "/"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "metricGroup": {
-                "label": "disk",
-                "value": "disk"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "average",
-                    "value": "avg"
-                  },
-                  "id": "GHVOgZAEXn4hibfPPdrD4",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "disk.total",
-                    "value": "disk.total"
-                  }
-                },
-                {
-                  "aggregation": {
-                    "label": "average",
-                    "value": "avg"
-                  },
-                  "id": "BN1hOBGOwfmIwKeLQiMPA",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "disk.used",
-                    "value": "disk.used"
-                  }
-                }
-              ],
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Disk usage percent",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transformations": [
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "usage",
-                "binary": {
-                  "left": "used {metric_group=disk, function=avg}",
-                  "operator": "/",
-                  "reducer": "sum",
-                  "right": "total {metric_group=disk, function=avg}"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                },
-                "replaceFields": false
-              }
+            "alias": "usage",
+            "binary": {
+              "left": "calculated_usage",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000000000"
             },
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "usage_percent",
-                "binary": {
-                  "left": "usage",
-                  "operator": "*",
-                  "reducer": "sum",
-                  "right": "100"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                },
-                "replaceFields": true
-              }
-            },
-            {
-              "id": "filterByValue",
-              "options": {
-                "filters": [
-                  {
-                    "config": {
-                      "id": "greater",
-                      "options": {
-                        "value": 0
-                      }
-                    },
-                    "fieldName": "usage_percent"
-                  }
-                ],
-                "match": "any",
-                "type": "include"
-              }
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
             }
-          ],
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:483",
-              "format": "percent",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:484",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
           }
         },
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fieldConfig": {
-            "defaults": {
-              "unit": "percent"
-            },
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 24,
-            "x": 0,
-            "y": 39
-          },
-          "hiddenSeries": false,
-          "id": 17,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
+          "id": "calculateField",
           "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "UlvmFKxORN6HrJh6mj5vz",
-                  "key": {
-                    "label": "disk.device_name",
-                    "value": "disk.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "emtJfK0a1MhWJwZpzAp3i",
-                  "key": {
-                    "label": "disk.path",
-                    "value": "disk.path"
-                  },
-                  "value": {
-                    "label": "/",
-                    "value": "/"
-                  }
-                }
+            "alias": "total",
+            "binary": {
+              "left": "total {metric_group=mem, function=avg}",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000000000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "total {metric_group=mem, function=avg}"
               ],
-              "groupBys": [],
-              "metricGroup": {
-                "label": "disk",
-                "value": "disk"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "average",
-                    "value": "avg"
-                  },
-                  "id": "pZX76hfkVzBqM8V1woQOm",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "disk.inodes_total",
-                    "value": "disk.inodes_total"
-                  }
-                },
-                {
-                  "aggregation": {
-                    "label": "average",
-                    "value": "avg"
-                  },
-                  "id": "tR-AOYlDxBh4kH73YVpke",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "disk.inodes_used",
-                    "value": "disk.inodes_used"
-                  }
-                }
-              ],
-              "refId": "A"
+              "reducer": "sum"
             }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Disk inode usage percent",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transformations": [
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "usage",
-                "binary": {
-                  "left": "inodes_used {metric_group=disk, function=avg}",
-                  "operator": "/",
-                  "reducer": "sum",
-                  "right": "inodes_total {metric_group=disk, function=avg}"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                },
-                "replaceFields": false
-              }
-            },
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "usage_percent",
-                "binary": {
-                  "left": "usage",
-                  "operator": "*",
-                  "reducer": "sum",
-                  "right": "100"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                },
-                "replaceFields": true
-              }
-            },
-            {
-              "id": "filterByValue",
-              "options": {
-                "filters": [
-                  {
-                    "config": {
-                      "id": "greater",
-                      "options": {
-                        "value": 0
-                      }
-                    },
-                    "fieldName": "usage_percent"
-                  }
-                ],
-                "match": "any",
-                "type": "include"
-              }
-            }
-          ],
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:547",
-              "format": "percent",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:548",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
           }
         },
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 47
-          },
-          "hiddenSeries": false,
-          "id": 21,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
+          "id": "filterByValue",
           "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "FjhJuMCoL16DtY5P9rYMx",
-                  "key": {
-                    "label": "diskio.device_name",
-                    "value": "diskio.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
                   }
                 },
-                {
-                  "id": "Spv9Q9REFU42C1h4POORT",
-                  "key": {
-                    "label": "diskio.name",
-                    "value": "diskio.name"
-                  },
-                  "value": {
-                    "label": "$disk_device",
-                    "value": "$disk_device"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "hide": false,
-              "metricGroup": {
-                "label": "diskio",
-                "value": "diskio"
+                "fieldName": "total"
               },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "mvTVb6IvrQOSEm78hs44h",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "diskio.write_bytes",
-                    "value": "diskio.write_bytes"
-                  }
-                }
-              ],
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "qugfFD8HqEDtnQItdNY2I",
-                  "key": {
-                    "label": "diskio.device_name",
-                    "value": "diskio.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
                   }
                 },
-                {
-                  "id": "N-TgxuQ4jC7vC1EEeyglH",
-                  "key": {
-                    "label": "diskio.name",
-                    "value": "diskio.name"
-                  },
-                  "value": {
-                    "label": "$disk_device",
-                    "value": "$disk_device"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "hide": false,
-              "metricGroup": {
-                "label": "diskio",
-                "value": "diskio"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "oh5pMh4WEbYsl17ROXwA8",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "diskio.read_bytes",
-                    "value": "diskio.read_bytes"
-                  }
-                }
-              ],
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Disk read and write rates",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transformations": [],
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:661",
-              "format": "bytes",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:662",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
+                "fieldName": "usage"
+              }
+            ],
+            "match": "any",
+            "type": "include"
           }
         },
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 47
-          },
-          "hiddenSeries": false,
-          "id": 22,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
+          "id": "organize",
           "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "FjhJuMCoL16DtY5P9rYMx",
-                  "key": {
-                    "label": "diskio.device_name",
-                    "value": "diskio.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "Spv9Q9REFU42C1h4POORT",
-                  "key": {
-                    "label": "diskio.name",
-                    "value": "diskio.name"
-                  },
-                  "value": {
-                    "label": "$disk_device",
-                    "value": "$disk_device"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "hide": false,
-              "metricGroup": {
-                "label": "diskio",
-                "value": "diskio"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "mvTVb6IvrQOSEm78hs44h",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "diskio.write_time",
-                    "value": "diskio.write_time"
-                  }
-                }
-              ],
-              "refId": "B"
+            "excludeByName": {
+              "available {metric_group=mem, function=avg}": true,
+              "calculated_usage": true,
+              "total {metric_group=mem, function=avg}": true,
+              "usage": false
             },
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "qugfFD8HqEDtnQItdNY2I",
-                  "key": {
-                    "label": "diskio.device_name",
-                    "value": "diskio.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "N-TgxuQ4jC7vC1EEeyglH",
-                  "key": {
-                    "label": "diskio.name",
-                    "value": "diskio.name"
-                  },
-                  "value": {
-                    "label": "$disk_device",
-                    "value": "$disk_device"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "hide": false,
-              "metricGroup": {
-                "label": "diskio",
-                "value": "diskio"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "oh5pMh4WEbYsl17ROXwA8",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "diskio.read_time",
-                    "value": "diskio.read_time"
-                  }
-                }
-              ],
-              "refId": "A"
+            "indexByName": {},
+            "renameByName": {
+              "calculated_usage": ""
             }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Disk read and write latencies",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transformations": [],
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:243",
-              "format": "bytes",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:244",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 24,
-            "x": 0,
-            "y": 55
-          },
-          "hiddenSeries": false,
-          "id": 23,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "qugfFD8HqEDtnQItdNY2I",
-                  "key": {
-                    "label": "diskio.device_name",
-                    "value": "diskio.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "N-TgxuQ4jC7vC1EEeyglH",
-                  "key": {
-                    "label": "diskio.name",
-                    "value": "diskio.name"
-                  },
-                  "value": {
-                    "label": "$disk_device",
-                    "value": "$disk_device"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "hide": false,
-              "metricGroup": {
-                "label": "diskio",
-                "value": "diskio"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "oh5pMh4WEbYsl17ROXwA8",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "diskio.io_time",
-                    "value": "diskio.io_time"
-                  }
-                }
-              ],
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Disk io latency",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transformations": [],
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:716",
-              "format": "binBps",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:717",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
           }
         }
       ],
-      "title": "Block Devices",
-      "type": "row"
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:249",
+          "format": "decgbytes",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:250",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 23
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
       },
-      "id": 25,
-      "panels": [
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 22
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 32
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
           },
-          "hiddenSeries": false,
-          "id": 27,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
+          "filterBys": [
+            {
+              "id": "iMOlKMGOiIIF_pTtOZau_",
+              "key": {
+                "label": "mem.device_name",
+                "value": "mem.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "mem",
+            "value": "mem"
           },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "iD8upqQ0ULd2o-8e4Uk-J",
+              "legend": "",
+              "metric_group": {
+                "label": "mem.total",
+                "value": "mem.total"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "FgMZ5jrNhOvxinRytPI-L",
+              "legend": "",
+              "metric_group": {
+                "label": "mem.available",
+                "value": "mem.available"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Memory usage percent",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
           "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "4Jx6ougcfit9iFAQt7k6s",
-                  "key": {
-                    "label": "net.device_name",
-                    "value": "net.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "oay7Grl4wQMJH2MI3KThY",
-                  "key": {
-                    "label": "net.interface",
-                    "value": "net.interface"
-                  },
-                  "value": {
-                    "label": "$network_interface",
-                    "value": "$network_interface"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "metricGroup": {
-                "label": "net",
-                "value": "net"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "eqblgXQqp3wcU0p5Bjckx",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "net.bytes_recv",
-                    "value": "net.bytes_recv"
-                  }
-                }
-              ],
-              "refId": "A"
+            "alias": "calculated_usage",
+            "binary": {
+              "left": "total {metric_group=mem, function=avg}",
+              "operator": "-",
+              "reducer": "sum",
+              "right": "available {metric_group=mem, function=avg}"
             },
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "eyQQT4ouXvZfmqW05hF-p",
-                  "key": {
-                    "label": "net.device_name",
-                    "value": "net.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "yvEwwZ-QMuV5_agPndN1R",
-                  "key": {
-                    "label": "net.interface",
-                    "value": "net.interface"
-                  },
-                  "value": {
-                    "label": "$network_interface",
-                    "value": "$network_interface"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "hide": false,
-              "metricGroup": {
-                "label": "net",
-                "value": "net"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "MHVOHHdfGF3oxyQsqGbIV",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "net.bytes_sent",
-                    "value": "net.bytes_sent"
-                  }
-                }
-              ],
-              "refId": "B"
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Network read and write rates",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:772",
-              "format": "binBps",
-              "logBase": 1,
-              "show": true
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
             },
-            {
-              "$$hashKey": "object:773",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
+            "replaceFields": false
           }
         },
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 32
-          },
-          "hiddenSeries": false,
-          "id": 28,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
+          "id": "calculateField",
           "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "4Jx6ougcfit9iFAQt7k6s",
-                  "key": {
-                    "label": "net.device_name",
-                    "value": "net.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "oay7Grl4wQMJH2MI3KThY",
-                  "key": {
-                    "label": "net.interface",
-                    "value": "net.interface"
-                  },
-                  "value": {
-                    "label": "$network_interface",
-                    "value": "$network_interface"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "metricGroup": {
-                "label": "net",
-                "value": "net"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "eqblgXQqp3wcU0p5Bjckx",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "net.drop_in",
-                    "value": "net.drop_in"
-                  }
-                }
-              ],
-              "refId": "A"
+            "alias": "usage",
+            "binary": {
+              "left": "calculated_usage",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "total {metric_group=mem, function=avg}"
             },
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "eyQQT4ouXvZfmqW05hF-p",
-                  "key": {
-                    "label": "net.device_name",
-                    "value": "net.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "yvEwwZ-QMuV5_agPndN1R",
-                  "key": {
-                    "label": "net.interface",
-                    "value": "net.interface"
-                  },
-                  "value": {
-                    "label": "$network_interface",
-                    "value": "$network_interface"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "hide": false,
-              "metricGroup": {
-                "label": "net",
-                "value": "net"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "MHVOHHdfGF3oxyQsqGbIV",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "net.drop_out",
-                    "value": "net.drop_out"
-                  }
-                }
-              ],
-              "refId": "B"
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Network receive and sent dropped packets",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:829",
-              "format": "short",
-              "logBase": 1,
-              "show": true
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
             },
-            {
-              "$$hashKey": "object:830",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
+            "replaceFields": false
           }
         },
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 40
-          },
-          "hiddenSeries": false,
-          "id": 29,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
+          "id": "calculateField",
           "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "8.3.3",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "4Jx6ougcfit9iFAQt7k6s",
-                  "key": {
-                    "label": "net.device_name",
-                    "value": "net.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
+            "alias": "usage_percent",
+            "binary": {
+              "left": "usage",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "100"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
                   }
                 },
-                {
-                  "id": "oay7Grl4wQMJH2MI3KThY",
-                  "key": {
-                    "label": "net.interface",
-                    "value": "net.interface"
-                  },
-                  "value": {
-                    "label": "$network_interface",
-                    "value": "$network_interface"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "metricGroup": {
-                "label": "net",
-                "value": "net"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "eqblgXQqp3wcU0p5Bjckx",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "net.err_in",
-                    "value": "net.err_in"
-                  }
-                }
-              ],
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "rr-io-datasource",
-                "uid": "Y8tTrAf7k"
-              },
-              "filterBys": [
-                {
-                  "id": "eyQQT4ouXvZfmqW05hF-p",
-                  "key": {
-                    "label": "net.device_name",
-                    "value": "net.device_name"
-                  },
-                  "value": {
-                    "label": "$device_name",
-                    "value": "$device_name"
-                  }
-                },
-                {
-                  "id": "yvEwwZ-QMuV5_agPndN1R",
-                  "key": {
-                    "label": "net.interface",
-                    "value": "net.interface"
-                  },
-                  "value": {
-                    "label": "$network_interface",
-                    "value": "$network_interface"
-                  }
-                }
-              ],
-              "groupBys": [],
-              "hide": false,
-              "metricGroup": {
-                "label": "net",
-                "value": "net"
-              },
-              "metricType": {
-                "label": "System",
-                "value": "system"
-              },
-              "metrics": [
-                {
-                  "aggregation": {
-                    "label": "derivative",
-                    "value": "derivative"
-                  },
-                  "id": "MHVOHHdfGF3oxyQsqGbIV",
-                  "legend": "",
-                  "metric_group": {
-                    "label": "net.err_out",
-                    "value": "net.err_out"
-                  }
-                }
-              ],
-              "refId": "B"
-            }
-          ],
-          "thresholds": [],
-          "timeRegions": [],
-          "title": "Network receive and sent errors",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:885",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:886",
-              "format": "short",
-              "logBase": 1,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false
+                "fieldName": "usage_percent"
+              }
+            ],
+            "match": "any",
+            "type": "include"
           }
         }
       ],
-      "title": "Network",
-      "type": "row"
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:359",
+          "format": "percent",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:360",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
       "collapsed": false,
@@ -2811,7 +1166,1715 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 30
+      },
+      "id": 12,
+      "panels": [],
+      "title": "Block Devices",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 31
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "JUv5abJmQw8HyVyyoxZCH",
+              "key": {
+                "label": "disk.device_name",
+                "value": "disk.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "b1UGWTXLB2Bj-eo4C_6uH",
+              "key": {
+                "label": "disk.path",
+                "value": "disk.path"
+              },
+              "value": {
+                "label": "/",
+                "value": "/"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "disk",
+            "value": "disk"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "GHVOgZAEXn4hibfPPdrD4",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.total",
+                "value": "disk.total"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "BN1hOBGOwfmIwKeLQiMPA",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.used",
+                "value": "disk.used"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk usage",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "total",
+            "binary": {
+              "left": "total {metric_group=disk, function=avg}",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000000000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage",
+            "binary": {
+              "left": "used {metric_group=disk, function=avg}",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000000000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "total"
+              },
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "usage"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "total {metric_group=disk, function=avg}": true,
+              "used {metric_group=disk, function=avg}": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:423",
+          "format": "decgbytes",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:424",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 31
+      },
+      "hiddenSeries": false,
+      "id": 15,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "JUv5abJmQw8HyVyyoxZCH",
+              "key": {
+                "label": "disk.device_name",
+                "value": "disk.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "sBLbQwACwLBqdiCl2UBOG",
+              "key": {
+                "label": "disk.path",
+                "value": "disk.path"
+              },
+              "value": {
+                "label": "/",
+                "value": "/"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "disk",
+            "value": "disk"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "GHVOgZAEXn4hibfPPdrD4",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.total",
+                "value": "disk.total"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "BN1hOBGOwfmIwKeLQiMPA",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.used",
+                "value": "disk.used"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk usage percent",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage",
+            "binary": {
+              "left": "used {metric_group=disk, function=avg}",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "total {metric_group=disk, function=avg}"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage_percent",
+            "binary": {
+              "left": "usage",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "100"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "usage_percent"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:483",
+          "format": "percent",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:484",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 39
+      },
+      "hiddenSeries": false,
+      "id": 17,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "UlvmFKxORN6HrJh6mj5vz",
+              "key": {
+                "label": "disk.device_name",
+                "value": "disk.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "emtJfK0a1MhWJwZpzAp3i",
+              "key": {
+                "label": "disk.path",
+                "value": "disk.path"
+              },
+              "value": {
+                "label": "/",
+                "value": "/"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "disk",
+            "value": "disk"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "pZX76hfkVzBqM8V1woQOm",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.inodes_total",
+                "value": "disk.inodes_total"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "tR-AOYlDxBh4kH73YVpke",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.inodes_used",
+                "value": "disk.inodes_used"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk inode usage percent",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage",
+            "binary": {
+              "left": "inodes_used {metric_group=disk, function=avg}",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "inodes_total {metric_group=disk, function=avg}"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage_percent",
+            "binary": {
+              "left": "usage",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "100"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "usage_percent"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:547",
+          "format": "percent",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:548",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 47
+      },
+      "hiddenSeries": false,
+      "id": 21,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "FjhJuMCoL16DtY5P9rYMx",
+              "key": {
+                "label": "diskio.device_name",
+                "value": "diskio.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "Spv9Q9REFU42C1h4POORT",
+              "key": {
+                "label": "diskio.name",
+                "value": "diskio.name"
+              },
+              "value": {
+                "label": "$disk_device",
+                "value": "$disk_device"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "diskio",
+            "value": "diskio"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "mvTVb6IvrQOSEm78hs44h",
+              "legend": "",
+              "metric_group": {
+                "label": "diskio.write_bytes",
+                "value": "diskio.write_bytes"
+              }
+            }
+          ],
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "qugfFD8HqEDtnQItdNY2I",
+              "key": {
+                "label": "diskio.device_name",
+                "value": "diskio.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "N-TgxuQ4jC7vC1EEeyglH",
+              "key": {
+                "label": "diskio.name",
+                "value": "diskio.name"
+              },
+              "value": {
+                "label": "$disk_device",
+                "value": "$disk_device"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "diskio",
+            "value": "diskio"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "oh5pMh4WEbYsl17ROXwA8",
+              "legend": "",
+              "metric_group": {
+                "label": "diskio.read_bytes",
+                "value": "diskio.read_bytes"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk read and write rates",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:661",
+          "format": "bytes",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:662",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 47
+      },
+      "hiddenSeries": false,
+      "id": 22,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "FjhJuMCoL16DtY5P9rYMx",
+              "key": {
+                "label": "diskio.device_name",
+                "value": "diskio.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "Spv9Q9REFU42C1h4POORT",
+              "key": {
+                "label": "diskio.name",
+                "value": "diskio.name"
+              },
+              "value": {
+                "label": "$disk_device",
+                "value": "$disk_device"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "diskio",
+            "value": "diskio"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "mvTVb6IvrQOSEm78hs44h",
+              "legend": "",
+              "metric_group": {
+                "label": "diskio.write_time",
+                "value": "diskio.write_time"
+              }
+            }
+          ],
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "qugfFD8HqEDtnQItdNY2I",
+              "key": {
+                "label": "diskio.device_name",
+                "value": "diskio.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "N-TgxuQ4jC7vC1EEeyglH",
+              "key": {
+                "label": "diskio.name",
+                "value": "diskio.name"
+              },
+              "value": {
+                "label": "$disk_device",
+                "value": "$disk_device"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "diskio",
+            "value": "diskio"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "oh5pMh4WEbYsl17ROXwA8",
+              "legend": "",
+              "metric_group": {
+                "label": "diskio.read_time",
+                "value": "diskio.read_time"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk read and write latencies",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:243",
+          "format": "bytes",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:244",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 55
+      },
+      "hiddenSeries": false,
+      "id": 23,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "qugfFD8HqEDtnQItdNY2I",
+              "key": {
+                "label": "diskio.device_name",
+                "value": "diskio.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "N-TgxuQ4jC7vC1EEeyglH",
+              "key": {
+                "label": "diskio.name",
+                "value": "diskio.name"
+              },
+              "value": {
+                "label": "$disk_device",
+                "value": "$disk_device"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "diskio",
+            "value": "diskio"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "oh5pMh4WEbYsl17ROXwA8",
+              "legend": "",
+              "metric_group": {
+                "label": "diskio.io_time",
+                "value": "diskio.io_time"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk io latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:716",
+          "format": "binBps",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:717",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
+      "id": 25,
+      "panels": [],
+      "title": "Network",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 64
+      },
+      "hiddenSeries": false,
+      "id": 27,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "4Jx6ougcfit9iFAQt7k6s",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "oay7Grl4wQMJH2MI3KThY",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "eqblgXQqp3wcU0p5Bjckx",
+              "legend": "",
+              "metric_group": {
+                "label": "net.bytes_recv",
+                "value": "net.bytes_recv"
+              }
+            }
+          ],
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "eyQQT4ouXvZfmqW05hF-p",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "yvEwwZ-QMuV5_agPndN1R",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "MHVOHHdfGF3oxyQsqGbIV",
+              "legend": "",
+              "metric_group": {
+                "label": "net.bytes_sent",
+                "value": "net.bytes_sent"
+              }
+            }
+          ],
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Network read and write rates",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:772",
+          "format": "binBps",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:773",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 64
+      },
+      "hiddenSeries": false,
+      "id": 28,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "4Jx6ougcfit9iFAQt7k6s",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "oay7Grl4wQMJH2MI3KThY",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "eqblgXQqp3wcU0p5Bjckx",
+              "legend": "",
+              "metric_group": {
+                "label": "net.drop_in",
+                "value": "net.drop_in"
+              }
+            }
+          ],
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "eyQQT4ouXvZfmqW05hF-p",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "yvEwwZ-QMuV5_agPndN1R",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "MHVOHHdfGF3oxyQsqGbIV",
+              "legend": "",
+              "metric_group": {
+                "label": "net.drop_out",
+                "value": "net.drop_out"
+              }
+            }
+          ],
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Network receive and sent dropped packets",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:829",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:830",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 72
+      },
+      "hiddenSeries": false,
+      "id": 29,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "4Jx6ougcfit9iFAQt7k6s",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "oay7Grl4wQMJH2MI3KThY",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "eqblgXQqp3wcU0p5Bjckx",
+              "legend": "",
+              "metric_group": {
+                "label": "net.err_in",
+                "value": "net.err_in"
+              }
+            }
+          ],
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "eyQQT4ouXvZfmqW05hF-p",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "yvEwwZ-QMuV5_agPndN1R",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "MHVOHHdfGF3oxyQsqGbIV",
+              "legend": "",
+              "metric_group": {
+                "label": "net.err_out",
+                "value": "net.err_out"
+              }
+            }
+          ],
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Network receive and sent errors",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:885",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:886",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 80
       },
       "id": 61,
       "panels": [],
@@ -2823,13 +2886,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 25
+        "y": 81
       },
       "hiddenSeries": false,
       "id": 34,
@@ -2861,7 +2928,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -2968,13 +3035,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 25
+        "y": 81
       },
       "hiddenSeries": false,
       "id": 35,
@@ -3006,7 +3077,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -3113,13 +3184,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 33
+        "y": 89
       },
       "hiddenSeries": false,
       "id": 33,
@@ -3151,7 +3226,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -3260,13 +3335,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 33
+        "y": 89
       },
       "hiddenSeries": false,
       "id": 37,
@@ -3298,7 +3377,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -3405,13 +3484,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 41
+        "y": 97
       },
       "hiddenSeries": false,
       "id": 45,
@@ -3443,7 +3526,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -3529,14 +3612,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {},
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 41
+        "y": 97
       },
       "hiddenSeries": false,
       "id": 47,
@@ -3568,7 +3654,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [],
           "groupBys": [
@@ -3665,13 +3751,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 49
+        "y": 105
       },
       "hiddenSeries": false,
       "id": 49,
@@ -3703,7 +3793,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -3781,13 +3871,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 49
+        "y": 105
       },
       "hiddenSeries": false,
       "id": 51,
@@ -3819,7 +3913,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -3897,13 +3991,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 57
+        "y": 113
       },
       "hiddenSeries": false,
       "id": 53,
@@ -3935,7 +4033,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -4013,13 +4111,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 57
+        "y": 113
       },
       "hiddenSeries": false,
       "id": 55,
@@ -4051,7 +4153,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -4129,13 +4231,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 65
+        "y": 121
       },
       "hiddenSeries": false,
       "id": 57,
@@ -4167,7 +4273,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [
             {
@@ -4245,14 +4351,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {},
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 65
+        "y": 121
       },
       "hiddenSeries": false,
       "id": 59,
@@ -4284,7 +4393,7 @@
         {
           "datasource": {
             "type": "rr-io-datasource",
-            "uid": "Y8tTrAf7k"
+            "uid": "${datasource}"
           },
           "filterBys": [],
           "groupBys": [],
@@ -4351,8 +4460,8 @@
       {
         "current": {
           "selected": false,
-          "text": "rapyuta.io Metrics",
-          "value": "rapyuta.io Metrics"
+          "text": "rapyuta.io Metrics - moded",
+          "value": "rapyuta.io Metrics - moded"
         },
         "hide": 0,
         "includeAll": false,
@@ -4372,7 +4481,11 @@
           "text": "rr-kib-stg",
           "value": "project-sacwgazcpogkwwcveiwkevej"
         },
-        "definition": "project-sacwgazcpogkwwcveiwkevej undefined",
+        "datasource": {
+          "type": "rr-io-datasource",
+          "uid": "${datasource}"
+        },
+        "definition": "project-wfupjivzbwgfsdtrykkfclzx undefined",
         "hide": 0,
         "includeAll": false,
         "multi": false,
@@ -4381,7 +4494,7 @@
         "query": {
           "key": "project",
           "source": "Projects",
-          "value": "project-sacwgazcpogkwwcveiwkevej"
+          "value": "project-wfupjivzbwgfsdtrykkfclzx"
         },
         "refresh": 1,
         "regex": "",
@@ -4392,10 +4505,14 @@
       {
         "current": {
           "selected": false,
-          "text": "amr32",
-          "value": "amr32"
+          "text": "edge01",
+          "value": "edge01"
         },
-        "definition": "project-sacwgazcpogkwwcveiwkevej cpu.device_name",
+        "datasource": {
+          "type": "rr-io-datasource",
+          "uid": "${datasource}"
+        },
+        "definition": "project-wfupjivzbwgfsdtrykkfclzx cpu.device_name",
         "hide": 0,
         "includeAll": false,
         "multi": false,
@@ -4405,7 +4522,7 @@
           "key": "project",
           "source": "Value",
           "tagName": "cpu.device_name",
-          "value": "project-sacwgazcpogkwwcveiwkevej"
+          "value": "project-wfupjivzbwgfsdtrykkfclzx"
         },
         "refresh": 1,
         "regex": "",
@@ -4419,7 +4536,11 @@
           "text": "sda2",
           "value": "sda2"
         },
-        "definition": "project-sacwgazcpogkwwcveiwkevej diskio.name",
+        "datasource": {
+          "type": "rr-io-datasource",
+          "uid": "${datasource}"
+        },
+        "definition": "project-wfupjivzbwgfsdtrykkfclzx diskio.name",
         "hide": 0,
         "includeAll": false,
         "multi": false,
@@ -4429,7 +4550,7 @@
           "key": "project",
           "source": "Value",
           "tagName": "diskio.name",
-          "value": "project-sacwgazcpogkwwcveiwkevej"
+          "value": "project-wfupjivzbwgfsdtrykkfclzx"
         },
         "refresh": 1,
         "regex": "",
@@ -4443,7 +4564,11 @@
           "text": "wlp1s0",
           "value": "wlp1s0"
         },
-        "definition": "project-sacwgazcpogkwwcveiwkevej net.interface",
+        "datasource": {
+          "type": "rr-io-datasource",
+          "uid": "${datasource}"
+        },
+        "definition": "project-wfupjivzbwgfsdtrykkfclzx net.interface",
         "hide": 0,
         "includeAll": false,
         "multi": false,
@@ -4453,7 +4578,7 @@
           "key": "project",
           "source": "Value",
           "tagName": "net.interface",
-          "value": "project-sacwgazcpogkwwcveiwkevej"
+          "value": "project-wfupjivzbwgfsdtrykkfclzx"
         },
         "refresh": 1,
         "regex": "",
@@ -4470,7 +4595,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "Rapyuta IO Devices",
-  "uid": "YPrm8P-nz",
-  "version": 10,
+  "uid": "YPrm8P-nzANCAAA",
+  "version": 4,
   "weekStart": ""
 }
