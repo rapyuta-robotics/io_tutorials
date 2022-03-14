@@ -21,8 +21,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 11,
-  "iteration": 1646626080547,
+  "id": 17,
+  "iteration": 1647251473077,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -4485,7 +4485,7 @@
           "type": "rr-io-datasource",
           "uid": "${datasource}"
         },
-        "definition": "project-wfupjivzbwgfsdtrykkfclzx undefined",
+        "definition": "project-sacwgazcpogkwwcveiwkevej ",
         "hide": 0,
         "includeAll": false,
         "multi": false,
@@ -4494,9 +4494,9 @@
         "query": {
           "key": "project",
           "source": "Projects",
-          "value": "project-wfupjivzbwgfsdtrykkfclzx"
+          "value": "project-sacwgazcpogkwwcveiwkevej"
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -4512,7 +4512,7 @@
           "type": "rr-io-datasource",
           "uid": "${datasource}"
         },
-        "definition": "project-wfupjivzbwgfsdtrykkfclzx cpu.device_name",
+        "definition": "project-sacwgazcpogkwwcveiwkevej cpu.device_name",
         "hide": 0,
         "includeAll": false,
         "multi": false,
@@ -4522,9 +4522,9 @@
           "key": "project",
           "source": "Value",
           "tagName": "cpu.device_name",
-          "value": "project-wfupjivzbwgfsdtrykkfclzx"
+          "value": "project-sacwgazcpogkwwcveiwkevej"
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -4540,7 +4540,7 @@
           "type": "rr-io-datasource",
           "uid": "${datasource}"
         },
-        "definition": "project-wfupjivzbwgfsdtrykkfclzx diskio.name",
+        "definition": "project-sacwgazcpogkwwcveiwkevej diskio.name",
         "hide": 0,
         "includeAll": false,
         "multi": false,
@@ -4550,9 +4550,9 @@
           "key": "project",
           "source": "Value",
           "tagName": "diskio.name",
-          "value": "project-wfupjivzbwgfsdtrykkfclzx"
+          "value": "project-sacwgazcpogkwwcveiwkevej"
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -4568,7 +4568,7 @@
           "type": "rr-io-datasource",
           "uid": "${datasource}"
         },
-        "definition": "project-wfupjivzbwgfsdtrykkfclzx net.interface",
+        "definition": "project-sacwgazcpogkwwcveiwkevej net.interface",
         "hide": 0,
         "includeAll": false,
         "multi": false,
@@ -4578,9 +4578,9 @@
           "key": "project",
           "source": "Value",
           "tagName": "net.interface",
-          "value": "project-wfupjivzbwgfsdtrykkfclzx"
+          "value": "project-sacwgazcpogkwwcveiwkevej"
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -4595,7 +4595,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "Rapyuta IO Devices",
-  "uid": "YPrm8P-nzANCAAA",
-  "version": 4,
+  "uid": "YPrm8P-nzANCAAAxs",
+  "version": 2,
   "weekStart": ""
 }
