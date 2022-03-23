@@ -60,7 +60,7 @@ class HTTPMetricsCollector:
         url = f'http://{host}:{port}/io_metrics'
 
         def send(metric: Metric):
-            http_client.post(url, data=metric.to_json(), timeout=2)
+            http_client.post(url, data=metric.to_json(), timeout=5)
         return send
 
     @staticmethod
