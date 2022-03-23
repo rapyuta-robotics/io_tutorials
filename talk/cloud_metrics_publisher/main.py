@@ -23,9 +23,9 @@ if __name__ == '__main__':
             # Generate random HTTP request duration data
             data = dict(
                 duration=random.uniform(0.0, 11.0),
-                method=random.choice(['GET', 'POST', 'PUT', 'DELETE']),
-                path=random.choice(['/api/path1', '/api/path2', '/api/path3']),
-                code=random.choice(['200', '201', '301', '400', '401', '500']),
+                method=random.choice(['GET', 'POST']),
+                path=random.choice(['/api/path1', '/api/path2']),
+                code=random.choice(['200', '201', '400', '401', '500']),
             )
             print('Sending data:', data)
             if turn == 0:
