@@ -39,7 +39,7 @@
                                 "simulation": false
                             },
                             "cmd": [],
-                            "docker": "shivammg/grafana:v0.0.0-local",
+                            "docker": "rrdockerhub/grafana:v0.1.0",
                             "limits": {
                                 "cpu": 1,
                                 "memory": 4096
