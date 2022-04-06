@@ -1,0 +1,4601 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 17,
+  "iteration": 1647251473077,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 63,
+      "panels": [],
+      "title": "System",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 0,
+        "y": 1
+      },
+      "id": 43,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "UckXl0P_xfnAMSDt9bi3Z",
+              "key": {
+                "label": "system.device_name",
+                "value": "system.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "system",
+            "value": "system"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "last",
+                "value": "last"
+              },
+              "id": "yHF4zwEHyOfCyAVydcGke",
+              "legend": "",
+              "metric_group": {
+                "label": "system.uptime",
+                "value": "system.uptime"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "title": "Uptime",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 2,
+        "y": 1
+      },
+      "id": 41,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "-mcaBjGe2It41BMyQXFZq",
+              "key": {
+                "label": "system.device_name",
+                "value": "system.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "system",
+            "value": "system"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "last",
+                "value": "last"
+              },
+              "id": "m1lJCqWympN4AooKlVekG",
+              "legend": "",
+              "metric_group": {
+                "label": "system.n_cpus",
+                "value": "system.n_cpus"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "title": "CPUs",
+      "type": "gauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 4,
+      "panels": [],
+      "title": "CPU",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 6
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "FPejne8Tmf88fVVSbj83b",
+              "key": {
+                "label": "cpu.device_name",
+                "value": "cpu.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "Q5pA18zmErmYHrftwl410",
+              "key": {
+                "label": "cpu.cpu",
+                "value": "cpu.cpu"
+              },
+              "value": {
+                "label": "cpu-total",
+                "value": "cpu-total"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "cpu",
+            "value": "cpu"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "o7ixcn5dacsvoOFZyHTqc",
+              "legend": "",
+              "metric_group": {
+                "label": "cpu.usage_idle",
+                "value": "cpu.usage_idle"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "CPU usage percent",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNotNull",
+                  "options": {}
+                },
+                "fieldName": "usage_idle {metric_group=cpu, function=avg}"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "usage_idle {metric_group=cpu, function=avg}",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "-1"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage_percent",
+            "binary": {
+              "left": "usage_idle {metric_group=cpu, function=avg} * -1",
+              "operator": "+",
+              "reducer": "sum",
+              "right": "100"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:181",
+          "format": "percent",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:182",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 6
+      },
+      "hiddenSeries": false,
+      "id": 5,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": false,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "FPejne8Tmf88fVVSbj83b",
+              "key": {
+                "label": "cpu.device_name",
+                "value": "cpu.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [
+            {
+              "groupBy": {
+                "label": "cpu.cpu",
+                "value": "cpu.cpu"
+              },
+              "id": "z61-AaREdflwD56ub40m_"
+            }
+          ],
+          "metricGroup": {
+            "label": "cpu",
+            "value": "cpu"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "o7ixcn5dacsvoOFZyHTqc",
+              "legend": "",
+              "metric_group": {
+                "label": "cpu.usage_idle",
+                "value": "cpu.usage_idle"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "[WIP] CPU usage per core",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:189",
+          "format": "percent",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:190",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 9,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 39,
+      "options": {
+        "graph": {},
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "7.5.4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "1AZx7cJIJW_08qdQHoLa3",
+              "key": {
+                "label": "cpu.device_name",
+                "value": "cpu.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "cpu",
+            "value": "cpu"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "ke-lM2s_Rlh16Eny00dIe",
+              "legend": "",
+              "metric_group": {
+                "label": "cpu.usage_user",
+                "value": "cpu.usage_user"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "max",
+                "value": "max"
+              },
+              "id": "xQTyxo1amqY6k90OcTMBG",
+              "legend": "",
+              "metric_group": {
+                "label": "cpu.usage_user",
+                "value": "cpu.usage_user"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "OH3yzNh2hhT1uMzy2eQq-",
+              "legend": "",
+              "metric_group": {
+                "label": "cpu.usage_system",
+                "value": "cpu.usage_system"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "max",
+                "value": "max"
+              },
+              "id": "xlMK1YB6onVb3jfRdZRrh",
+              "legend": "",
+              "metric_group": {
+                "label": "cpu.usage_system",
+                "value": "cpu.usage_system"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "title": "CPU metrics ",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 7,
+      "panels": [],
+      "title": "Memory",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 22
+      },
+      "hiddenSeries": false,
+      "id": 9,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "iMOlKMGOiIIF_pTtOZau_",
+              "key": {
+                "label": "mem.device_name",
+                "value": "mem.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "mem",
+            "value": "mem"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "iD8upqQ0ULd2o-8e4Uk-J",
+              "legend": "",
+              "metric_group": {
+                "label": "mem.total",
+                "value": "mem.total"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "FgMZ5jrNhOvxinRytPI-L",
+              "legend": "",
+              "metric_group": {
+                "label": "mem.available",
+                "value": "mem.available"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Memory usage",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "calculated_usage",
+            "binary": {
+              "left": "total {metric_group=mem, function=avg}",
+              "operator": "-",
+              "reducer": "sum",
+              "right": "available {metric_group=mem, function=avg}"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage",
+            "binary": {
+              "left": "calculated_usage",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000000000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "total",
+            "binary": {
+              "left": "total {metric_group=mem, function=avg}",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000000000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "total {metric_group=mem, function=avg}"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "total"
+              },
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "usage"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "available {metric_group=mem, function=avg}": true,
+              "calculated_usage": true,
+              "total {metric_group=mem, function=avg}": true,
+              "usage": false
+            },
+            "indexByName": {},
+            "renameByName": {
+              "calculated_usage": ""
+            }
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:249",
+          "format": "decgbytes",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:250",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 22
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "iMOlKMGOiIIF_pTtOZau_",
+              "key": {
+                "label": "mem.device_name",
+                "value": "mem.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "mem",
+            "value": "mem"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "iD8upqQ0ULd2o-8e4Uk-J",
+              "legend": "",
+              "metric_group": {
+                "label": "mem.total",
+                "value": "mem.total"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "FgMZ5jrNhOvxinRytPI-L",
+              "legend": "",
+              "metric_group": {
+                "label": "mem.available",
+                "value": "mem.available"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Memory usage percent",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "calculated_usage",
+            "binary": {
+              "left": "total {metric_group=mem, function=avg}",
+              "operator": "-",
+              "reducer": "sum",
+              "right": "available {metric_group=mem, function=avg}"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage",
+            "binary": {
+              "left": "calculated_usage",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "total {metric_group=mem, function=avg}"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage_percent",
+            "binary": {
+              "left": "usage",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "100"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "usage_percent"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:359",
+          "format": "percent",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:360",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 30
+      },
+      "id": 12,
+      "panels": [],
+      "title": "Block Devices",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 31
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "JUv5abJmQw8HyVyyoxZCH",
+              "key": {
+                "label": "disk.device_name",
+                "value": "disk.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "b1UGWTXLB2Bj-eo4C_6uH",
+              "key": {
+                "label": "disk.path",
+                "value": "disk.path"
+              },
+              "value": {
+                "label": "/",
+                "value": "/"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "disk",
+            "value": "disk"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "GHVOgZAEXn4hibfPPdrD4",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.total",
+                "value": "disk.total"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "BN1hOBGOwfmIwKeLQiMPA",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.used",
+                "value": "disk.used"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk usage",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "total",
+            "binary": {
+              "left": "total {metric_group=disk, function=avg}",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000000000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage",
+            "binary": {
+              "left": "used {metric_group=disk, function=avg}",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000000000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "total"
+              },
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "usage"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "total {metric_group=disk, function=avg}": true,
+              "used {metric_group=disk, function=avg}": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:423",
+          "format": "decgbytes",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:424",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 31
+      },
+      "hiddenSeries": false,
+      "id": 15,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "JUv5abJmQw8HyVyyoxZCH",
+              "key": {
+                "label": "disk.device_name",
+                "value": "disk.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "sBLbQwACwLBqdiCl2UBOG",
+              "key": {
+                "label": "disk.path",
+                "value": "disk.path"
+              },
+              "value": {
+                "label": "/",
+                "value": "/"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "disk",
+            "value": "disk"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "GHVOgZAEXn4hibfPPdrD4",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.total",
+                "value": "disk.total"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "BN1hOBGOwfmIwKeLQiMPA",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.used",
+                "value": "disk.used"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk usage percent",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage",
+            "binary": {
+              "left": "used {metric_group=disk, function=avg}",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "total {metric_group=disk, function=avg}"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage_percent",
+            "binary": {
+              "left": "usage",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "100"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "usage_percent"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:483",
+          "format": "percent",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:484",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 39
+      },
+      "hiddenSeries": false,
+      "id": 17,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "UlvmFKxORN6HrJh6mj5vz",
+              "key": {
+                "label": "disk.device_name",
+                "value": "disk.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "emtJfK0a1MhWJwZpzAp3i",
+              "key": {
+                "label": "disk.path",
+                "value": "disk.path"
+              },
+              "value": {
+                "label": "/",
+                "value": "/"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "disk",
+            "value": "disk"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "pZX76hfkVzBqM8V1woQOm",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.inodes_total",
+                "value": "disk.inodes_total"
+              }
+            },
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "tR-AOYlDxBh4kH73YVpke",
+              "legend": "",
+              "metric_group": {
+                "label": "disk.inodes_used",
+                "value": "disk.inodes_used"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk inode usage percent",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage",
+            "binary": {
+              "left": "inodes_used {metric_group=disk, function=avg}",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "inodes_total {metric_group=disk, function=avg}"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "usage_percent",
+            "binary": {
+              "left": "usage",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "100"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "usage_percent"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:547",
+          "format": "percent",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:548",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 47
+      },
+      "hiddenSeries": false,
+      "id": 21,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "FjhJuMCoL16DtY5P9rYMx",
+              "key": {
+                "label": "diskio.device_name",
+                "value": "diskio.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "Spv9Q9REFU42C1h4POORT",
+              "key": {
+                "label": "diskio.name",
+                "value": "diskio.name"
+              },
+              "value": {
+                "label": "$disk_device",
+                "value": "$disk_device"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "diskio",
+            "value": "diskio"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "mvTVb6IvrQOSEm78hs44h",
+              "legend": "",
+              "metric_group": {
+                "label": "diskio.write_bytes",
+                "value": "diskio.write_bytes"
+              }
+            }
+          ],
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "qugfFD8HqEDtnQItdNY2I",
+              "key": {
+                "label": "diskio.device_name",
+                "value": "diskio.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "N-TgxuQ4jC7vC1EEeyglH",
+              "key": {
+                "label": "diskio.name",
+                "value": "diskio.name"
+              },
+              "value": {
+                "label": "$disk_device",
+                "value": "$disk_device"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "diskio",
+            "value": "diskio"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "oh5pMh4WEbYsl17ROXwA8",
+              "legend": "",
+              "metric_group": {
+                "label": "diskio.read_bytes",
+                "value": "diskio.read_bytes"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk read and write rates",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:661",
+          "format": "bytes",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:662",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 47
+      },
+      "hiddenSeries": false,
+      "id": 22,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "FjhJuMCoL16DtY5P9rYMx",
+              "key": {
+                "label": "diskio.device_name",
+                "value": "diskio.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "Spv9Q9REFU42C1h4POORT",
+              "key": {
+                "label": "diskio.name",
+                "value": "diskio.name"
+              },
+              "value": {
+                "label": "$disk_device",
+                "value": "$disk_device"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "diskio",
+            "value": "diskio"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "mvTVb6IvrQOSEm78hs44h",
+              "legend": "",
+              "metric_group": {
+                "label": "diskio.write_time",
+                "value": "diskio.write_time"
+              }
+            }
+          ],
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "qugfFD8HqEDtnQItdNY2I",
+              "key": {
+                "label": "diskio.device_name",
+                "value": "diskio.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "N-TgxuQ4jC7vC1EEeyglH",
+              "key": {
+                "label": "diskio.name",
+                "value": "diskio.name"
+              },
+              "value": {
+                "label": "$disk_device",
+                "value": "$disk_device"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "diskio",
+            "value": "diskio"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "oh5pMh4WEbYsl17ROXwA8",
+              "legend": "",
+              "metric_group": {
+                "label": "diskio.read_time",
+                "value": "diskio.read_time"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk read and write latencies",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:243",
+          "format": "bytes",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:244",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 55
+      },
+      "hiddenSeries": false,
+      "id": 23,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "qugfFD8HqEDtnQItdNY2I",
+              "key": {
+                "label": "diskio.device_name",
+                "value": "diskio.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "N-TgxuQ4jC7vC1EEeyglH",
+              "key": {
+                "label": "diskio.name",
+                "value": "diskio.name"
+              },
+              "value": {
+                "label": "$disk_device",
+                "value": "$disk_device"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "diskio",
+            "value": "diskio"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "oh5pMh4WEbYsl17ROXwA8",
+              "legend": "",
+              "metric_group": {
+                "label": "diskio.io_time",
+                "value": "diskio.io_time"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Disk io latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:716",
+          "format": "binBps",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:717",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
+      "id": 25,
+      "panels": [],
+      "title": "Network",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 64
+      },
+      "hiddenSeries": false,
+      "id": 27,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "4Jx6ougcfit9iFAQt7k6s",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "oay7Grl4wQMJH2MI3KThY",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "eqblgXQqp3wcU0p5Bjckx",
+              "legend": "",
+              "metric_group": {
+                "label": "net.bytes_recv",
+                "value": "net.bytes_recv"
+              }
+            }
+          ],
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "eyQQT4ouXvZfmqW05hF-p",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "yvEwwZ-QMuV5_agPndN1R",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "MHVOHHdfGF3oxyQsqGbIV",
+              "legend": "",
+              "metric_group": {
+                "label": "net.bytes_sent",
+                "value": "net.bytes_sent"
+              }
+            }
+          ],
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Network read and write rates",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:772",
+          "format": "binBps",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:773",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 64
+      },
+      "hiddenSeries": false,
+      "id": 28,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "4Jx6ougcfit9iFAQt7k6s",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "oay7Grl4wQMJH2MI3KThY",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "eqblgXQqp3wcU0p5Bjckx",
+              "legend": "",
+              "metric_group": {
+                "label": "net.drop_in",
+                "value": "net.drop_in"
+              }
+            }
+          ],
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "eyQQT4ouXvZfmqW05hF-p",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "yvEwwZ-QMuV5_agPndN1R",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "MHVOHHdfGF3oxyQsqGbIV",
+              "legend": "",
+              "metric_group": {
+                "label": "net.drop_out",
+                "value": "net.drop_out"
+              }
+            }
+          ],
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Network receive and sent dropped packets",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:829",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:830",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 72
+      },
+      "hiddenSeries": false,
+      "id": 29,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "4Jx6ougcfit9iFAQt7k6s",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "oay7Grl4wQMJH2MI3KThY",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "eqblgXQqp3wcU0p5Bjckx",
+              "legend": "",
+              "metric_group": {
+                "label": "net.err_in",
+                "value": "net.err_in"
+              }
+            }
+          ],
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "eyQQT4ouXvZfmqW05hF-p",
+              "key": {
+                "label": "net.device_name",
+                "value": "net.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "yvEwwZ-QMuV5_agPndN1R",
+              "key": {
+                "label": "net.interface",
+                "value": "net.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "hide": false,
+          "metricGroup": {
+            "label": "net",
+            "value": "net"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "derivative",
+                "value": "derivative"
+              },
+              "id": "MHVOHHdfGF3oxyQsqGbIV",
+              "legend": "",
+              "metric_group": {
+                "label": "net.err_out",
+                "value": "net.err_out"
+              }
+            }
+          ],
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Network receive and sent errors",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:885",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:886",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 80
+      },
+      "id": 61,
+      "panels": [],
+      "title": "Wireless",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 81
+      },
+      "hiddenSeries": false,
+      "id": 34,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "md2bn6fnNHdm889GsKod7",
+              "key": {
+                "label": "wireless.device_name",
+                "value": "wireless.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "0kon62tE9xnkScR5d1qMI",
+              "key": {
+                "label": "wireless.interface",
+                "value": "wireless.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "wireless",
+            "value": "wireless"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "E4pUO9YA2n81l1kiG0iFx",
+              "legend": "",
+              "metric_group": {
+                "label": "wireless.level",
+                "value": "wireless.level"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Signal strength",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNotNull",
+                  "options": {}
+                },
+                "fieldName": "level {metric_group=wireless, function=avg}"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:30",
+          "format": "dBm",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:31",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 81
+      },
+      "hiddenSeries": false,
+      "id": 35,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "md2bn6fnNHdm889GsKod7",
+              "key": {
+                "label": "wireless.device_name",
+                "value": "wireless.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "0kon62tE9xnkScR5d1qMI",
+              "key": {
+                "label": "wireless.interface",
+                "value": "wireless.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "wireless",
+            "value": "wireless"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "E4pUO9YA2n81l1kiG0iFx",
+              "legend": "",
+              "metric_group": {
+                "label": "wireless.noise",
+                "value": "wireless.noise"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Noise level",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNotNull",
+                  "options": {}
+                },
+                "fieldName": "noise {metric_group=wireless, function=avg}"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:395",
+          "format": "dBm",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:396",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 89
+      },
+      "hiddenSeries": false,
+      "id": 33,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "md2bn6fnNHdm889GsKod7",
+              "key": {
+                "label": "wireless.device_name",
+                "value": "wireless.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "0kon62tE9xnkScR5d1qMI",
+              "key": {
+                "label": "wireless.interface",
+                "value": "wireless.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "wireless",
+            "value": "wireless"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "E4pUO9YA2n81l1kiG0iFx",
+              "legend": "",
+              "metric_group": {
+                "label": "wireless.link",
+                "value": "wireless.link"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Link quality",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "link {metric_group=wireless, function=avg}"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:654",
+          "format": "percent",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:655",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 89
+      },
+      "hiddenSeries": false,
+      "id": 37,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "md2bn6fnNHdm889GsKod7",
+              "key": {
+                "label": "wireless.device_name",
+                "value": "wireless.device_name"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            },
+            {
+              "id": "0kon62tE9xnkScR5d1qMI",
+              "key": {
+                "label": "wireless.interface",
+                "value": "wireless.interface"
+              },
+              "value": {
+                "label": "$network_interface",
+                "value": "$network_interface"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "wireless",
+            "value": "wireless"
+          },
+          "metricType": {
+            "label": "System",
+            "value": "system"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "E4pUO9YA2n81l1kiG0iFx",
+              "legend": "",
+              "metric_group": {
+                "label": "wireless.retry",
+                "value": "wireless.retry"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Cumulative packet retries",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNotNull",
+                  "options": {}
+                },
+                "fieldName": "retry {metric_group=wireless, function=avg}"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:851",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:852",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 97
+      },
+      "hiddenSeries": false,
+      "id": 45,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "WuUpUB02HL_D6en0gX95v",
+              "key": {
+                "label": "spidermon.host",
+                "value": "spidermon.host"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [
+            {
+              "groupBy": {
+                "label": "spidermon.bssid_name",
+                "value": "spidermon.bssid_name"
+              },
+              "id": "myvMLS6J1bWbsMI0iWAyZ"
+            }
+          ],
+          "metricGroup": {
+            "label": "spidermon",
+            "value": "spidermon"
+          },
+          "metricType": {
+            "label": "User",
+            "value": "user"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "ddd5NoNIR1dyqVp6kdz2q",
+              "legend": "{{ bssid_name }}",
+              "metric_group": {
+                "label": "spidermon.bssid",
+                "value": "spidermon.bssid"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "BSSID",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:103",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:104",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 97
+      },
+      "hiddenSeries": false,
+      "id": 47,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [],
+          "groupBys": [
+            {
+              "groupBy": {
+                "label": "spidermon.bssid_name",
+                "value": "spidermon.bssid_name"
+              },
+              "id": "DOxUnK5lZi83fQxtxaftW"
+            }
+          ],
+          "metricGroup": {
+            "label": "spidermon",
+            "value": "spidermon"
+          },
+          "metricType": {
+            "label": "User",
+            "value": "user"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "distinct",
+                "value": "distinct"
+              },
+              "id": "v_3UXWYSULUxLhvTjeGPY",
+              "legend": "",
+              "metric_group": {
+                "label": "spidermon.bssid",
+                "value": "spidermon.bssid"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "[WIP] No. of devices connected to each BSSID",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Time": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Value": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "bssid {metric_group=spidermon, function=distinct}": {
+                "aggregations": [],
+                "operation": "aggregate"
+              }
+            }
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:210",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:211",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 105
+      },
+      "hiddenSeries": false,
+      "id": 49,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "AeDzQdFhIcuXYbZQB-ze4",
+              "key": {
+                "label": "spidermon.host",
+                "value": "spidermon.host"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "spidermon",
+            "value": "spidermon"
+          },
+          "metricType": {
+            "label": "User",
+            "value": "user"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "u_tHrTXW_vuLMfBSjFiE9",
+              "legend": "",
+              "metric_group": {
+                "label": "spidermon.rssi",
+                "value": "spidermon.rssi"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "RSSI",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:295",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:296",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 105
+      },
+      "hiddenSeries": false,
+      "id": 51,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "tEA7NFWYSVHYbOVd1es0y",
+              "key": {
+                "label": "spidermon.host",
+                "value": "spidermon.host"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "spidermon",
+            "value": "spidermon"
+          },
+          "metricType": {
+            "label": "User",
+            "value": "user"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "JqRIFlYjT2aPMZWc48xTz",
+              "legend": "frequency",
+              "metric_group": {
+                "label": "spidermon.freq",
+                "value": "spidermon.freq"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Frequency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:378",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:379",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 113
+      },
+      "hiddenSeries": false,
+      "id": 53,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "UmzEP1VFnrlqPwPcakMnU",
+              "key": {
+                "label": "spidermon.host",
+                "value": "spidermon.host"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "spidermon",
+            "value": "spidermon"
+          },
+          "metricType": {
+            "label": "User",
+            "value": "user"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "VDlPwh4P7E-fehCXkASA3",
+              "legend": "",
+              "metric_group": {
+                "label": "spidermon.ping_internal",
+                "value": "spidermon.ping_internal"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Ping Internal",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:168",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:169",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 113
+      },
+      "hiddenSeries": false,
+      "id": 55,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "Zwo8pVr4Q3hyc6aTThIbG",
+              "key": {
+                "label": "spidermon.host",
+                "value": "spidermon.host"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "spidermon",
+            "value": "spidermon"
+          },
+          "metricType": {
+            "label": "User",
+            "value": "user"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "MuxTgDTJTAOJzCpBrQrqw",
+              "legend": "",
+              "metric_group": {
+                "label": "spidermon.ping_external",
+                "value": "spidermon.ping_external"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Ping External",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:329",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:330",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 121
+      },
+      "hiddenSeries": false,
+      "id": 57,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [
+            {
+              "id": "6aPH4UOxvqvLwT_wLT8Hp",
+              "key": {
+                "label": "spidermon.host",
+                "value": "spidermon.host"
+              },
+              "value": {
+                "label": "$device_name",
+                "value": "$device_name"
+              }
+            }
+          ],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "spidermon",
+            "value": "spidermon"
+          },
+          "metricType": {
+            "label": "User",
+            "value": "user"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "Ve5WDqxisN0eELszPo3O2",
+              "legend": "",
+              "metric_group": {
+                "label": "spidermon.freq",
+                "value": "spidermon.freq"
+              }
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Failure Count",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:489",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:490",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "rr-io-datasource",
+        "uid": "${datasource}"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 121
+      },
+      "hiddenSeries": false,
+      "id": 59,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "rr-io-datasource",
+            "uid": "${datasource}"
+          },
+          "filterBys": [],
+          "groupBys": [],
+          "metricGroup": {
+            "label": "spidermon",
+            "value": "spidermon"
+          },
+          "metricType": {
+            "label": "User",
+            "value": "user"
+          },
+          "metrics": [
+            {
+              "aggregation": {
+                "label": "average",
+                "value": "avg"
+              },
+              "id": "l18S6OkSQOuCO4r10xPw7",
+              "legend": ""
+            }
+          ],
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "[WIP] Disconnection Time",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:572",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:573",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 34,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "rapyuta.io Metrics - moded",
+          "value": "rapyuta.io Metrics - moded"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "rr-io-datasource",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "rr-kib-stg",
+          "value": "project-sacwgazcpogkwwcveiwkevej"
+        },
+        "datasource": {
+          "type": "rr-io-datasource",
+          "uid": "${datasource}"
+        },
+        "definition": "project-sacwgazcpogkwwcveiwkevej ",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "rio_project",
+        "options": [],
+        "query": {
+          "key": "project",
+          "source": "Projects",
+          "value": "project-sacwgazcpogkwwcveiwkevej"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "edge01",
+          "value": "edge01"
+        },
+        "datasource": {
+          "type": "rr-io-datasource",
+          "uid": "${datasource}"
+        },
+        "definition": "project-sacwgazcpogkwwcveiwkevej cpu.device_name",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "device_name",
+        "options": [],
+        "query": {
+          "key": "project",
+          "source": "Value",
+          "tagName": "cpu.device_name",
+          "value": "project-sacwgazcpogkwwcveiwkevej"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "sda2",
+          "value": "sda2"
+        },
+        "datasource": {
+          "type": "rr-io-datasource",
+          "uid": "${datasource}"
+        },
+        "definition": "project-sacwgazcpogkwwcveiwkevej diskio.name",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "disk_device",
+        "options": [],
+        "query": {
+          "key": "project",
+          "source": "Value",
+          "tagName": "diskio.name",
+          "value": "project-sacwgazcpogkwwcveiwkevej"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "wlp1s0",
+          "value": "wlp1s0"
+        },
+        "datasource": {
+          "type": "rr-io-datasource",
+          "uid": "${datasource}"
+        },
+        "definition": "project-sacwgazcpogkwwcveiwkevej net.interface",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "network_interface",
+        "options": [],
+        "query": {
+          "key": "project",
+          "source": "Value",
+          "tagName": "net.interface",
+          "value": "project-sacwgazcpogkwwcveiwkevej"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Rapyuta IO Devices",
+  "uid": "YPrm8P-nzANCAAAxs",
+  "version": 2,
+  "weekStart": ""
+}
