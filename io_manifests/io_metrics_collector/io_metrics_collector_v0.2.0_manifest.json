@@ -1,6 +1,6 @@
 {
     "name": "Rapyuta IO Metrics Collector",
-    "packageVersion": "v0.1.0",
+    "packageVersion": "v0.2.0",
     "description": "Package to deploy Metrics Collector on an AMD64 Docker device.\nMetrics Collector subscribes to /io_metrics ROS topic and collects metrics published to it. The Package accepts ROS_MASTER_URI as a configuration parameter.",
     "bindable": true,
     "plans": [
@@ -28,7 +28,7 @@
                                 "simulation": false
                             },
                             "cmd": [],
-                            "docker": "rrdockerhub/io_metrics_collector:v0.1.0"
+                            "docker": "rrdockerhub/io_metrics_collector:v0.2.0"
                         }
                     ],
                     "parameters": [
