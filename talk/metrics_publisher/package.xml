@@ -4,7 +4,7 @@
   <version>0.0.1</version>
   <description>Publishes metrics to /io_metrics</description>
 
-  <maintainer email="a@a.com">Shivam Mamgain</maintainer>
+  <maintainer email="shivam.mamgain@rapyuta-robotics.com">Shivam Mamgain</maintainer>
 
   <license>Commercial</license>
 
