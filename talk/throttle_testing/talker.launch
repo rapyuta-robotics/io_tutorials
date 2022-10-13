@@ -1,6 +1,0 @@
-<launch>
-	<node name="talker1" pkg="throttle_testing" type="talker1.py" output="screen"/>
-	<node name="talker2" pkg="throttle_testing" type="talker2.py" output="screen"/>
-	<node name="talker3" pkg="throttle_testing" type="talker3.py" output="screen"/>
-	<node name="talker4" pkg="throttle_testing" type="talker4.py" output="screen"/>
-</launch>

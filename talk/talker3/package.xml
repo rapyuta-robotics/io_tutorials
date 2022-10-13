@@ -9,7 +9,7 @@
   <license>Commercial</license>
 
   <depend>rospy</depend>
-  <depend>std_msgs</depend>
+  <depend> </depend>
 
   <buildtool_depend>catkin</buildtool_depend>
 

@@ -1,0 +1,4 @@
+<launch>
+	<node name="fast_talker" pkg="latching" type="fast_talker.py" output="screen"/>
+	<node name="slow_talker" pkg="latching" type="slow_talker.py" output="screen"/>
+</launch>

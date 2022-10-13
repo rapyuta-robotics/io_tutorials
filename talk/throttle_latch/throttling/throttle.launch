@@ -1,0 +1,6 @@
+<launch>
+	<node name="talker1" pkg="throttling" type="talker1.py" output="screen"/>
+	<node name="talker2" pkg="throttling" type="talker2.py" output="screen"/>
+	<node name="talker3" pkg="throttling" type="talker3.py" output="screen"/>
+	<node name="talker4" pkg="throttling" type="talker4.py" output="screen"/>
+</launch>
