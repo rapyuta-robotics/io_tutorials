@@ -1,6 +1,26 @@
 <launch>
-	<node name="talker1" pkg="throttling" type="talker1.py" output="screen"/>
-	<node name="talker2" pkg="throttling" type="talker2.py" output="screen"/>
-	<node name="talker3" pkg="throttling" type="talker3.py" output="screen"/>
-	<node name="talker4" pkg="throttling" type="talker4.py" output="screen"/>
+    <node name="$(anon t1)" pkg="throttling" type="talker.py" output="screen">
+        <rosparam>
+          topic_name: /topic1
+          topic_rate: 15
+        </rosparam>
+    </node>
+    <node name="$(anon t2)" pkg="throttling" type="talker.py" output="screen">
+        <rosparam>
+          topic_name: /topic2
+          topic_rate: 30
+        </rosparam>
+    </node>
+    <node name="$(anon t3)" pkg="throttling" type="talker.py" output="screen">
+        <rosparam>
+          topic_name: /topic3
+          topic_rate: 5
+        </rosparam>
+    </node>
+    <node name="$(anon t4)" pkg="throttling" type="talker.py" output="screen">
+        <rosparam>
+          topic_name: /topic4
+          topic_rate: 10
+        </rosparam>
+    </node>
 </launch>
