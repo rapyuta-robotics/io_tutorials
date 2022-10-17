@@ -1,4 +1,17 @@
 <launch>
-	<node name="fast_talker" pkg="latching" type="fast_talker.py" output="screen"/>
-	<node name="slow_talker" pkg="latching" type="slow_talker.py" output="screen"/>
+    <node name="$(anon slow)" pkg="latching" type="talker.py" output="screen">
+        <rosparam>
+            topic_name: /map
+            topic_rate: 0.017
+            latched: true
+        </rosparam>
+    </node>
+    <node name="$(anon fast)" pkg="latching" type="talker.py" output="screen">
+        <rosparam>
+            topic_name: /coordinates
+            topic_rate: 1000
+            latched: false
+        </rosparam>
+    </node>
 </launch>
+
