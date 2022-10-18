@@ -13,7 +13,7 @@ NEEDLE = "Uploading map"
 
 
 def talker():
-	rospy.init_node('placeholder', anonymous=True)
+	rospy.init_node('node', anonymous=True)
 	topic_name = rospy.get_param('~topic_name')
 	topic_rate = rospy.get_param('~topic_rate')
 	latched = True if str(rospy.get_param('~latched')) in ['true', 'True'] else False

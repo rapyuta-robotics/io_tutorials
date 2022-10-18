@@ -5,7 +5,7 @@ from std_msgs.msg import String
 
 
 def talker():
-    rospy.init_node('placeholder', anonymous=True)
+    rospy.init_node('node', anonymous=True)
     topic_name = rospy.get_param('~topic_name')
     topic_rate = rospy.get_param('~topic_rate')
 
