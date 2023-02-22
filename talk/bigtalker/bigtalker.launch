@@ -1,0 +1,3 @@
+<launch>
+	<node name="$(anon foo)" pkg="bigtalker" type="bigtalker.py" output="screen"/>
+</launch>
