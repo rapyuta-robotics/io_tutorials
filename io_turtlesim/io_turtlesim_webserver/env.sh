@@ -2,8 +2,8 @@
 
 WS_URL='wss://localhost:9090'
 
-if [ ! -z "$WS" ]; then
-    WS_URL='wss://'${WS##*/}
+if [ ! -z "$WS_ROSBRIDGE" ]; then
+    WS_URL='wss://'${WS_ROSBRIDGE##*/}
 fi
 
 # write env object to env.js

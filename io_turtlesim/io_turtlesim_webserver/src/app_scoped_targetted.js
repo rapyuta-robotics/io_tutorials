@@ -4,26 +4,30 @@ var app = new Vue({
         address: env.WS_URL,
         state: 'disconnected',
         ros: {},
-        ros_component: {
-            cmd_vel: null,
-            listener: null,
-            teleport: null
-        },
+        ros_components: {},
+        // ros_component: {
+        //     cmd_vel: null,
+        //     listener: null,
+        //     teleport: null
+        // },
+        id: 0,
+        teleport: null,
+        update_interval: null,
         turtles: {},
         vel_req: {
-            id: 0,
+            name: 0,
             linear_velocity: 0.0,
             angular_velocity: 0.0
         },
         loop_move: null,
         teleport_req: {
-            id: 0,
+            name: 0,
             x: 0.0,
             y: 0.0,
             theta: 0.0
         },
         goto_action_req: {
-            id: 0,
+            name: 0,
             x: 0.0,
             y: 0.0
         },
@@ -81,7 +85,8 @@ var app = new Vue({
             vm.ros.on('connection', function() {
                 vm.state = 'success';
                 vm.ros_init();
-                vm.get_pose();
+                // vm.get_pose();
+               vm.update_interval = setInterval(vm.update_topic_list, 1000)
             });
 
             vm.ros.on('error', function(error) {
@@ -92,26 +97,72 @@ var app = new Vue({
             vm.ros.on('close', function() {
                 vm.state = 'disconnected';
                 vm.reset();
+                clearInterval(vm.update_interval)
                 console.log('Connection to websocket server closed.');
             });
         },
         ros_init() {
             var vm = this;
-            vm.ros_component.cmd_vel = new ROSLIB.Topic({
-                ros: vm.ros,
-                name: '/cmd_vel',
-                messageType: 'io_turtle_msgs/Velocity'
-            });
-            vm.ros_component.listener = new ROSLIB.Topic({
-                ros: vm.ros,
-                name: '/pose',
-                messageType: 'io_turtle_msgs/Pose'
-            });
-            vm.ros_component.teleport = new ROSLIB.Service({
+            vm.teleport = new ROSLIB.Service({
                 ros: vm.ros,
                 name: '/teleport_turtle',
                 serviceType: 'io_turtle_services/TeleportTurtle'
+            })
+        },
+        ros_add_components(name) {
+            var vm = this;
+            vm.ros_components[name] = {
+                cmd_vel: new ROSLIB.Topic({
+                                ros: vm.ros,
+                                name: '/'+name+'/cmd_vel',
+                                messageType: 'geometry_msgs/Twist'
+                            }),
+                listener: new ROSLIB.Topic({
+                                ros: vm.ros,
+                                name: '/'+name+'/pose',
+                                messageType: 'geometry_msgs/Pose2D'
+                            }),
+                // teleport: new ROSLIB.Service({
+                //                 ros: vm.ros,
+                //                 name: '/'+name+'/teleport_turtle',
+                //                 serviceType: 'io_turtle_services/TeleportTurtle'
+                //             })
+            }
+            Vue.set(vm.turtles, name, {
+                image: './img/turtle'+(vm.id % 8) +'.png',
+                pose: {
+                    x: 0,
+                    y: 0,
+                    theta: 0
+                },
+                action: new ROSLIB.ActionClient({
+                    ros: vm.ros,
+                    serverName: '/'+ name +'/goto_action',
+                    actionName: 'io_turtle_action/GoToAction'
+                }),
+                goal: {}
             });
+            vm.get_pose(name)
+            vm.id += 1
+
+            console.log("New Turtle " + name + " added.");
+        },
+        update_topic_list() {
+            var vm = this;
+            vm.ros.getTopics((topics) => {
+              // console.log("Getting topics...",);
+              topics.topics.forEach(function(name) {
+                const splitted = name.split('/')
+                const pose_index = splitted.indexOf('pose')
+                if( pose_index > 0 && splitted.length == 3 ){
+                    var turtle_name = splitted[pose_index-1]
+                    if (! vm.turtles.hasOwnProperty(turtle_name) && splitted[pose_index-1]!='sim') {
+                        vm.ros_add_components(turtle_name)
+                    }
+                }
+              }, this)
+
+            })
         },
         move_once() {
             var vm = this;
@@ -125,23 +176,43 @@ var app = new Vue({
         move_stop() {
             var vm = this;
             var vel = new ROSLIB.Message({
-                id: parseInt(vm.vel_req.id),
-                linear_velocity: 0.0,
-                angular_velocity: 0.0
+                // id: parseInt(vm.vel_req.id),
+                // linear_velocity: 0.0,
+                // angular_velocity: 0.0
+                linear: {
+                    x: 0.0,
+                    y: 0.0,
+                    z: 0.0
+                },
+                angular: {
+                    x: 0.0,
+                    y: 0.0,
+                    z: 0.0
+                }
             });
-            vm.ros_component.cmd_vel.publish(vel);
+            vm.ros_components[vm.vel_req.name].cmd_vel.publish(vel);
         },
         publish_vel_cmd() {
             var vm = this;
             var vel = new ROSLIB.Message({
-                id: parseInt(vm.vel_req.id),
-                linear_velocity: parseFloat(vm.vel_req.linear_velocity),
-                angular_velocity: vm.to_radians(parseFloat(vm.vel_req.angular_velocity))
+                // id: parseInt(vm.vel_req.id),
+                // linear_velocity: parseFloat(vm.vel_req.linear_velocity),
+                // angular_velocity: vm.to_radians(parseFloat(vm.vel_req.angular_velocity))
+                linear: {
+                    x: parseFloat(vm.vel_req.linear_velocity),
+                    y: 0.0,
+                    z: 0.0
+                },
+                angular: {
+                    x: 0.0,
+                    y: 0.0,
+                    z: vm.to_radians(parseFloat(vm.vel_req.angular_velocity))
+                }
             });
 
-            vm.ros_component.cmd_vel.publish(vel);
+            vm.ros_components[vm.vel_req.name].cmd_vel.publish(vel);
 
-            console.log("velocity request for Turtle" + vm.vel_req.id +
+            console.log("velocity request for Turtle" + vm.vel_req.name +
                         " with command (" + vm.vel_req.linear_velocity +
                         ", " + vm.vel_req.angular_velocity +
                         ") was sent.");
@@ -161,43 +232,31 @@ var app = new Vue({
         to_degrees(rad) {
             return rad * 180 / Math.PI;
         },
-        get_pose() {
+        get_pose(name) {
             var vm = this;
-            vm.ros_component.listener.subscribe(function(message) {
-                if (vm.turtles.hasOwnProperty(message.id)) {
-                    var prev_px_coord = vm.to_px_coord(vm.turtles[message.id].pose.x, vm.turtles[message.id].pose.y);
-                    vm.turtles[message.id].pose = message;
-                    var curr_px_coord = vm.to_px_coord(vm.turtles[message.id].pose.x, vm.turtles[message.id].pose.y);
+            vm.ros_components[name].listener.subscribe(function(message) {
+                var prev_px_coord = vm.to_px_coord(vm.turtles[name].pose.x, vm.turtles[name].pose.y);
+                vm.turtles[name].pose = message;
+                var curr_px_coord = vm.to_px_coord(vm.turtles[name].pose.x, vm.turtles[name].pose.y);
 
-                    var turtle_elem = document.getElementById('turtle'+message.id);
-                    var turtle_img_elem = document.getElementById('turtleImage'+message.id);
+                var turtle_elem = document.getElementById(name);
+                var turtle_img_elem = document.getElementById('turtleImage_'+name);
 
-                    if (turtle_elem == null || turtle_img_elem == null) {
-                        return;
-                    }
+                // console.log(prev_px_coord, curr_px_coord)
+                if (turtle_elem == null || turtle_img_elem == null) {
+                    console.log('null return', turtle_elem, turtle_img_elem)
+                    return;
+                }
 
-                    turtle_elem.style.paddingLeft = curr_px_coord.x + 'px';
-                    turtle_elem.style.paddingTop = curr_px_coord.y + 'px';
+                turtle_elem.style.paddingLeft = curr_px_coord.x + 'px';
+                turtle_elem.style.paddingTop = curr_px_coord.y + 'px';
 
-                    // The transform function considers clockwise rotation as positive so we consider negative angle
-                    // The images are oriented vertically so we rotate them by 90 degrees to align with x axis
-                    turtle_img_elem.style.transform = 'rotate(' + (vm.to_degrees(-vm.turtles[message.id].pose.theta) + 90) + 'deg)';
+                // The transform function considers clockwise rotation as positive so we consider negative angle
+                // The images are oriented vertically so we rotate them by 90 degrees to align with x axis
+                turtle_img_elem.style.transform = 'rotate(' + (vm.to_degrees(-vm.turtles[name].pose.theta) + 90) + 'deg)';
 
-                    if (!vm.pen_off && vm.turtles[message.id].pose.linear_velocity !== 0.0) {
-                        vm.draw_at_point(prev_px_coord, curr_px_coord);
-                    }
-                } else {
-                    Vue.set(vm.turtles, message.id, {
-                        pose: message,
-                        action: new ROSLIB.ActionClient({
-                            ros: vm.ros,
-                            serverName: '/turtle'+ message.id +'/goto_action',
-                            actionName: 'io_turtle_action/GoToAction'
-                        }),
-                        goal: {}
-                    });
-
-                    console.log("New Turtle" + message.id + " added.");
+                if (!vm.pen_off && vm.turtles[name].pose.linear_velocity !== 0.0) {
+                    vm.draw_at_point(prev_px_coord, curr_px_coord);
                 }
             });
         },
@@ -223,27 +282,28 @@ var app = new Vue({
         teleport_turtle() {
             vm = this;
 
-            if (!vm.turtles[vm.teleport_req.id]) {
-              console.log('Turtle' + vm.goto_action_req.id + ' has not been registered.');
+            if (!vm.turtles[vm.teleport_req.name]) {
+              console.log(vm.teleport_req.name + ' has not been registered.');
               return;
             }
 
             var request = new ROSLIB.ServiceRequest({
-                id: parseInt(vm.teleport_req.id),
+                id: parseInt(vm.teleport_req.name.split("turtle")[1]),
                 x: parseFloat(vm.teleport_req.x),
                 y: parseFloat(vm.teleport_req.y),
                 theta: vm.to_radians(parseFloat(vm.teleport_req.theta))
             });
 
-            console.log("Teleport request for Turtle" + vm.teleport_req.id +
+            console.log("Teleport request for " + vm.teleport_req.name +
                         " to (" + vm.teleport_req.x +
                         ", " + vm.teleport_req.y +
                         ", " + vm.teleport_req.theta +
                         ") was sent.");
 
-            vm.ros_component.teleport.callService(request, (result) => {
+            console.log(vm, vm.teleport)
+            vm.teleport.callService(request, (result) => {
                 if (result.data) {
-                    console.log("Teleport request for Turtle" + vm.teleport_req.id +
+                    console.log("Teleport request for " + vm.teleport_req.name +
                                 " to (" + vm.teleport_req.x +
                                 ", " + vm.teleport_req.y +
                                 ", " + vm.teleport_req.theta +
@@ -254,26 +314,26 @@ var app = new Vue({
         goto_turtle_start() {
             vm = this;
 
-            if (!vm.turtles[vm.goto_action_req.id]) {
-              console.log('Turtle' + vm.goto_action_req.id + ' has not been registered.');
+            if (!vm.turtles[vm.goto_action_req.name]) {
+              console.log(vm.goto_action_req.name + ' has not been registered.');
               return;
             }
 
-            vm.turtles[vm.goto_action_req.id].goal = new ROSLIB.Goal({
-                actionClient : vm.turtles[vm.goto_action_req.id].action,
+            vm.turtles[vm.goto_action_req.name].goal = new ROSLIB.Goal({
+                actionClient : vm.turtles[vm.goto_action_req.name].action,
                 goalMessage : {
                   x : parseFloat(vm.goto_action_req.x),
                   y : parseFloat(vm.goto_action_req.y)
                 }
             });
-            vm.turtles[vm.goto_action_req.id].goal.on('feedback', function(feedback) {
+            vm.turtles[vm.goto_action_req.name].goal.on('feedback', function(feedback) {
                 console.log('Feedback: ' + feedback.data);
             });
-            vm.turtles[vm.goto_action_req.id].goal.on('result', function(result) {
+            vm.turtles[vm.goto_action_req.name].goal.on('result', function(result) {
                 console.log('Result: ' + result.data);
             });
-            vm.turtles[vm.goto_action_req.id].goal.send(5000);
-            console.log("Goal request for Turtle" + vm.goto_action_req.id +
+            vm.turtles[vm.goto_action_req.name].goal.send(5000);
+            console.log("Goal request for " + vm.goto_action_req.name +
                         " to (" + vm.goto_action_req.x +
                         ", " + vm.goto_action_req.y +
                         ") was sent.");
@@ -281,12 +341,12 @@ var app = new Vue({
         goto_turtle_stop() {
             vm = this;
 
-            if (!vm.turtles[vm.goto_action_req.id]) {
-              console.log('Turtle' + vm.goto_action_req.id + ' has not been registered.');
+            if (!vm.turtles[vm.goto_action_req.name]) {
+              console.log(vm.goto_action_req.name + ' has not been registered.');
               return;
             }
 
-            vm.turtles[vm.goto_action_req.id].goal.cancel();
+            vm.turtles[vm.goto_action_req.name].goal.cancel();
         },
         set_pen() {
             var vm = this;

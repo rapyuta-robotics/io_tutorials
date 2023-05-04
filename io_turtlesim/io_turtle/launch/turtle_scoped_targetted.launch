@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="use_rapyuta_io" default="false" doc="use rapyuta.io to get robot name"/>
+    <rosparam param="use_rapyuta_io" subst_value="True">$(arg use_rapyuta_io)</rosparam>
+	
+    <arg name="robot_name" default="turtle0" doc="not used if use_rapyuta_io=true" />
+    <node name="$(anon turtle)" pkg="io_turtle" type="io_turtle_node" args="--scoped_targetted" output="screen">
+        <rosparam file="$(find io_turtle_config)/config/config.yaml" />
+        <param name="name" value="$(arg robot_name)" />
+        <!-- remap topics. these namespace separation are handled by rapyuta.io -->
+        <remap from="sim/pose" to="$(arg robot_name)/sim/pose" unless="$(arg use_rapyuta_io)" />
+        <remap from="sim/cmd_vel" to="$(arg robot_name)/sim/cmd_vel" unless="$(arg use_rapyuta_io)" />
+        <remap from="sim/sensors" to="$(arg robot_name)/sim/sensors" unless="$(arg use_rapyuta_io)" />
+        <remap from="pose" to="$(arg robot_name)/pose" unless="$(arg use_rapyuta_io)" />
+        <remap from="cmd_vel" to="$(arg robot_name)/cmd_vel" unless="$(arg use_rapyuta_io)" />
+        <remap from="goto_action" to="$(arg robot_name)/goto_action" unless="$(arg use_rapyuta_io)" />
+    </node>
+</launch>
